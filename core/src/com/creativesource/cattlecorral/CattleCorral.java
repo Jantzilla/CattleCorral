@@ -38,5 +38,6 @@ public class CattleCorral extends ApplicationAdapter {
 	public void dispose () {
 //		batch.dispose();
 //		img.dispose();
+		shapeRenderer.dispose();
 	}
 }
