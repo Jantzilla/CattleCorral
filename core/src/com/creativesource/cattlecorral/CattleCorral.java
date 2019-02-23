@@ -30,7 +30,7 @@ public class CattleCorral extends ApplicationAdapter {
 //		batch.end();
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(Color.BLACK);
-		shapeRenderer.circle(300,300,15);
+		shapeRenderer.rect(325,5,15, 30);
 		shapeRenderer.end();
 	}
 	
