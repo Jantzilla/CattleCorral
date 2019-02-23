@@ -10,10 +10,13 @@ import com.badlogic.gdx.graphics.Texture;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
 public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 //	SpriteBatch batch;
 	ShapeRenderer shapeRenderer;
+	TiledMap tiledMap;
 	OrthographicCamera camera;
 	Texture img;
 	private float[] vertices;
@@ -27,6 +30,7 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
         camera = new OrthographicCamera();
         camera.setToOrtho(false,w,h);
         camera.update();
+        tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
 		shapeRenderer = new ShapeRenderer();
 		vertices = new float[]{315,0,315,100,50,100,50,400,550,400,550,50,800,50,800,5,500,5,500,350,100,350,100,150,365,150,365,0};
 //		img = new Texture("badlogic.jpg");
