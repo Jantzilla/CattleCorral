@@ -20,8 +20,13 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 
 	@Override
 	public void create () {
+	    float w = Gdx.graphics.getWidth();
+	    float h = Gdx.graphics.getHeight();
+
 //		batch = new SpriteBatch();
         camera = new OrthographicCamera();
+        camera.setToOrtho(false,w,h);
+        camera.update();
 		shapeRenderer = new ShapeRenderer();
 		vertices = new float[]{315,0,315,100,50,100,50,400,550,400,550,50,800,50,800,5,500,5,500,350,100,350,100,150,365,150,365,0};
 //		img = new Texture("badlogic.jpg");
