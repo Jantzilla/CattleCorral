@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -13,12 +14,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 //	SpriteBatch batch;
 	ShapeRenderer shapeRenderer;
+	OrthographicCamera camera;
 	Texture img;
 	private float[] vertices;
 
 	@Override
 	public void create () {
 //		batch = new SpriteBatch();
+        camera = new OrthographicCamera();
 		shapeRenderer = new ShapeRenderer();
 		vertices = new float[]{315,0,315,100,50,100,50,400,550,400,550,50,800,50,800,5,500,5,500,350,100,350,100,150,365,150,365,0};
 //		img = new Texture("badlogic.jpg");
