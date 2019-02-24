@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.creativesource.cattlecorral.Constants.Difficulty;
 
 public class StartScreen extends InputAdapter implements Screen {
 
