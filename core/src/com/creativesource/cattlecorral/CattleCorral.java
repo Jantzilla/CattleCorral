@@ -14,12 +14,13 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 //	SpriteBatch batch;
 	ShapeRenderer shapeRenderer;
 	TiledMap tiledMap;
-	TiledMapRenderer tiledMapRenderer;
+	OrthogonalTiledMapRenderer tiledMapRenderer;
 	OrthographicCamera camera;
 	Texture img;
 
@@ -33,7 +34,7 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
         camera.setToOrtho(false,w,h);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
-        tiledMapRenderer = new OrthoCachedTiledMapRenderer(tiledMap);
+        tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		shapeRenderer = new ShapeRenderer();
 //		img = new Texture("badlogic.jpg");
 		Gdx.input.setInputProcessor(this);
