@@ -32,6 +32,10 @@ public class Cow {
             position.x -= delta * Constants.MOVEMENT_SPEED;
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
             position.x += delta * Constants.MOVEMENT_SPEED;
+        } else if (Gdx.input.isKeyPressed(Keys.UP)) {
+            position.y += delta * Constants.MOVEMENT_SPEED;
+        } else if (Gdx.input.isKeyPressed(Keys.DOWN)) {
+            position.y -= delta * Constants.MOVEMENT_SPEED;
         }
 
         ensureInBounds();
