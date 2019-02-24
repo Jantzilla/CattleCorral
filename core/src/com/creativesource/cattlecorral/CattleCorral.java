@@ -8,14 +8,14 @@ public class CattleCorral extends Game {
 
 	@Override
 	public void create() {
-		showDifficultyScreen();
+        showStartScreen();
 	}
 
-	public void showDifficultyScreen() {
+	public void showStartScreen() {
 		setScreen(new StartScreen(this));
 	}
 
-	public void showIciclesScreen(Difficulty difficulty) {
+	public void showPlayScreen(Difficulty difficulty) {
 		setScreen(new PlayScreen(this, difficulty));
 	}
 }
