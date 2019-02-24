@@ -29,7 +29,7 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 
 	@Override
 	public void create () {
-		float tileWidth=64,tileHeight=64;
+		float tileWidth=32,tileHeight=32;
 		float mapWidth=20,mapHeight=20;
 
 		worldWidth=tileWidth*mapWidth;
