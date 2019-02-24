@@ -22,12 +22,16 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 	TiledMap tiledMap;
 	OrthogonalTiledMapRenderer tiledMapRenderer;
 	OrthographicCamera camera;
+	float worldWidth,worldHeight;
 	Texture img;
 
 	@Override
 	public void create () {
-	    float w = Gdx.graphics.getWidth();
-	    float h = Gdx.graphics.getHeight();
+		float tileWidth=64,tileHeight=64;
+		float mapWidth=20,mapHeight=20;
+
+		worldWidth=tileWidth*mapWidth;
+		worldHeight=tileHeight*mapHeight;
 
 //		batch = new SpriteBatch();
         camera = new OrthographicCamera();
