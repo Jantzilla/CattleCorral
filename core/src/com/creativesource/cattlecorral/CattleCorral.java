@@ -71,6 +71,13 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 	}
 
 	@Override
+	public void resize(int width, int height) {
+		extendViewport.update(width,height,false);
+		extendViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
+		extendViewport.getCamera().update();
+	}
+
+	@Override
 	public boolean keyDown(int keycode) {
 		return false;
 	}
