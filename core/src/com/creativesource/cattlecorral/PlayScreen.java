@@ -15,6 +15,8 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.creativesource.cattlecorral.Constants.Difficulty;
 
 public class PlayScreen extends InputAdapter implements Screen {
+    Difficulty difficulty;
+    CattleCorral game;
     ShapeRenderer shapeRenderer;
     TiledMap tiledMap;
     OrthogonalTiledMapRenderer tiledMapRenderer;
@@ -23,7 +25,8 @@ public class PlayScreen extends InputAdapter implements Screen {
     float worldWidth,worldHeight;
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
-
+        this.game = game;
+        this.difficulty = difficulty;
     }
 
     @Override
