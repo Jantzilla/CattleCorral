@@ -6,26 +6,20 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-//import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class CattleCorral extends ApplicationAdapter implements InputProcessor {
-//	SpriteBatch batch;
 	ShapeRenderer shapeRenderer;
 	TiledMap tiledMap;
 	OrthogonalTiledMapRenderer tiledMapRenderer;
 	ExtendViewport extendViewport;
 	OrthographicCamera camera;
 	float worldWidth,worldHeight;
-	Texture img;
 
 	@Override
 	public void create () {
@@ -35,14 +29,12 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 		worldWidth=tileWidth*mapWidth;
 		worldHeight=tileHeight*mapHeight;
 
-//		batch = new SpriteBatch();
         camera = new OrthographicCamera();
 		extendViewport =new ExtendViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		shapeRenderer = new ShapeRenderer();
-//		img = new Texture("badlogic.jpg");
 		Gdx.input.setInputProcessor(this);
 	}
 
@@ -54,9 +46,6 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 		camera.update();
 		tiledMapRenderer.setView(camera);
 		tiledMapRenderer.render();
-//		batch.begin();
-//		batch.draw(img, 0, 0);
-//		batch.end();
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(Color.BLACK);
 		shapeRenderer.rect(332,5,15, 30);
@@ -65,8 +54,6 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 	
 	@Override
 	public void dispose () {
-//		batch.dispose();
-//		img.dispose();
 		shapeRenderer.dispose();
 		tiledMapRenderer.dispose();
 		tiledMap.dispose();
