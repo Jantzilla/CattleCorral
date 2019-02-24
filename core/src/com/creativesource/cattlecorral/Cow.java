@@ -12,17 +12,19 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Cow {
 
+    float worldWidth;
     Vector2 position;
 
     Viewport viewport;
 
-    public Cow(Viewport viewport) {
+    public Cow(Viewport viewport, float worldWidth) {
         this.viewport = viewport;
+        this.worldWidth = worldWidth;
         init();
     }
 
     public void init() {
-        position = new Vector2(viewport.getWorldWidth() / 2, Constants.COW_HEIGHT);
+        position = new Vector2(worldWidth / 2, Constants.COW_HEIGHT);
     }
 
     public void update(float delta) {
@@ -32,8 +34,6 @@ public class Cow {
             position.x += delta * Constants.MOVEMENT_SPEED;
         }
 
-        position.x += -delta * Constants.MOVEMENT_SPEED;
-
         ensureInBounds();
     }
 
@@ -41,8 +41,8 @@ public class Cow {
         if (position.x - Constants.COW_WIDTH < 0) {
             position.x = Constants.COW_WIDTH;
         }
-        if (position.x + Constants.COW_WIDTH > viewport.getWorldWidth()) {
-            position.x = viewport.getWorldWidth() - Constants.COW_WIDTH;
+        if (position.x + Constants.COW_WIDTH > worldWidth) {
+            position.x = worldWidth - Constants.COW_WIDTH;
         }
     }
 
