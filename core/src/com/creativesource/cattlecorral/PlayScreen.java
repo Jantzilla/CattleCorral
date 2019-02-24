@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.creativesource.cattlecorral.Constants.Difficulty;
 
 public class PlayScreen extends InputAdapter implements Screen {
     ShapeRenderer shapeRenderer;
@@ -20,6 +21,10 @@ public class PlayScreen extends InputAdapter implements Screen {
     ExtendViewport extendViewport;
     OrthographicCamera camera;
     float worldWidth,worldHeight;
+
+    public PlayScreen (CattleCorral game, Difficulty difficulty) {
+
+    }
 
     @Override
     public void dispose () {
