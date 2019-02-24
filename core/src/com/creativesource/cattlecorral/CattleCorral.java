@@ -68,6 +68,8 @@ public class CattleCorral extends ApplicationAdapter implements InputProcessor {
 //		batch.dispose();
 //		img.dispose();
 		shapeRenderer.dispose();
+		tiledMapRenderer.dispose();
+		tiledMap.dispose();
 	}
 
 	@Override
