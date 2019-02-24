@@ -8,6 +8,9 @@ public class Constants {
     public static final float WORLD_SIZE = 10.0f;
     public static final Color BACKGROUND_COLOR = Color.FOREST;
 
+    public static final float COW_HEIGHT = 30;
+    public static final float COW_WIDTH = 15;
+
     public static final float MOVEMENT_SPEED = 10.0f;
 
     public static final float HUD_FONT_REFERENCE_SCREEN_SIZE = 480.0f;
