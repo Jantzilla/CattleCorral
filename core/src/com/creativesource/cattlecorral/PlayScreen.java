@@ -27,6 +27,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     OrthographicCamera camera;
     float worldWidth,worldHeight;
     Cow cow;
+    TiledMapTileLayer tiledMapTileLayer;
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
         this.game = game;
@@ -53,6 +54,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         extendViewport =new ExtendViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
+        tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(0);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         shapeRenderer = new ShapeRenderer();
         cow = new Cow(new Sprite(new Texture("decorations-medieval.png")), extendViewport, worldWidth);
@@ -61,7 +63,8 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     @Override
     public void render(float delta) {
-        cow.update(delta);
+        if(!tiledMapTileLayer.getCell((int) (cow.getX() / tiledMapTileLayer.getTileWidth()),(int) (cow.getY() / tiledMapTileLayer.getTileHeight())).getTile().getProperties().containsKey("blocked"))
+            cow.update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
