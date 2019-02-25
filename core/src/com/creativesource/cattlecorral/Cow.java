@@ -52,11 +52,11 @@ public class Cow extends Sprite {
     }
 
     private void ensureInBounds() {
-        if (position.x - Constants.COW_WIDTH < 0) {
-            position.x = Constants.COW_WIDTH;
+        if (getX() - Constants.COW_WIDTH < 0) {
+            setX(Constants.COW_WIDTH);
         }
-        if (position.x + Constants.COW_WIDTH > worldWidth) {
-            position.x = worldWidth - Constants.COW_WIDTH;
+        if (getX() + Constants.COW_WIDTH > worldWidth) {
+            setX(worldWidth - Constants.COW_WIDTH);
         }
     }
 }
