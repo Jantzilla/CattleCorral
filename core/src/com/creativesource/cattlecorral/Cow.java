@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 
@@ -62,5 +63,10 @@ public class Cow extends Sprite {
         if (getX() + Constants.COW_WIDTH > worldWidth) {
             setX(worldWidth - Constants.COW_WIDTH);
         }
+    }
+
+    private boolean isCellBlocked(float x, float y) {
+        Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()),(int) (y / tiledMapTileLayer.getTileHeight()));
+        return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
     }
 }
