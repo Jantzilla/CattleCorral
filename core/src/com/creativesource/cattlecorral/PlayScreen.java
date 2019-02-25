@@ -61,7 +61,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 walkSheet.getWidth() / 4,
                 walkSheet.getHeight() / 4);
 
-        cow = new Cow(new Sprite(tmp[0][1]), extendViewport, worldWidth);
+        cow = new Cow(new Sprite(tmp[0][1]), extendViewport, worldWidth, tiledMapTileLayer);
         Gdx.input.setInputProcessor(this);
     }
 
