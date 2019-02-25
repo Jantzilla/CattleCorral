@@ -32,7 +32,7 @@ public class Cow extends Sprite {
     }
 
     public void init() {
-        setX(worldWidth / 2);
+        setX(worldWidth / 2 - (getWidth() / 2));
         setY(Constants.COW_HEIGHT);
     }
 
