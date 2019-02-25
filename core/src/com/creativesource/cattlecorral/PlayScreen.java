@@ -57,7 +57,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(0);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         shapeRenderer = new ShapeRenderer();
-        cow = new Cow(new Sprite(new Texture("decorations-medieval.png")), extendViewport, worldWidth);
+        cow = new Cow(new Sprite(new Texture("cow_walk.png")), extendViewport, worldWidth);
         Gdx.input.setInputProcessor(this);
     }
 
