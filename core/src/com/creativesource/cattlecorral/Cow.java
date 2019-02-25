@@ -37,14 +37,9 @@ public class Cow extends Sprite {
     }
 
     public void update(float delta) {
-        try {
-            if(tiledMapTileLayer.getCell((int) (getX() / tiledMapTileLayer.getTileWidth()),(int) (getY() / tiledMapTileLayer.getTileHeight())).getTile().getProperties().containsKey("blocked"))
-                return;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-            setX(getX() - delta * Constants.MOVEMENT_SPEED);
+            if(!isCellBlocked(getX(),getY()))
+                setX(getX() - delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
             setX(getX() + delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.UP)) {
