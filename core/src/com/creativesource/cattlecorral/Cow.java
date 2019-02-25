@@ -4,6 +4,7 @@ package com.creativesource.cattlecorral;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -23,6 +24,12 @@ public class Cow extends Sprite {
         this.viewport = viewport;
         this.worldWidth = worldWidth;
         init();
+    }
+
+    @Override
+    public void draw(Batch batch) {
+        update(Gdx.graphics.getDeltaTime());
+        super.draw(batch);
     }
 
     public void init() {
