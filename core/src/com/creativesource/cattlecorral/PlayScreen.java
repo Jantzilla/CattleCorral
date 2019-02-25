@@ -53,7 +53,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         extendViewport =new ExtendViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
-        tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(0);
+        tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(1);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         shapeRenderer = new ShapeRenderer();
         Texture walkSheet = new Texture(Gdx.files.internal("cow_walk.png"));
