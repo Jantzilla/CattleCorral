@@ -37,6 +37,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     public void dispose () {
         shapeRenderer.dispose();
         tiledMapRenderer.dispose();
+        cow.getTexture().dispose();
         tiledMap.dispose();
     }
 
@@ -54,7 +55,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         shapeRenderer = new ShapeRenderer();
-        cow = new Cow(extendViewport, worldWidth);
+        cow = new Cow(new Sprite(new Texture("decorations-medieval.png")), extendViewport, worldWidth);
         Gdx.input.setInputProcessor(this);
     }
 
