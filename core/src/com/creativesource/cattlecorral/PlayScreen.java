@@ -3,13 +3,12 @@ package com.creativesource.cattlecorral;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -57,7 +56,12 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(0);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         shapeRenderer = new ShapeRenderer();
-        cow = new Cow(new Sprite(new Texture("cow_walk.png")), extendViewport, worldWidth);
+        Texture walkSheet = new Texture(Gdx.files.internal("cow_walk.png"));
+        TextureRegion[][] tmp = TextureRegion.split(walkSheet,
+                walkSheet.getWidth() / 4,
+                walkSheet.getHeight() / 4);
+
+        cow = new Cow(new Sprite(tmp[0][1]), extendViewport, worldWidth);
         Gdx.input.setInputProcessor(this);
     }
 
