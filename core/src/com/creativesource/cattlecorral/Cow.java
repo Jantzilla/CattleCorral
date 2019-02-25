@@ -59,10 +59,4 @@ public class Cow extends Sprite {
             position.x = worldWidth - Constants.COW_WIDTH;
         }
     }
-
-    public void render(ShapeRenderer renderer) {
-        renderer.setColor(Color.BLACK);
-        renderer.set(ShapeType.Filled);
-        renderer.rect(position.x, position.y, Constants.COW_WIDTH, Constants.COW_HEIGHT);
-    }
 }
