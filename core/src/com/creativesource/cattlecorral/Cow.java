@@ -5,19 +5,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 
 public class Cow extends Sprite {
 
+    TiledMapTileLayer tiledMapTileLayer;
     float worldWidth;
 
     Viewport viewport;
 
-    public Cow(Sprite sprite, Viewport viewport, float worldWidth) {
+    public Cow(Sprite sprite, Viewport viewport, float worldWidth, TiledMapTileLayer tiledMapTileLayer) {
         super(sprite);
         this.viewport = viewport;
         this.worldWidth = worldWidth;
+        this.tiledMapTileLayer = tiledMapTileLayer;
         init();
     }
 
