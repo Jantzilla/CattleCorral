@@ -1,27 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="20">
  <tileset firstgid="1" name="decorations-medieval" tilewidth="32" tileheight="32" tilecount="1024" columns="16">
   <image source="decorations-medieval.png" width="512" height="2048"/>
  </tileset>
  <tileset firstgid="1025" name="fence" tilewidth="32" tileheight="32" tilecount="18" columns="3">
   <image source="fence.png" width="96" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="1043" name="decorations-medieval" tilewidth="32" tileheight="32" tilecount="1024" columns="16">
   <image source="decorations-medieval.png" width="512" height="2048"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="20" height="20">
+ <layer id="10" name="Tile Layer 3" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJwrY2BgKCOAbaCYkDpiMTXNsxnk5g328BtK5g3WOB4q4TeYw26w+nckmncOiolRCwC4uK8Z
+   eJyzZGFgsBzFo3gUj+JRPIpJxACqFl9R
   </data>
  </layer>
- <layer id="3" name="Tile Layer 2" width="20" height="20">
+ <layer id="11" name="Tile Layer 1" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjY2FgYMKD2YAYBpDZuAArATUsSPKE1BKrZjCbx0aif1kIxAep4UcIsKLFL7FpgRjzWAioH4zxRYl5hMKHlYW0MCYmLYzmN1QwlPLbYDQP2b+E8i8IAACGDwLQ
-  </data>
- </layer>
- <layer id="4" name="Tile Layer 3" width="20" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjZ2HACzgJyJMKWKlsHguVzRtowEjAPzw09C8XldPCaFxjAnYS4pdQfDAPg/BgG+DyZSDz23AAAMHqAMM=
+   eJxjZ2FgYMKDOYEYBtiQ2LgAKwE1yPKE1BKjhoXK5pGqlpAaNhLdx0sgPnhINI8QQDaDi4S0QIx5pKQFYtSwUNk8aqhFVkMof4DUspMQv4Tig59l5OUPapcvA5nfBqN5yOmFUH4DAQC/hgMw
   </data>
  </layer>
 </map>
