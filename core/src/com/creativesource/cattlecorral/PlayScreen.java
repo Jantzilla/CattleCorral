@@ -6,9 +6,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -64,9 +67,9 @@ public class PlayScreen extends InputAdapter implements Screen {
         camera.update();
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
-        shapeRenderer.begin(ShapeType.Filled);
-        cow.render(shapeRenderer);
-        shapeRenderer.end();
+        tiledMapRenderer.getBatch().begin();
+        cow.draw(tiledMapRenderer.getBatch());
+        tiledMapRenderer.getBatch().end();
     }
 
     @Override
