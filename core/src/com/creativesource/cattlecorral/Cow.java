@@ -18,7 +18,8 @@ public class Cow extends Sprite {
 
     Viewport viewport;
 
-    public Cow(Viewport viewport, float worldWidth) {
+    public Cow(Sprite sprite, Viewport viewport, float worldWidth) {
+        super(sprite);
         this.viewport = viewport;
         this.worldWidth = worldWidth;
         init();
