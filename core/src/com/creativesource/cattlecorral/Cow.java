@@ -33,18 +33,19 @@ public class Cow extends Sprite {
     }
 
     public void init() {
-        position = new Vector2(worldWidth / 2, Constants.COW_HEIGHT);
+        setX(worldWidth / 2);
+        setY(Constants.COW_HEIGHT);
     }
 
     public void update(float delta) {
         if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-            position.x -= delta * Constants.MOVEMENT_SPEED;
+            setX(getX() - delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-            position.x += delta * Constants.MOVEMENT_SPEED;
+            setX(getX() + delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.UP)) {
-            position.y += delta * Constants.MOVEMENT_SPEED;
+            setY(getY() + delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-            position.y -= delta * Constants.MOVEMENT_SPEED;
+            setY(getY() - delta * Constants.MOVEMENT_SPEED);
         }
 
         ensureInBounds();
