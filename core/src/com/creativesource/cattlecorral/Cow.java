@@ -38,14 +38,17 @@ public class Cow extends Sprite {
 
     public void update(float delta) {
         if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-            if(!isCellBlocked(getX(),getY()))
+            if(!isCellBlocked(getX() + (getWidth() / 2),getY() + (getY() / 2)))
                 setX(getX() - delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-            setX(getX() + delta * Constants.MOVEMENT_SPEED);
+            if(!isCellBlocked(getX() + (getWidth() / 1.9f),getY() + (getY() / 2)))
+                setX(getX() + delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.UP)) {
-            setY(getY() + delta * Constants.MOVEMENT_SPEED);
+            if(!isCellBlocked(getX() + (getWidth() / 2),getY() + getHeight() / 2.9f))
+                setY(getY() + delta * Constants.MOVEMENT_SPEED);
         } else if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-            setY(getY() - delta * Constants.MOVEMENT_SPEED);
+            if(!isCellBlocked(getX() + (getWidth() / 2),getY() + getHeight() / 3))
+                setY(getY() - delta * Constants.MOVEMENT_SPEED);
         }
 
         ensureInBounds();
