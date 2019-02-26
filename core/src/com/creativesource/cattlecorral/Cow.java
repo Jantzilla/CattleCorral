@@ -20,11 +20,11 @@ public class Cow extends Sprite {
     Animation up,left,down,right;
     Viewport viewport;
 
-    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayer) {
+    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers) {
         super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;
-        this.tiledMapTileLayers = tiledMapTileLayer;
+        this.tiledMapTileLayers = tiledMapTileLayers;
         this.up = up;
         this.left = left;
         this.down = down;
@@ -76,7 +76,13 @@ public class Cow extends Sprite {
     }
 
     private boolean isCellBlocked(float x, float y) {
-        Cell cell = tiledMapTileLayers.getCell((int) (x / tiledMapTileLayers.getTileWidth()),(int) (y / tiledMapTileLayers.getTileHeight()));
-        return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
+        for(TiledMapTileLayer tiledMapTileLayer : tiledMapTileLayers) {
+            if(tiledMapTileLayer.isVisible()) {
+                Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()), (int) (y / tiledMapTileLayer.getTileHeight()));
+                if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked"))
+                    return true;
+            }
+        }
+        return false;
     }
 }
