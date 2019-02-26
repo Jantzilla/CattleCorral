@@ -55,6 +55,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(1);
+        tiledMap.getLayers().get(3).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
         textureAtlas = new TextureAtlas("cow.pack");
@@ -110,6 +111,13 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        return false;
+        if(tiledMap.getLayers().get(1).isVisible()) {
+            tiledMap.getLayers().get(1).setVisible(false);
+            tiledMap.getLayers().get(3).setVisible(true);
+        } else {
+            tiledMap.getLayers().get(1).setVisible(true);
+            tiledMap.getLayers().get(3).setVisible(false);
+        }
+        return true;
     }
 }
