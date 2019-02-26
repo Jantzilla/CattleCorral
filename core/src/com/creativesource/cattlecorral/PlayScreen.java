@@ -16,6 +16,8 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.creativesource.cattlecorral.Constants.Difficulty;
 
+import java.util.ArrayList;
+
 public class PlayScreen extends InputAdapter implements Screen {
     Difficulty difficulty;
     CattleCorral game;
@@ -27,7 +29,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     OrthographicCamera camera;
     float worldWidth,worldHeight;
     Cow cow;
-    TiledMapTileLayer tiledMapTileLayer;
+    ArrayList<TiledMapTileLayer> tiledMapTileLayers;
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
         this.game = game;
@@ -54,7 +56,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         extendViewport =new ExtendViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
-        tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(1);
+        tiledMapTileLayers = (TiledMapTileLayer) tiledMap.getLayers().get(1);
         tiledMap.getLayers().get(3).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
@@ -70,7 +72,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         right = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("right"));
         right.setPlayMode(Animation.PlayMode.LOOP);
 
-        cow = new Cow(up,left,down,right, extendViewport, worldWidth, tiledMapTileLayer);
+        cow = new Cow(up,left,down,right, extendViewport, worldWidth, tiledMapTileLayers);
         Gdx.input.setInputProcessor(this);
     }
 
