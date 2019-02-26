@@ -5,7 +5,6 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -57,11 +56,6 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapTileLayer = (TiledMapTileLayer) tiledMap.getLayers().get(1);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-        shapeRenderer = new ShapeRenderer();
-        Texture walkSheet = new Texture(Gdx.files.internal("cow_walk.png"));
-        TextureRegion[][] tmp = TextureRegion.split(walkSheet,
-                walkSheet.getWidth() / 4,
-                walkSheet.getHeight() / 4);
 
         textureAtlas = new TextureAtlas("cow.pack");
 
