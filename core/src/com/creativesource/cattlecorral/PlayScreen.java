@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -22,6 +23,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ShapeRenderer shapeRenderer;
     TiledMap tiledMap;
     OrthogonalTiledMapRenderer tiledMapRenderer;
+    TextureAtlas textureAtlas;
     ExtendViewport extendViewport;
     OrthographicCamera camera;
     float worldWidth,worldHeight;
@@ -37,7 +39,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     public void dispose () {
         shapeRenderer.dispose();
         tiledMapRenderer.dispose();
-        cow.getTexture().dispose();
+        textureAtlas.dispose();
         tiledMap.dispose();
     }
 
@@ -60,6 +62,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / 4,
                 walkSheet.getHeight() / 4);
+
+        textureAtlas = new TextureAtlas("cow.pack");
 
         cow = new Cow(new Sprite(tmp[0][1]), extendViewport, worldWidth, tiledMapTileLayer);
         Gdx.input.setInputProcessor(this);
