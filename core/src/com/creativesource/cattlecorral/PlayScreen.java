@@ -6,7 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -65,7 +65,17 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         textureAtlas = new TextureAtlas("cow.pack");
 
-        cow = new Cow(new Sprite(tmp[0][1]), extendViewport, worldWidth, tiledMapTileLayer);
+        Animation<TextureRegion> up, left, down, right;
+        up = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("up"));
+        up.setPlayMode(Animation.PlayMode.LOOP);
+        left = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("left"));
+        left.setPlayMode(Animation.PlayMode.LOOP);
+        down = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("down"));
+        down.setPlayMode(Animation.PlayMode.LOOP);
+        right = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("right"));
+        right.setPlayMode(Animation.PlayMode.LOOP);
+
+        cow = new Cow(up,left,down,right, extendViewport, worldWidth, tiledMapTileLayer);
         Gdx.input.setInputProcessor(this);
     }
 
