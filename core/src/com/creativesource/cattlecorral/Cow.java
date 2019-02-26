@@ -2,7 +2,6 @@ package com.creativesource.cattlecorral;
 
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -11,19 +10,21 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.util.ArrayList;
+
 
 public class Cow extends Sprite {
 
-    TiledMapTileLayer tiledMapTileLayer;
+    ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     float worldWidth, animationTime = 0;
     Animation up,left,down,right;
     Viewport viewport;
 
-    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, TiledMapTileLayer tiledMapTileLayer) {
+    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayer) {
         super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;
-        this.tiledMapTileLayer = tiledMapTileLayer;
+        this.tiledMapTileLayers = tiledMapTileLayer;
         this.up = up;
         this.left = left;
         this.down = down;
@@ -75,7 +76,7 @@ public class Cow extends Sprite {
     }
 
     private boolean isCellBlocked(float x, float y) {
-        Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()),(int) (y / tiledMapTileLayer.getTileHeight()));
+        Cell cell = tiledMapTileLayers.getCell((int) (x / tiledMapTileLayers.getTileWidth()),(int) (y / tiledMapTileLayers.getTileHeight()));
         return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
     }
 }
