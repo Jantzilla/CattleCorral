@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -56,7 +57,10 @@ public class PlayScreen extends InputAdapter implements Screen {
         extendViewport =new ExtendViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
-        tiledMapTileLayers = (TiledMapTileLayer) tiledMap.getLayers().get(1);
+        tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
+        for(MapLayer layer : tiledMap.getLayers()) {
+            tiledMapTileLayers.add((TiledMapTileLayer) layer);
+        }
         tiledMap.getLayers().get(3).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
