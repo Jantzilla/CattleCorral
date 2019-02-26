@@ -3,8 +3,10 @@ package com.creativesource.cattlecorral;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -14,14 +16,18 @@ public class Cow extends Sprite {
 
     TiledMapTileLayer tiledMapTileLayer;
     float worldWidth;
-
+    Animation up,left,down,right;
     Viewport viewport;
 
-    public Cow(Sprite sprite, Viewport viewport, float worldWidth, TiledMapTileLayer tiledMapTileLayer) {
-        super(sprite);
+    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, TiledMapTileLayer tiledMapTileLayer) {
+        super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;
         this.tiledMapTileLayer = tiledMapTileLayer;
+        this.up = up;
+        this.left = left;
+        this.down = down;
+        this.right = right;
         init();
     }
 
