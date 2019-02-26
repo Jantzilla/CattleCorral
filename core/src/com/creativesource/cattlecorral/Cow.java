@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class Cow extends Sprite {
 
     TiledMapTileLayer tiledMapTileLayer;
-    float worldWidth;
+    float worldWidth, animationTime = 0;
     Animation up,left,down,right;
     Viewport viewport;
 
@@ -43,6 +43,8 @@ public class Cow extends Sprite {
     }
 
     public void update(float delta) {
+        animationTime += delta;
+
         if (Gdx.input.isKeyPressed(Keys.LEFT)) {
             if(!isCellBlocked(getX() + (getWidth() / 2),getY() + (getY() / 2)))
                 setX(getX() - delta * Constants.MOVEMENT_SPEED);
