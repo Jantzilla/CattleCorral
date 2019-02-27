@@ -15,13 +15,14 @@ import java.util.ArrayList;
 
 public class Cow extends Sprite {
 
+    int startPosition;
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     float worldWidth, animationTime = 0;
     Animation up,left,down,right;
     Viewport viewport;
     String lastDirection = "";
 
-    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers) {
+    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;
@@ -30,6 +31,7 @@ public class Cow extends Sprite {
         this.left = left;
         this.down = down;
         this.right = right;
+        this.startPosition = startPosition;
         init();
     }
 
