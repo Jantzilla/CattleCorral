@@ -83,8 +83,17 @@ public class PlayScreen extends InputAdapter implements Screen {
             right = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("right"));
             right.setPlayMode(Animation.PlayMode.LOOP);
 
-            for(int i = 0; i < 50; i++) {
-                cows.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+            for (int o = 0; o < 10; o++) {
+                switch (i) {
+                    case 0:
+                        cows.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        break;
+                    case 1:
+                        cows.add(new Pig(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        break;
+                    case 2:
+                        cows.add(new Sheep(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                }
             }
         }
         Gdx.input.setInputProcessor(this);
