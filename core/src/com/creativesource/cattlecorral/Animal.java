@@ -7,13 +7,12 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
 
-public class Animal extends Sprite {
+public abstract class Animal extends Sprite {
 
     int startPosition;
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
@@ -21,6 +20,7 @@ public class Animal extends Sprite {
     Animation up,left,down,right;
     Viewport viewport;
     String lastDirection = "";
+    abstract boolean isCellBlocked(float x, float y);
 
     public Animal(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
@@ -75,18 +75,5 @@ public class Animal extends Sprite {
             lastDirection = "down";
 
         }
-    }
-
-    private boolean isCellBlocked(float x, float y) {
-        for(TiledMapTileLayer tiledMapTileLayer : tiledMapTileLayers) {
-            if(tiledMapTileLayer.isVisible()) {
-                Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()), (int) (y / tiledMapTileLayer.getTileHeight()));
-                if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked")) {
-                    lastDirection = "";
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }
