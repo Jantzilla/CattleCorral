@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.creativesource.cattlecorral.Constants.Difficulty;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PlayScreen extends InputAdapter implements Screen {
     Difficulty difficulty;
@@ -29,7 +30,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ExtendViewport extendViewport;
     OrthographicCamera camera;
     float worldWidth,worldHeight;
-    Cow cow;
+    ArrayList<Cow> cows = new ArrayList<Cow>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
@@ -61,7 +62,9 @@ public class PlayScreen extends InputAdapter implements Screen {
         for(MapLayer layer : tiledMap.getLayers()) {
             tiledMapTileLayers.add((TiledMapTileLayer) layer);
         }
-        tiledMap.getLayers().get(3).setVisible(false);
+        tiledMap.getLayers().get(5).setVisible(false);
+        tiledMap.getLayers().get(6).setVisible(false);
+        tiledMap.getLayers().get(7).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
         textureAtlas = new TextureAtlas("cow.pack");
@@ -76,7 +79,9 @@ public class PlayScreen extends InputAdapter implements Screen {
         right = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("right"));
         right.setPlayMode(Animation.PlayMode.LOOP);
 
-        cow = new Cow(up,left,down,right, extendViewport, worldWidth, tiledMapTileLayers);
+        for(int i = 0; i < 50; i++) {
+            cows.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+        }
         Gdx.input.setInputProcessor(this);
     }
 
@@ -89,7 +94,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
         tiledMapRenderer.getBatch().begin();
-        cow.draw(tiledMapRenderer.getBatch());
+        for(Cow cow : cows)
+            cow.draw(tiledMapRenderer.getBatch());
         tiledMapRenderer.getBatch().end();
     }
 
@@ -118,12 +124,28 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if((screenX > 275 && screenX < 350) && (screenY > 275 && screenY < 350)) {
+            if (tiledMap.getLayers().get(2).isVisible()) {
+                tiledMap.getLayers().get(2).setVisible(false);
+                tiledMap.getLayers().get(7).setVisible(true);
+            } else {
+                tiledMap.getLayers().get(2).setVisible(true);
+                tiledMap.getLayers().get(7).setVisible(false);
+            }
+        } else if((screenX > 275 && screenX < 350) && (screenY > 50 && screenY < 125)) {
             if (tiledMap.getLayers().get(1).isVisible()) {
                 tiledMap.getLayers().get(1).setVisible(false);
-                tiledMap.getLayers().get(3).setVisible(true);
+                tiledMap.getLayers().get(5).setVisible(true);
             } else {
                 tiledMap.getLayers().get(1).setVisible(true);
+                tiledMap.getLayers().get(5).setVisible(false);
+            }
+        } else if((screenX > 285 && screenX < 355) && (screenY > 200 && screenY < 250)) {
+            if (tiledMap.getLayers().get(3).isVisible()) {
                 tiledMap.getLayers().get(3).setVisible(false);
+                tiledMap.getLayers().get(6).setVisible(true);
+            } else {
+                tiledMap.getLayers().get(3).setVisible(true);
+                tiledMap.getLayers().get(6).setVisible(false);
             }
         }
         return true;
