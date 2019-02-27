@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.ArrayList;
 
 
-public class Cow extends Sprite {
+public class Animal extends Sprite {
 
     int startPosition;
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
@@ -22,7 +22,7 @@ public class Cow extends Sprite {
     Viewport viewport;
     String lastDirection = "";
 
-    public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
+    public Animal(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;

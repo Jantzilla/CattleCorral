@@ -30,7 +30,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ExtendViewport extendViewport;
     OrthographicCamera camera;
     float worldWidth,worldHeight;
-    ArrayList<Cow> cows = new ArrayList<Cow>();
+    ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
 
@@ -86,13 +86,13 @@ public class PlayScreen extends InputAdapter implements Screen {
             for (int o = 0; o < 10; o++) {
                 switch (i) {
                     case 0:
-                        cows.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        animals.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
                         break;
                     case 1:
-                        cows.add(new Pig(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        animals.add(new Pig(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
                         break;
                     case 2:
-                        cows.add(new Sheep(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        animals.add(new Sheep(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
                 }
             }
         }
@@ -108,8 +108,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
         tiledMapRenderer.getBatch().begin();
-        for(Cow cow : cows)
-            cow.draw(tiledMapRenderer.getBatch());
+        for(Animal animal : animals)
+            animal.draw(tiledMapRenderer.getBatch());
         tiledMapRenderer.getBatch().end();
     }
 
