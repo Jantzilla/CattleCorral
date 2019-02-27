@@ -139,7 +139,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(1).setVisible(true);
                 tiledMap.getLayers().get(5).setVisible(false);
             }
-        } else if((screenX > 285 && screenX < 355) && (screenY > 200 && screenY < 250)) {
+        } else if((screenX > 285 && screenX < 365) && (screenY > 175 && screenY < 250)) {
             if (tiledMap.getLayers().get(3).isVisible()) {
                 tiledMap.getLayers().get(3).setVisible(false);
                 tiledMap.getLayers().get(6).setVisible(true);
