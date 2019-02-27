@@ -19,6 +19,7 @@ public class Cow extends Sprite {
     float worldWidth, animationTime = 0;
     Animation up,left,down,right;
     Viewport viewport;
+    String lastDirection = "";
 
     public Cow(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers) {
         super((TextureRegion) up.getKeyFrame(0));
@@ -46,23 +47,32 @@ public class Cow extends Sprite {
     public void update(float delta) {
         animationTime += delta;
 
-        if(!isCellBlocked(getX() + (getWidth() / 2),getY() + getHeight() / 2.9f)) {
+        if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
             setY(getY() + delta * Constants.MOVEMENT_SPEED);
             setRegion((TextureRegion) up.getKeyFrame(animationTime));
+            lastDirection = "up";
 
-        } else if(!isCellBlocked(getX() + (getWidth() / 2),getY() + (getY() / 2))) {
+        } else if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
             setX(getX() - delta * Constants.MOVEMENT_SPEED);
             setRegion((TextureRegion) left.getKeyFrame(animationTime));
+            lastDirection = "left";
 
-        } else if(!isCellBlocked(getX() + (getWidth() / 1.9f),getY() + (getY() / 2))) {
+        } else if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
+            setY(getY() + delta * Constants.MOVEMENT_SPEED);
+            setRegion((TextureRegion) up.getKeyFrame(animationTime));
+            lastDirection = "up";
+
+        } else if((lastDirection.equals("") || lastDirection.equals("right")) && !isCellBlocked(getX() + (getWidth() - 20),getY() + (getHeight() / 2))) {
             setX(getX() + delta * Constants.MOVEMENT_SPEED);
             setRegion((TextureRegion) right.getKeyFrame(animationTime));
+            lastDirection = "right";
 
-        } else if(!isCellBlocked(getX() + (getWidth() / 2),getY() + getHeight() / 3)) {
+        } else if((lastDirection.equals("") || lastDirection.equals("down")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
             setY(getY() - delta * Constants.MOVEMENT_SPEED);
             setRegion((TextureRegion) down.getKeyFrame(animationTime));
-        }
+            lastDirection = "down";
 
+        }
         ensureInBounds();
     }
 
@@ -79,8 +89,10 @@ public class Cow extends Sprite {
         for(TiledMapTileLayer tiledMapTileLayer : tiledMapTileLayers) {
             if(tiledMapTileLayer.isVisible()) {
                 Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()), (int) (y / tiledMapTileLayer.getTileHeight()));
-                if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked"))
+                if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked")) {
+                    lastDirection = "";
                     return true;
+                }
             }
         }
         return false;
