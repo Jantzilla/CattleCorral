@@ -75,16 +75,6 @@ public class Cow extends Sprite {
             lastDirection = "down";
 
         }
-        ensureInBounds();
-    }
-
-    private void ensureInBounds() {
-        if (getX() - Constants.COW_WIDTH < 0) {
-            setX(Constants.COW_WIDTH);
-        }
-        if (getX() + Constants.COW_WIDTH > worldWidth) {
-            setX(worldWidth - Constants.COW_WIDTH);
-        }
     }
 
     private boolean isCellBlocked(float x, float y) {
