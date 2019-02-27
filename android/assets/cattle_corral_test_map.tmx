@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="20">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="20">
  <tileset firstgid="1" name="decorations-medieval" tilewidth="32" tileheight="32" tilecount="1024" columns="16">
   <image source="decorations-medieval.png" width="512" height="2048"/>
  </tileset>
@@ -137,14 +137,34 @@
    eJyzZGFgsBzFo3gUj+JRPIpJxACqFl9R
   </data>
  </layer>
+ <layer id="14" name="Tile Layer 5" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjaQImDgUEZiFU4Btolo2AUjIJRMLIAAMm6AII=
+  </data>
+ </layer>
  <layer id="12" name="Tile Layer 3" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUDFegxMHAoAzEKhwD7ZJRMBwBADaLAII=
   </data>
  </layer>
+ <layer id="17" name="Tile Layer 8" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BwAxUOhgZlDgYGJSA90G4ZBaNgFCAAAGsTAYI=
+  </data>
+ </layer>
  <layer id="11" name="Tile Layer 1" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJxjZ2FgYMKDOYEYBtiQ2LgAKwE1yPKE1BKjhoXK5pGqlpAaNhLdx0sgPnhINI8QQDaDi4S0QIx5pKQFYtSwUNk8aqhFVkMof4DUspMQv4Tig59l5OUPapcvA5nfBqN5yOmFUH4DAQC/hgMw
+  </data>
+ </layer>
+ <layer id="15" name="Tile Layer 6" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjaQJSDuuZJUNk8aSqbNwpGwSgYBYMFAAD2VwBh
+  </data>
+ </layer>
+ <layer id="16" name="Tile Layer 7" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BoAFEO6ponQWXzpKls3igYBYMdAAA91wBh
   </data>
  </layer>
  <layer id="13" name="Tile Layer 4" width="20" height="20">
