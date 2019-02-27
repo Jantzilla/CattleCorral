@@ -32,6 +32,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     float worldWidth,worldHeight;
     ArrayList<Cow> cows = new ArrayList<Cow>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
+    ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
         this.game = game;
@@ -67,20 +68,24 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMap.getLayers().get(7).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
-        textureAtlas = new TextureAtlas("cow.pack");
+        textureAtlases.add(new TextureAtlas("cow.pack"));
+        textureAtlases.add(new TextureAtlas("pig.pack"));
+        textureAtlases.add(new TextureAtlas("sheep.pack"));
 
-        Animation<TextureRegion> up, left, down, right;
-        up = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("up"));
-        up.setPlayMode(Animation.PlayMode.LOOP);
-        left = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("left"));
-        left.setPlayMode(Animation.PlayMode.LOOP);
-        down = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("down"));
-        down.setPlayMode(Animation.PlayMode.LOOP);
-        right = new Animation<TextureRegion>(0.05f,textureAtlas.findRegions("right"));
-        right.setPlayMode(Animation.PlayMode.LOOP);
+        for(int i = 0; i < textureAtlases.size(); i++) {
+            Animation<TextureRegion> up, left, down, right;
+            up = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("up"));
+            up.setPlayMode(Animation.PlayMode.LOOP);
+            left = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("left"));
+            left.setPlayMode(Animation.PlayMode.LOOP);
+            down = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("down"));
+            down.setPlayMode(Animation.PlayMode.LOOP);
+            right = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("right"));
+            right.setPlayMode(Animation.PlayMode.LOOP);
 
-        for(int i = 0; i < 50; i++) {
-            cows.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+            for(int i = 0; i < 50; i++) {
+                cows.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+            }
         }
         Gdx.input.setInputProcessor(this);
     }
