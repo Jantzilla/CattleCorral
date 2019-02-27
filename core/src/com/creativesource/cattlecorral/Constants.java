@@ -11,7 +11,7 @@ public class Constants {
     public static final float COW_HEIGHT = 30;
     public static final float COW_WIDTH = 15;
 
-    public static final float MOVEMENT_SPEED = 20.0f;
+    public static final float MOVEMENT_SPEED = 40.0f;
 
     public static final float HUD_FONT_REFERENCE_SCREEN_SIZE = 480.0f;
     public static final float HUD_MARGIN = 20.0f;
