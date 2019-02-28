@@ -20,7 +20,7 @@ import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
 import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 
 public class PlayScreen extends InputAdapter implements Screen {
     Difficulty difficulty;
@@ -36,6 +36,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
     int gameStatus = 1;
+    ArrayList<Integer> integers = new ArrayList<Integer>();
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
         this.game = game;
@@ -75,6 +76,12 @@ public class PlayScreen extends InputAdapter implements Screen {
         textureAtlases.add(new TextureAtlas("pig.pack"));
         textureAtlases.add(new TextureAtlas("sheep.pack"));
 
+        for(int i = 0; i < 90; i++) {
+            integers.add(i);
+        }
+
+        Collections.shuffle(integers);
+
         for(int i = 0; i < textureAtlases.size(); i++) {
             Animation<TextureRegion> up, left, down, right;
             up = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("up"));
@@ -86,16 +93,16 @@ public class PlayScreen extends InputAdapter implements Screen {
             right = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("right"));
             right.setPlayMode(Animation.PlayMode.LOOP);
 
-            for (int o = 0; o < 10; o++) {
+            for (int o = 0; o < 20; o++) {
                 switch (i) {
                     case 0:
-                        animals.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        animals.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * integers.get(o)));
                         break;
                     case 1:
-                        animals.add(new Pig(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        animals.add(new Pig(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * integers.get(o + 30)));
                         break;
                     case 2:
-                        animals.add(new Sheep(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * new Random().nextInt(100)));
+                        animals.add(new Sheep(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * integers.get(o + 60)));
                 }
             }
         }
