@@ -47,6 +47,7 @@ public abstract class Animal extends Sprite {
     }
 
     public void update(float delta) {
+        draw(batch);
         animationTime += delta;
 
         if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
