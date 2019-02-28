@@ -31,6 +31,19 @@ public class Constants {
     public static final float START_WORLD_SIZE = 480.0f;
     public static final float START_BUBBLE_RADIUS = START_WORLD_SIZE / 9;
     public static final float START_LABEL_SCALE = 1.5f;
+    public static final float BUTTON_SIZE = 50;
+    private static float BUTTON_SPACE = 25;
+    private static float BUTTON_ARRAY_WIDTH = 325;
+    public static final float[] LEVEL_1 = {(START_WORLD_SIZE - BUTTON_ARRAY_WIDTH) / 2, START_WORLD_SIZE / 2};
+    public static final float[] LEVEL_2 = {LEVEL_1[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
+    public static final float[] LEVEL_3 = {LEVEL_2[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
+    public static final float[] LEVEL_4 = {LEVEL_3[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
+    public static final float[] LEVEL_5 = {LEVEL_4[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
+    public static final float[] LEVEL_6 = {LEVEL_1[0], LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
+    public static final float[] LEVEL_7 = {LEVEL_6[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
+    public static final float[] LEVEL_8 = {LEVEL_7[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
+    public static final float[] LEVEL_9 = {LEVEL_8[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
+    public static final float[] LEVEL_10 = {LEVEL_9[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
 
     public static final Vector2 EASY_CENTER = new Vector2(START_WORLD_SIZE / 4, START_WORLD_SIZE / 2);
     public static final Vector2 MEDIUM_CENTER = new Vector2(START_WORLD_SIZE / 2, START_WORLD_SIZE / 2);
