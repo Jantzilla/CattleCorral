@@ -16,6 +16,8 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.creativesource.cattlecorral.Constants.Difficulty;
+import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
+import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -33,6 +35,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
+    int gameStatus = 1;
 
     public PlayScreen (CattleCorral game, Difficulty difficulty) {
         this.game = game;
@@ -104,6 +107,11 @@ public class PlayScreen extends InputAdapter implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        switch (gameStatus) {
+            case GAME_PAUSED:
+                delta = 0;
+                break;
+        }
         camera.update();
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
@@ -138,6 +146,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if((screenX > 275 && screenX < 350) && (screenY > 275 && screenY < 350)) {
+            gameStatus = GAME_RESUMED;
             if (tiledMap.getLayers().get(2).isVisible()) {
                 tiledMap.getLayers().get(2).setVisible(false);
                 tiledMap.getLayers().get(7).setVisible(true);
@@ -146,6 +155,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(7).setVisible(false);
             }
         } else if((screenX > 275 && screenX < 350) && (screenY > 50 && screenY < 125)) {
+            gameStatus = GAME_RESUMED;
             if (tiledMap.getLayers().get(1).isVisible()) {
                 tiledMap.getLayers().get(1).setVisible(false);
                 tiledMap.getLayers().get(5).setVisible(true);
@@ -154,6 +164,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(5).setVisible(false);
             }
         } else if((screenX > 285 && screenX < 365) && (screenY > 175 && screenY < 250)) {
+            gameStatus = GAME_RESUMED;
             if (tiledMap.getLayers().get(3).isVisible()) {
                 tiledMap.getLayers().get(3).setVisible(false);
                 tiledMap.getLayers().get(6).setVisible(true);
@@ -161,7 +172,11 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(3).setVisible(true);
                 tiledMap.getLayers().get(6).setVisible(false);
             }
-        }
+        } else
+            if(gameStatus == GAME_PAUSED)
+                gameStatus = GAME_RESUMED;
+            else
+                gameStatus = GAME_PAUSED;
         return true;
     }
 }
