@@ -116,8 +116,13 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
         tiledMapRenderer.getBatch().begin();
-        for(Animal animal : animals)
-            animal.draw(tiledMapRenderer.getBatch());
+        for (int i = 0; i < animals.size(); i++) {
+            if(animals.get(i).getY() > worldWidth) {
+                animals.remove(i);
+                break;
+            }
+            animals.get(i).update(tiledMapRenderer.getBatch(), delta);
+        }
         tiledMapRenderer.getBatch().end();
     }
 
