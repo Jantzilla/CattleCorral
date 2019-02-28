@@ -37,7 +37,6 @@ public abstract class Animal extends Sprite {
 
     @Override
     public void draw(Batch batch) {
-        update(Gdx.graphics.getDeltaTime());
         super.draw(batch);
     }
 
