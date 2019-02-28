@@ -38,6 +38,8 @@ public class Constants {
     public static final String START_LABEL = "Difficulty: ";
     public static final String SCORE_LABEL = "Score: ";
     public static final String TOP_SCORE_LABEL = "Top Score: ";
+    public static final int GAME_PAUSED = 0;
+    public static final int GAME_RESUMED = 1;
 
     public enum Difficulty {
         EASY(EASY_SPAWNS_PER_SECOND, EASY_LABEL),
