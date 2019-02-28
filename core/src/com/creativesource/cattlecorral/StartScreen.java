@@ -53,13 +53,16 @@ public class StartScreen extends InputAdapter implements Screen {
         renderer.begin(ShapeType.Filled);
 
         renderer.setColor(Constants.EASY_COLOR);
-        renderer.circle(Constants.EASY_CENTER.x, Constants.EASY_CENTER.y, Constants.START_BUBBLE_RADIUS);
-
-        renderer.setColor(Constants.MEDIUM_COLOR);
-        renderer.circle(Constants.MEDIUM_CENTER.x, Constants.MEDIUM_CENTER.y, Constants.START_BUBBLE_RADIUS);
-
-        renderer.setColor(Constants.HARD_COLOR);
-        renderer.circle(Constants.HARD_CENTER.x, Constants.HARD_CENTER.y, Constants.START_BUBBLE_RADIUS);
+        renderer.rect(Constants.LEVEL_1[0], Constants.LEVEL_1[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_2[0], Constants.LEVEL_2[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_3[0], Constants.LEVEL_3[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_4[0], Constants.LEVEL_4[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_5[0], Constants.LEVEL_5[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_6[0], Constants.LEVEL_6[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_7[0], Constants.LEVEL_7[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_8[0], Constants.LEVEL_8[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_9[0], Constants.LEVEL_9[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        renderer.rect(Constants.LEVEL_10[0], Constants.LEVEL_10[1], Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
 
         renderer.end();
 
