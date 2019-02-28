@@ -46,7 +46,7 @@ public abstract class Animal extends Sprite {
         setY(- startPosition);
     }
 
-    public void update(float delta) {
+    public void update(Batch batch, float delta) {
         draw(batch);
         animationTime += delta;
 
