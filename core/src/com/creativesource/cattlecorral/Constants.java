@@ -19,6 +19,16 @@ public class Constants {
     public static final String EASY_LABEL = "Easy";
     public static final String MEDIUM_LABEL = "Medium";
     public static final String HARD_LABEL = "Hard";
+    public static final String LEVEL_1_LABEL = "1";
+    public static final String LEVEL_2_LABEL = "2";
+    public static final String LEVEL_3_LABEL = "3";
+    public static final String LEVEL_4_LABEL = "4";
+    public static final String LEVEL_5_LABEL = "5";
+    public static final String LEVEL_6_LABEL = "6";
+    public static final String LEVEL_7_LABEL = "7";
+    public static final String LEVEL_8_LABEL = "8";
+    public static final String LEVEL_9_LABEL = "9";
+    public static final String LEVEL_10_LABEL = "10";
 
     public static final float EASY_SPAWNS_PER_SECOND = 5;
     public static final float MEDIUM_SPAWNS_PER_SECOND = 15;
