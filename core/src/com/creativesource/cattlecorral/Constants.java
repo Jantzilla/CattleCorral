@@ -51,6 +51,9 @@ public class Constants {
     public static final float SPAWN_RATE_9 = 45;
     public static final float SPAWN_RATE_10 = 50;
 
+    public static final float GAME_SPAN_1 = 85;
+    public static final float GAME_SPAN_2 = 150;
+
     public static final Color EASY_COLOR = new Color(0.192f, 0.949f, 0.490f, 1);
     public static final Color MEDIUM_COLOR = new Color(0.043f, 0.694f, 0.301f, 1);
     public static final Color HARD_COLOR = new Color(0.027f, 0.392f, 0.172f, 1);
