@@ -64,17 +64,25 @@ public class Constants {
     public static final int GAME_PAUSED = 0;
     public static final int GAME_RESUMED = 1;
 
-    public enum Difficulty {
-        EASY(EASY_SPAWNS_PER_SECOND, EASY_LABEL),
-        MEDIUM(MEDIUM_SPAWNS_PER_SECOND, MEDIUM_LABEL),
-        HARD(HARD_SPAWNS_PER_SECOND, HARD_LABEL);
+    public enum Level {
+        ONE(SPAWN_RATE_1, MOVEMENT_SPEED_1, LEVEL_1_LABEL),
+        TWO(SPAWN_RATE_2, MOVEMENT_SPEED_2, LEVEL_2_LABEL),
+        THREE(SPAWN_RATE_3, MOVEMENT_SPEED_3, LEVEL_3_LABEL),
+        FOUR(SPAWN_RATE_4, MOVEMENT_SPEED_4, LEVEL_4_LABEL),
+        FIVE(SPAWN_RATE_5, MOVEMENT_SPEED_5, LEVEL_5_LABEL),
+        SIX(SPAWN_RATE_6, MOVEMENT_SPEED_6, LEVEL_6_LABEL),
+        SEVEN(SPAWN_RATE_7, MOVEMENT_SPEED_7, LEVEL_7_LABEL),
+        EIGHT(SPAWN_RATE_8, MOVEMENT_SPEED_8, LEVEL_8_LABEL),
+        NINE(SPAWN_RATE_9, MOVEMENT_SPEED_9, LEVEL_9_LABEL),
+        TEN(SPAWN_RATE_10, MOVEMENT_SPEED_10, LEVEL_10_LABEL);
 
-        float spawnRate;
+        float spawnRate, speed;
         String label;
 
-        Difficulty(float spawnRate, String label) {
+        Level(float spawnRate, float speed, String label) {
             this.spawnRate = spawnRate;
             this.label = label;
+            this.speed = speed;
         }
     }
 
