@@ -14,8 +14,11 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.creativesource.cattlecorral.Constants.Difficulty;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.creativesource.cattlecorral.Constants.Level;
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
 import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
 
@@ -23,24 +26,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class PlayScreen extends InputAdapter implements Screen {
-    Difficulty difficulty;
+    Level level;
     CattleCorral game;
     ShapeRenderer shapeRenderer;
     TiledMap tiledMap;
     OrthogonalTiledMapRenderer tiledMapRenderer;
     TextureAtlas textureAtlas;
-    ExtendViewport extendViewport;
+    StretchViewport stretchViewport;
     OrthographicCamera camera;
-    float worldWidth,worldHeight;
+    float worldWidth,worldHeight, gameSpan = Constants.GAME_SPAN_1;
     ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
     int gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
 
-    public PlayScreen (CattleCorral game, Difficulty difficulty) {
+    public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
-        this.difficulty = difficulty;
+        this.level = level;
+
+        if(level.speed > 50)
+            gameSpan = Constants.GAME_SPAN_2;
     }
 
     @Override
@@ -60,7 +66,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         worldHeight=tileHeight*mapHeight;
 
         camera = new OrthographicCamera();
-        extendViewport =new ExtendViewport(worldWidth,worldHeight,camera);
+        stretchViewport =new StretchViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
@@ -76,7 +82,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         textureAtlases.add(new TextureAtlas("pig.pack"));
         textureAtlases.add(new TextureAtlas("sheep.pack"));
 
-        for(int i = 0; i < 90; i++) {
+        for(int i = 0; i < gameSpan; i++) {
             integers.add(i);
         }
 
@@ -93,16 +99,16 @@ public class PlayScreen extends InputAdapter implements Screen {
             right = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("right"));
             right.setPlayMode(Animation.PlayMode.LOOP);
 
-            for (int o = 0; o < 20; o++) {
+            for (int o = 0; o < level.spawnRate; o++) {
                 switch (i) {
                     case 0:
-                        animals.add(new Cow(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * integers.get(o)));
+                        animals.add(new Cow(up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get(o)));
                         break;
                     case 1:
-                        animals.add(new Pig(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * integers.get(o + 30)));
+                        animals.add(new Pig(up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 3))));
                         break;
                     case 2:
-                        animals.add(new Sheep(up, left, down, right, extendViewport, worldWidth, tiledMapTileLayers, 80 * integers.get(o + 60)));
+                        animals.add(new Sheep(up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 1.5))));
                 }
             }
         }
@@ -128,16 +134,16 @@ public class PlayScreen extends InputAdapter implements Screen {
                 animals.remove(i);
                 break;
             }
-            animals.get(i).update(tiledMapRenderer.getBatch(), delta);
+            animals.get(i).update(tiledMapRenderer.getBatch(), delta, level.speed);
         }
         tiledMapRenderer.getBatch().end();
     }
 
     @Override
     public void resize(int width, int height) {
-        extendViewport.update(width,height,false);
-        extendViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
-        extendViewport.getCamera().update();
+        stretchViewport.update(width,height,false);
+        stretchViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
+        stretchViewport.getCamera().update();
     }
 
     @Override
@@ -157,7 +163,9 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if((screenX > 275 && screenX < 350) && (screenY > 275 && screenY < 350)) {
+        Vector3 touch = new Vector3(screenX,screenY, 0);
+        camera.unproject(touch);
+        if(Constants.GATE_ONE.contains(new Vector2(touch.x,touch.y))) {
             gameStatus = GAME_RESUMED;
             if (tiledMap.getLayers().get(2).isVisible()) {
                 tiledMap.getLayers().get(2).setVisible(false);
@@ -166,7 +174,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(2).setVisible(true);
                 tiledMap.getLayers().get(7).setVisible(false);
             }
-        } else if((screenX > 275 && screenX < 350) && (screenY > 50 && screenY < 125)) {
+        } else if(Constants.GATE_THREE.contains(new Vector2(touch.x,touch.y))) {
             gameStatus = GAME_RESUMED;
             if (tiledMap.getLayers().get(1).isVisible()) {
                 tiledMap.getLayers().get(1).setVisible(false);
@@ -175,7 +183,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(1).setVisible(true);
                 tiledMap.getLayers().get(5).setVisible(false);
             }
-        } else if((screenX > 285 && screenX < 365) && (screenY > 175 && screenY < 250)) {
+        } else if(Constants.GATE_TWO.contains(new Vector2(touch.x,touch.y))) {
             gameStatus = GAME_RESUMED;
             if (tiledMap.getLayers().get(3).isVisible()) {
                 tiledMap.getLayers().get(3).setVisible(false);
