@@ -30,9 +30,16 @@ public class Constants {
     public static final String LEVEL_9_LABEL = "9";
     public static final String LEVEL_10_LABEL = "10";
 
-    public static final float EASY_SPAWNS_PER_SECOND = 5;
-    public static final float MEDIUM_SPAWNS_PER_SECOND = 15;
-    public static final float HARD_SPAWNS_PER_SECOND = 25;
+    public static final float SPAWN_RATE_1 = 18;
+    public static final float SPAWN_RATE_2 = 20;
+    public static final float SPAWN_RATE_3 = 22;
+    public static final float SPAWN_RATE_4 = 24;
+    public static final float SPAWN_RATE_5 = 28;
+    public static final float SPAWN_RATE_6 = 32;
+    public static final float SPAWN_RATE_7 = 36;
+    public static final float SPAWN_RATE_8 = 40;
+    public static final float SPAWN_RATE_9 = 45;
+    public static final float SPAWN_RATE_10 = 50;
 
     public static final Color EASY_COLOR = new Color(0.192f, 0.949f, 0.490f, 1);
     public static final Color MEDIUM_COLOR = new Color(0.043f, 0.694f, 0.301f, 1);
