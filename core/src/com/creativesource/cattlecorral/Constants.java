@@ -12,6 +12,16 @@ public class Constants {
     public static final float COW_WIDTH = 15;
 
     public static final float MOVEMENT_SPEED = 40.0f;
+    public static final float MOVEMENT_SPEED_1 = 35.0f;
+    public static final float MOVEMENT_SPEED_2 = 40.0f;
+    public static final float MOVEMENT_SPEED_3 = 45.0f;
+    public static final float MOVEMENT_SPEED_4 = 50.0f;
+    public static final float MOVEMENT_SPEED_5 = 70.0f;
+    public static final float MOVEMENT_SPEED_6 = 75.0f;
+    public static final float MOVEMENT_SPEED_7 = 80.0f;
+    public static final float MOVEMENT_SPEED_8 = 85.0f;
+    public static final float MOVEMENT_SPEED_9 = 90.0f;
+    public static final float MOVEMENT_SPEED_10 = 100.0f;
 
     public static final float HUD_FONT_REFERENCE_SCREEN_SIZE = 480.0f;
     public static final float HUD_MARGIN = 20.0f;
