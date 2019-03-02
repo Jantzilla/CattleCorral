@@ -1,7 +1,7 @@
 package com.creativesource.cattlecorral;
 
 import com.badlogic.gdx.Game;
-import com.creativesource.cattlecorral.Constants.Difficulty;
+import com.creativesource.cattlecorral.Constants.Level;
 
 
 public class CattleCorral extends Game {
@@ -15,7 +15,7 @@ public class CattleCorral extends Game {
 		setScreen(new StartScreen(this));
 	}
 
-	public void showPlayScreen(Difficulty difficulty) {
-		setScreen(new PlayScreen(this, difficulty));
+	public void showPlayScreen(Level level) {
+		setScreen(new PlayScreen(this, level));
 	}
 }
