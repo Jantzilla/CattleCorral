@@ -45,32 +45,32 @@ public abstract class Animal extends Sprite {
         setY(- startPosition);
     }
 
-    public void update(Batch batch, float delta) {
+    public void update(Batch batch, float delta, float speed) {
         draw(batch);
         animationTime += delta;
 
         if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
-            setY(getY() + delta * Constants.MOVEMENT_SPEED);
+            setY(getY() + delta * speed);
             setRegion((TextureRegion) up.getKeyFrame(animationTime));
             lastDirection = "up";
 
         } else if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
-            setX(getX() - delta * Constants.MOVEMENT_SPEED);
+            setX(getX() - delta * speed);
             setRegion((TextureRegion) left.getKeyFrame(animationTime));
             lastDirection = "left";
 
         } else if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
-            setY(getY() + delta * Constants.MOVEMENT_SPEED);
+            setY(getY() + delta * speed);
             setRegion((TextureRegion) up.getKeyFrame(animationTime));
             lastDirection = "up";
 
         } else if((lastDirection.equals("") || lastDirection.equals("right")) && !isCellBlocked(getX() + (getWidth() - 20),getY() + (getHeight() / 2))) {
-            setX(getX() + delta * Constants.MOVEMENT_SPEED);
+            setX(getX() + delta * speed);
             setRegion((TextureRegion) right.getKeyFrame(animationTime));
             lastDirection = "right";
 
         } else if((lastDirection.equals("") || lastDirection.equals("down")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
-            setY(getY() - delta * Constants.MOVEMENT_SPEED);
+            setY(getY() - delta * speed);
             setRegion((TextureRegion) down.getKeyFrame(animationTime));
             lastDirection = "down";
 
