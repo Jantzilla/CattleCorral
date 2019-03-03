@@ -227,7 +227,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         Vector3 touch = new Vector3(screenX,screenY, 0);
         camera.unproject(touch);
         if(Constants.GATE_ONE.contains(new Vector2(touch.x,touch.y))) {
-            gameStatus = GAME_RESUMED;
+            resume();
             if (tiledMap.getLayers().get(2).isVisible()) {
                 tiledMap.getLayers().get(2).setVisible(false);
                 tiledMap.getLayers().get(7).setVisible(true);
@@ -236,7 +236,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(7).setVisible(false);
             }
         } else if(Constants.GATE_THREE.contains(new Vector2(touch.x,touch.y))) {
-            gameStatus = GAME_RESUMED;
+            resume();
             if (tiledMap.getLayers().get(1).isVisible()) {
                 tiledMap.getLayers().get(1).setVisible(false);
                 tiledMap.getLayers().get(5).setVisible(true);
@@ -245,7 +245,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 tiledMap.getLayers().get(5).setVisible(false);
             }
         } else if(Constants.GATE_TWO.contains(new Vector2(touch.x,touch.y))) {
-            gameStatus = GAME_RESUMED;
+            resume();
             if (tiledMap.getLayers().get(3).isVisible()) {
                 tiledMap.getLayers().get(3).setVisible(false);
                 tiledMap.getLayers().get(6).setVisible(true);
