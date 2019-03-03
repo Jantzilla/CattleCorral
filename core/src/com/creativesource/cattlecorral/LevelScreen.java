@@ -23,7 +23,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     SpriteBatch batch;
     FitViewport viewport;
 
-    BitmapFont font;
+    BitmapFont font, titleFont;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -36,6 +36,10 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         viewport = new FitViewport(Constants.START_WORLD_SIZE, Constants.START_WORLD_SIZE);
         Gdx.input.setInputProcessor(this);
+
+        titleFont = new BitmapFont();
+        titleFont.getData().setScale(Constants.TITLE_LABEL_SCALE);
+        titleFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
@@ -69,6 +73,9 @@ public class LevelScreen extends InputAdapter implements Screen {
         batch.setProjectionMatrix(viewport.getCamera().combined);
 
         batch.begin();
+
+        final GlyphLayout gameTitle = new GlyphLayout(font, "Levels");
+        titleFont.draw(batch, "Levels", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
 
         final GlyphLayout levelLabel1 = new GlyphLayout(font, Constants.LEVEL_1_LABEL);
         font.draw(batch, Constants.LEVEL_1_LABEL, Constants.LEVEL_1[0] + Constants.BUTTON_SIZE / 2, Constants.LEVEL_1[1] + Constants.BUTTON_SIZE / 2 + levelLabel1.height / 2, 0, Align.right, false);
