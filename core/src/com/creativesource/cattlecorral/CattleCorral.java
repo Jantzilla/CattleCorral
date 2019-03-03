@@ -15,6 +15,10 @@ public class CattleCorral extends Game {
 		setScreen(new StartScreen(this));
 	}
 
+	public void showLevelScreen() {
+		setScreen(new LevelScreen(this));
+	}
+
 	public void showPlayScreen(Level level) {
 		setScreen(new PlayScreen(this, level));
 	}
