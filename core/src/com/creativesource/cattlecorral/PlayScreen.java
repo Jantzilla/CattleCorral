@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -16,7 +17,9 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
@@ -38,8 +41,10 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
-    int gameStatus = 1;
+    int topScore, points, gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
+    ScreenViewport hudViewport;
+    BitmapFont font;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -67,6 +72,8 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         camera = new OrthographicCamera();
         stretchViewport =new StretchViewport(worldWidth,worldHeight,camera);
+        hudViewport = new ScreenViewport();
+        font = new BitmapFont();
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
@@ -136,6 +143,16 @@ public class PlayScreen extends InputAdapter implements Screen {
             }
             animals.get(i).update(tiledMapRenderer.getBatch(), delta, level.speed);
         }
+
+        topScore = Math.max(topScore, points);
+
+        final String leftHudText = "Level " + level.label;
+        final String rightHudText = Constants.SCORE_LABEL + points + "\n" + Constants.TOP_SCORE_LABEL + topScore;
+
+        font.draw(tiledMapRenderer.getBatch(), leftHudText, Constants.HUD_MARGIN, hudViewport.getWorldHeight() - Constants.HUD_MARGIN);
+        font.draw(tiledMapRenderer.getBatch(), rightHudText, hudViewport.getWorldWidth() - Constants.HUD_MARGIN, hudViewport.getWorldHeight() - Constants.HUD_MARGIN,
+                0, Align.right, false);
+
         tiledMapRenderer.getBatch().end();
     }
 
@@ -144,6 +161,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         stretchViewport.update(width,height,false);
         stretchViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
         stretchViewport.getCamera().update();
+        hudViewport.update(width, height, true);
+        font.getData().setScale(Math.min(width, height) / Constants.HUD_FONT_REFERENCE_SCREEN_SIZE);
     }
 
     @Override
