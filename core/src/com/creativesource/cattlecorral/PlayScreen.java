@@ -125,6 +125,32 @@ public class PlayScreen extends InputAdapter implements Screen {
                 }
             }
         }
+
+        stage=new Stage();
+        stage.getCamera().position.set(worldWidth/2,worldHeight/2,0);
+        Texture texture=new Texture("badlogic.jpg");
+
+        image=new Image(texture);
+        image.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.app.log("TouchTest","Clicked on Image");
+            }
+        });
+
+        Pixmap pixmap = new Pixmap(1,1, Pixmap.Format.RGBA8888);
+        pixmap.setColor(Color.BLACK);
+        pixmap.fillRectangle(0, 0, 1, 1);
+        Texture texture1=new Texture(pixmap);
+        pixmap.dispose();
+
+        semiTL=new Image(texture1);
+        semiTL.setSize(worldWidth,worldHeight);
+        semiTL.getColor().a=.8f;
+
+        image.setPosition(worldWidth / 2 - image.getWidth() / 2,worldHeight / 2 - (image.getHeight() / 2));
+
+        Gdx.input.setInputProcessor(stage);
         Gdx.input.setInputProcessor(this);
     }
 
