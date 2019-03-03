@@ -185,6 +185,9 @@ public class PlayScreen extends InputAdapter implements Screen {
                 0, Align.right, false);
 
         tiledMapRenderer.getBatch().end();
+
+        stage.act();
+        stage.draw();
     }
 
     @Override
