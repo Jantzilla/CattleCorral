@@ -1,7 +1,6 @@
 package com.creativesource.cattlecorral;
 
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -14,15 +13,18 @@ import java.util.ArrayList;
 
 public abstract class Animal extends Sprite {
 
+    public PlayScreen screen;
     int startPosition;
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     float worldWidth, animationTime = 0;
     Animation up,left,down,right;
     Viewport viewport;
     String lastDirection = "";
+    private boolean isCorraled;
+
     abstract boolean isCellBlocked(float x, float y);
 
-    public Animal(Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
+    public Animal(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;
@@ -32,6 +34,7 @@ public abstract class Animal extends Sprite {
         this.down = down;
         this.right = right;
         this.startPosition = startPosition;
+        this.screen = screen;
         init();
     }
 
