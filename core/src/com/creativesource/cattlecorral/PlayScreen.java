@@ -226,7 +226,9 @@ public class PlayScreen extends InputAdapter implements Screen {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         Vector3 touch = new Vector3(screenX,screenY, 0);
         camera.unproject(touch);
-        if(Constants.GATE_ONE.contains(new Vector2(touch.x,touch.y))) {
+
+        if(gameStatus == GAME_PAUSED && Constants.MENU.contains(new Vector2(touch.x,touch.y))) {
+        } else if(Constants.GATE_ONE.contains(new Vector2(touch.x,touch.y))) {
             resume();
             if (tiledMap.getLayers().get(2).isVisible()) {
                 tiledMap.getLayers().get(2).setVisible(false);
