@@ -22,7 +22,7 @@ public class StartScreen extends InputAdapter implements Screen {
     SpriteBatch batch;
     FitViewport viewport;
 
-    BitmapFont font;
+    BitmapFont font, titleFont;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -35,6 +35,10 @@ public class StartScreen extends InputAdapter implements Screen {
 
         viewport = new FitViewport(Constants.START_WORLD_SIZE, Constants.START_WORLD_SIZE);
         Gdx.input.setInputProcessor(this);
+
+        titleFont = new BitmapFont();
+        titleFont.getData().setScale(Constants.TITLE_LABEL_SCALE);
+        titleFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
@@ -64,7 +68,7 @@ public class StartScreen extends InputAdapter implements Screen {
         font.draw(batch, "Play", viewport.getWorldWidth() / 2 , viewport.getWorldHeight() / 2  + levelLabel1.height / 2, 0, Align.center, false);
 
         final GlyphLayout gameTitle = new GlyphLayout(font, "Cattle Corral");
-        font.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
+        titleFont.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
 
         batch.end();
     }
