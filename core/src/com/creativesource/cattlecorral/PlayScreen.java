@@ -18,8 +18,6 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
@@ -167,12 +165,12 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     @Override
     public void pause() {
-
+        gameStatus = GAME_PAUSED;
     }
 
     @Override
     public void resume() {
-
+        gameStatus = GAME_RESUMED;
     }
 
     @Override
@@ -213,9 +211,9 @@ public class PlayScreen extends InputAdapter implements Screen {
             }
         } else
             if(gameStatus == GAME_PAUSED)
-                gameStatus = GAME_RESUMED;
+                resume();
             else
-                gameStatus = GAME_PAUSED;
+                pause();
         return true;
     }
 }
