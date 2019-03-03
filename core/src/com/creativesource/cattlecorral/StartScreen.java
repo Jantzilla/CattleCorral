@@ -63,6 +63,9 @@ public class StartScreen extends InputAdapter implements Screen {
         final GlyphLayout levelLabel1 = new GlyphLayout(font, "Play");
         font.draw(batch, "Play", viewport.getWorldWidth() / 2 , viewport.getWorldHeight() / 2  + levelLabel1.height / 2, 0, Align.center, false);
 
+        final GlyphLayout gameTitle = new GlyphLayout(font, "Cattle Corral");
+        font.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
+
         batch.end();
     }
 
