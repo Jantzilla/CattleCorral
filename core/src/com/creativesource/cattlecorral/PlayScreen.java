@@ -211,8 +211,10 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void resume() {
         gameStatus = GAME_RESUMED;
-        semiTL.remove();
-        image.remove();
+        if(semiTL != null) {
+            semiTL.remove();
+            image.remove();
+        }
     }
 
     @Override
