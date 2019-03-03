@@ -145,11 +145,10 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         topScore = Math.max(topScore, points);
 
-        final String leftHudText = "Level " + level.label;
-        final String rightHudText = Constants.SCORE_LABEL + points + "\n" + Constants.TOP_SCORE_LABEL + topScore;
+        final String levelText = "Level " + level.label;
+        final String hudText = levelText + "\n" + Constants.SCORE_LABEL + points;
 
-        font.draw(tiledMapRenderer.getBatch(), leftHudText, Constants.HUD_MARGIN, hudViewport.getWorldHeight() - Constants.HUD_MARGIN);
-        font.draw(tiledMapRenderer.getBatch(), rightHudText, hudViewport.getWorldWidth() - Constants.HUD_MARGIN, hudViewport.getWorldHeight() - Constants.HUD_MARGIN,
+        font.draw(tiledMapRenderer.getBatch(), hudText, hudViewport.getWorldWidth() - Constants.HUD_MARGIN, hudViewport.getWorldHeight() - Constants.HUD_MARGIN,
                 0, Align.right, false);
 
         tiledMapRenderer.getBatch().end();
