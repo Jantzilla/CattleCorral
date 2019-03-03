@@ -35,7 +35,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     TiledMap tiledMap;
     OrthogonalTiledMapRenderer tiledMapRenderer;
     TextureAtlas textureAtlas;
-    StretchViewport stretchViewport;
+    StretchViewport stretchViewport, hudViewport;
     OrthographicCamera camera;
     float worldWidth,worldHeight, gameSpan = Constants.GAME_SPAN_1;
     ArrayList<Animal> animals = new ArrayList<Animal>();
@@ -43,7 +43,6 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
     int topScore, points, gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
-    ScreenViewport hudViewport;
     BitmapFont font;
 
     public PlayScreen (CattleCorral game, Level level) {
@@ -72,7 +71,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         camera = new OrthographicCamera();
         stretchViewport =new StretchViewport(worldWidth,worldHeight,camera);
-        hudViewport = new ScreenViewport();
+        hudViewport = new StretchViewport(worldWidth,worldHeight,camera);
         font = new BitmapFont();
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
@@ -159,9 +158,11 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void resize(int width, int height) {
         stretchViewport.update(width,height,false);
+        hudViewport.update(width, height, false);
+        hudViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
+        hudViewport.getCamera().update();
         stretchViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
         stretchViewport.getCamera().update();
-        hudViewport.update(width, height, true);
         font.getData().setScale(Math.min(width, height) / Constants.HUD_FONT_REFERENCE_SCREEN_SIZE);
     }
 
