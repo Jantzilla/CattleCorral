@@ -1,6 +1,7 @@
 package com.creativesource.cattlecorral;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -33,6 +34,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     public void show() {
         renderer = new ShapeRenderer();
         batch = new SpriteBatch();
+        Gdx.input.setCatchBackKey(true);
 
         viewport = new FitViewport(Constants.START_WORLD_SIZE, Constants.START_WORLD_SIZE);
         Gdx.input.setInputProcessor(this);
@@ -185,5 +187,15 @@ public class LevelScreen extends InputAdapter implements Screen {
         }
 
         return true;
+    }
+
+    @Override
+    public boolean keyDown(int keycode) {
+        if(keycode == Input.Keys.BACK){
+            // Respond to the back button click here
+            game.showStartScreen();
+            return true;
+        }
+        return false;
     }
 }
