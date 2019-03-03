@@ -3,8 +3,11 @@ package com.creativesource.cattlecorral;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -17,6 +20,10 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
@@ -42,6 +49,8 @@ public class PlayScreen extends InputAdapter implements Screen {
     int topScore, points, gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
     BitmapFont font;
+    Stage stage;
+    Image semiTL, image;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -166,11 +175,15 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void pause() {
         gameStatus = GAME_PAUSED;
+        stage.addActor(semiTL);
+        stage.addActor(image);
     }
 
     @Override
     public void resume() {
         gameStatus = GAME_RESUMED;
+        semiTL.remove();
+        image.remove();
     }
 
     @Override
