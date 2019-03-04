@@ -322,4 +322,18 @@ public class PlayScreen extends InputAdapter implements Screen {
                 pause();
         return true;
     }
+
+    public void gameCompleted() {
+        Gdx.input.setInputProcessor(stage);
+        if(points >= (3 * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
+            resume.setText("Next");
+            resume.addListener(clickListener);
+            stage.addActor(semiTL);
+            stage.addActor(table);
+        } else {
+            table.removeActor(resume);
+            stage.addActor(semiTL);
+            stage.addActor(table);
+        }
+    }
 }
