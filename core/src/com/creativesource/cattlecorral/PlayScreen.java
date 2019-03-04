@@ -213,6 +213,10 @@ public class PlayScreen extends InputAdapter implements Screen {
             animals.get(i).update(tiledMapRenderer.getBatch(), delta, level.speed);
         }
 
+        if(animals.size() == 0 || totalCorraled == animals.size()) {
+//            TODO: Call completed level methods
+        }
+
         topScore = Math.max(topScore, points);
 
         final String levelText = "Level " + level.label;
