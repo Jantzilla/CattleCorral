@@ -55,6 +55,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     Stage stage;
     Image semiTL;
     Table table;
+    TextButton resume;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -137,7 +138,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        TextButton resume = new TextButton("Resume", skin);
+        resume = new TextButton("Resume", skin);
         TextButton retry = new TextButton("Retry", skin);
         TextButton exit = new TextButton("Exit", skin);
 
