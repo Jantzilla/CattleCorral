@@ -20,10 +20,11 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
@@ -50,7 +51,8 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<Integer> integers = new ArrayList<Integer>();
     BitmapFont font;
     Stage stage;
-    Image semiTL, image;
+    Image semiTL;
+    Table table;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -128,15 +130,21 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         stage=new Stage();
         stage.getCamera().position.set(worldWidth/2,worldHeight/2,0);
-        Texture texture=new Texture("badlogic.jpg");
 
-        image=new Image(texture);
-        image.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.log("TouchTest","Clicked on Image");
-            }
-        });
+        table = new Table();
+        table.setDebug(true);
+
+        Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
+        TextButton newGame = new TextButton("New Game", skin);
+        TextButton preferences = new TextButton("Preferences", skin);
+        TextButton exit = new TextButton("Exit", skin);
+
+        table.add(newGame).fillX().uniformX();
+        table.row().pad(10, 0, 10, 0);
+        table.add(preferences).fillX().uniformX();
+        table.row();
+        table.add(exit).fillX().uniformX();
 
         Pixmap pixmap = new Pixmap(1,1, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.BLACK);
@@ -148,7 +156,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         semiTL.setSize(worldWidth,worldHeight);
         semiTL.getColor().a=.8f;
 
-        image.setPosition(worldWidth / 2 - image.getWidth() / 2,worldHeight / 2 - (image.getHeight() / 2));
+        table.setPosition(worldWidth / 2 - table.getWidth() / 2,worldHeight / 2 - (table.getHeight() / 2));
 
         Gdx.input.setInputProcessor(stage);
         Gdx.input.setInputProcessor(this);
@@ -205,7 +213,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     public void pause() {
         gameStatus = GAME_PAUSED;
         stage.addActor(semiTL);
-        stage.addActor(image);
+        stage.addActor(table);
     }
 
     @Override
@@ -213,7 +221,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         gameStatus = GAME_RESUMED;
         if(semiTL != null) {
             semiTL.remove();
-            image.remove();
+            table.remove();
         }
     }
 
