@@ -33,6 +33,7 @@ import com.creativesource.cattlecorral.Constants.Level;
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
 import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
 import static com.creativesource.cattlecorral.Constants.GAME_COMPLETE;
+import static com.creativesource.cattlecorral.Constants.SINGLE_SCORE;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,6 +58,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     Image semiTL;
     Table table;
     TextButton resume;
+    ClickListener clickListener;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -150,6 +152,14 @@ public class PlayScreen extends InputAdapter implements Screen {
                 resume();
             }
         });
+
+        clickListener = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.showPlayScreen(Level.values()[level.ordinal() + 1]);
+            }
+        };
 
         retry.addListener(new ClickListener() {
             @Override
