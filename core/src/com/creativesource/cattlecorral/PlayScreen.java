@@ -130,7 +130,7 @@ public class PlayScreen extends InputAdapter implements Screen {
             }
         }
 
-        stage=new Stage();
+        stage=new Stage(stretchViewport);
         stage.getCamera().position.set(worldWidth/2,worldHeight/2,0);
 
         table = new Table();
