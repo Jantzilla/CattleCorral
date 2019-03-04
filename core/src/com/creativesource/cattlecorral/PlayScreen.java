@@ -226,6 +226,8 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void resize(int width, int height) {
         stretchViewport.update(width,height,false);
+        stage.getViewport().update(width, height, true);
+        stage.getCamera().position.set(worldWidth/2,worldHeight/2,0);
         hudViewport.update(width, height, false);
         hudViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
         hudViewport.getCamera().update();
