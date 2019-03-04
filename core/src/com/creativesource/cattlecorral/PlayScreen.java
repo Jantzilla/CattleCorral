@@ -197,6 +197,10 @@ public class PlayScreen extends InputAdapter implements Screen {
             case GAME_PAUSED:
                 delta = 0;
                 break;
+            case GAME_COMPLETE:
+                delta = 0;
+                gameCompleted();
+                break;
         }
         camera.update();
         tiledMapRenderer.setView(camera);
