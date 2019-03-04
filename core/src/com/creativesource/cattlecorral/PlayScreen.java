@@ -134,7 +134,6 @@ public class PlayScreen extends InputAdapter implements Screen {
         stage.getCamera().position.set(worldWidth/2,worldHeight/2,0);
 
         table = new Table();
-        table.setDebug(true);
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
