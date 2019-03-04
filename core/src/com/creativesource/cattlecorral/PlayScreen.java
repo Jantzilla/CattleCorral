@@ -158,7 +158,6 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         table.setPosition(worldWidth / 2 - table.getWidth() / 2,worldHeight / 2 - (table.getHeight() / 2));
 
-        Gdx.input.setInputProcessor(stage);
         Gdx.input.setInputProcessor(this);
     }
 
@@ -212,6 +211,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void pause() {
         gameStatus = GAME_PAUSED;
+        Gdx.input.setInputProcessor(stage);
         stage.addActor(semiTL);
         stage.addActor(table);
     }
@@ -219,6 +219,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void resume() {
         gameStatus = GAME_RESUMED;
+        Gdx.input.setInputProcessor(this);
         if(semiTL != null) {
             semiTL.remove();
             table.remove();
