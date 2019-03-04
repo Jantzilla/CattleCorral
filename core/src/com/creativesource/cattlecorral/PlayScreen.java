@@ -49,7 +49,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
-    int topScore, points, gameStatus = 1;
+    int topScore, totalCorraled, points, gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
     BitmapFont font;
     Stage stage;
@@ -200,7 +200,12 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
         tiledMapRenderer.getBatch().begin();
+
+        totalCorraled = 0;
+
         for (int i = 0; i < animals.size(); i++) {
+            if(animals.get(i).isCorraled)
+                totalCorraled++;
             if(animals.get(i).getY() > worldWidth) {
                 animals.remove(i);
                 break;
