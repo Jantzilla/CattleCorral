@@ -142,6 +142,14 @@ public class PlayScreen extends InputAdapter implements Screen {
         TextButton retry = new TextButton("Retry", skin);
         TextButton exit = new TextButton("Exit", skin);
 
+        retry.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.showPlayScreen(level);
+            }
+        });
+
         exit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
