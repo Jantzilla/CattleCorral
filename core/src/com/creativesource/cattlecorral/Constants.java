@@ -93,6 +93,7 @@ public class Constants {
     public static final String TOP_SCORE_LABEL = "Top Score: ";
     public static final int GAME_PAUSED = 0;
     public static final int GAME_RESUMED = 1;
+    public static final int GAME_COMPLETE = 2;
 
     public enum Level {
         ONE(SPAWN_RATE_1, MOVEMENT_SPEED_1, LEVEL_1_LABEL),
