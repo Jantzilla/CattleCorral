@@ -32,6 +32,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
 import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
+import static com.creativesource.cattlecorral.Constants.GAME_COMPLETE;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -215,7 +216,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         }
 
         if(animals.size() == 0 || totalCorraled == animals.size()) {
-//            TODO: Call completed level methods
+            gameStatus = GAME_COMPLETE;
         }
 
         topScore = Math.max(topScore, points);
