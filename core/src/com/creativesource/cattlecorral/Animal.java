@@ -20,7 +20,7 @@ public abstract class Animal extends Sprite {
     Animation up,left,down,right;
     Viewport viewport;
     String lastDirection = "";
-    private boolean isCorraled;
+    boolean isCorraled;
 
     abstract boolean isCellBlocked(float x, float y);
 
