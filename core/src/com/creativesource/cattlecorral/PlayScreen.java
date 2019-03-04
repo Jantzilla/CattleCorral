@@ -138,8 +138,8 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        TextButton newGame = new TextButton("New Game", skin);
-        TextButton preferences = new TextButton("Preferences", skin);
+        TextButton resume = new TextButton("Resume", skin);
+        TextButton retry = new TextButton("Retry", skin);
         TextButton exit = new TextButton("Exit", skin);
 
         exit.addListener(new ClickListener() {
@@ -150,9 +150,9 @@ public class PlayScreen extends InputAdapter implements Screen {
             }
         });
 
-        table.add(newGame).fillX().uniformX();
+        table.add(resume).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
-        table.add(preferences).fillX().uniformX();
+        table.add(retry).fillX().uniformX();
         table.row();
         table.add(exit).fillX().uniformX();
 
