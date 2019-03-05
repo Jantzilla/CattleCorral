@@ -60,7 +60,7 @@ public class StartScreen extends InputAdapter implements Screen {
         renderer.begin(ShapeType.Filled);
 
         renderer.setColor(Constants.EASY_COLOR);
-        renderer.rect(viewport.getWorldWidth() / 2 - Constants.PLAY_BUTTON_SIZE / 2, viewport.getWorldHeight() / 2 - Constants.PLAY_BUTTON_SIZE / 2, Constants.PLAY_BUTTON_SIZE, Constants.PLAY_BUTTON_SIZE);
+        renderer.rect(viewport.getWorldWidth() / 2 - Constants.PLAY_BUTTON_SIZE / 2, viewport.getWorldHeight() / 3 - Constants.PLAY_BUTTON_SIZE / 2, Constants.PLAY_BUTTON_SIZE, Constants.PLAY_BUTTON_SIZE);
 
         renderer.end();
 
@@ -69,7 +69,7 @@ public class StartScreen extends InputAdapter implements Screen {
         batch.begin();
 
         final GlyphLayout levelLabel1 = new GlyphLayout(font, "Play");
-        font.draw(batch, "Play", viewport.getWorldWidth() / 2 , viewport.getWorldHeight() / 2  + levelLabel1.height / 2, 0, Align.center, false);
+        font.draw(batch, "Play", viewport.getWorldWidth() / 2 , viewport.getWorldHeight() / 3  + levelLabel1.height / 2, 0, Align.center, false);
 
         final GlyphLayout gameTitle = new GlyphLayout(font, "Cattle Corral");
         titleFont.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
