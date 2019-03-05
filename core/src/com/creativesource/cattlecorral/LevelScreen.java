@@ -33,7 +33,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     StretchViewport viewport;
 
     BitmapFont font, titleFont;
-    Button backButton;
+    Button backButton, soundButton;
     TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table;
@@ -75,6 +75,9 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         backButton = new Button(skin,"left");
         backButton.setPosition(backButton.getHeight(),viewport.getWorldHeight() - backButton.getHeight() * 2);
+
+        soundButton = new Button(skin,"sound");
+        soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 10),10);
 
         levelOneButton.addListener(new ClickListener() {
             @Override
@@ -175,6 +178,7 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         stage.addActor(table);
         stage.addActor(backButton);
+        stage.addActor(soundButton);
 
         Gdx.input.setInputProcessor(stage);
     }
