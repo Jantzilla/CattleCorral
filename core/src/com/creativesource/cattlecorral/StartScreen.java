@@ -144,17 +144,4 @@ public class StartScreen extends InputAdapter implements Screen {
     public void dispose() {
 
     }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        Vector2 worldTouch = viewport.unproject(new Vector2(screenX, screenY));
-
-        if((worldTouch.x > viewport.getWorldWidth() / 2 - Constants.PLAY_BUTTON_SIZE / 2 && worldTouch.x < viewport.getWorldWidth() / 2 + Constants.PLAY_BUTTON_SIZE / 2)
-                && ((worldTouch.y > viewport.getWorldHeight() / 2 - Constants.PLAY_BUTTON_SIZE / 2 && worldTouch.y < viewport.getWorldHeight() / 2 + Constants.PLAY_BUTTON_SIZE / 2))) {
-            game.showLevelScreen();
-
-        }
-
-        return true;
-    }
 }
