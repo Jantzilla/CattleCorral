@@ -93,6 +93,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         stage.getCamera().position.set(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2,0);
 
         stage.addActor(table);
+        stage.addActor(backButton);
 
         Gdx.input.setInputProcessor(stage);
     }
