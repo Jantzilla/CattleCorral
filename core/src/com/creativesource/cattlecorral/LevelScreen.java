@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -29,6 +30,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     FitViewport viewport;
 
     BitmapFont font, titleFont;
+    Button backButton;
     TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table;
@@ -67,6 +69,9 @@ public class LevelScreen extends InputAdapter implements Screen {
         levelEightButton = new TextButton("8",skin,"round");
         levelNineButton = new TextButton("9",skin,"round");
         levelTenButton = new TextButton("10",skin,"round");
+
+        backButton = new Button(skin,"left");
+        backButton.setPosition(0,viewport.getWorldHeight() - backButton.getHeight());
 
         table = new Table();
 
