@@ -101,6 +101,9 @@ public class StartScreen extends InputAdapter implements Screen {
         scoreFont.draw(batch, "TOP SCORE: " + score, viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.7  + topScore.height / 2), 0, Align.center, false);
 
         batch.end();
+
+        stage.act();
+        stage.draw();
     }
 
     @Override
