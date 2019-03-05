@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -25,6 +27,8 @@ public class LevelScreen extends InputAdapter implements Screen {
     FitViewport viewport;
 
     BitmapFont font, titleFont;
+    TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
+            ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -46,6 +50,19 @@ public class LevelScreen extends InputAdapter implements Screen {
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+        Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
+        levelOneButton = new TextButton("1",skin,"round");
+        levelTwoButton = new TextButton("2",skin,"round");
+        levelThreeButton = new TextButton("3",skin,"round");
+        levelFourButton = new TextButton("4",skin,"round");
+        levelFiveButton = new TextButton("5",skin,"round");
+        levelSixButton = new TextButton("6",skin,"round");
+        levelSevenButton = new TextButton("7",skin,"round");
+        levelEightButton = new TextButton("8",skin,"round");
+        levelNineButton = new TextButton("9",skin,"round");
+        levelTenButton = new TextButton("10",skin,"round");
     }
 
     @Override
