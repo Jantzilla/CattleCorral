@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
 
 public class LevelScreen extends InputAdapter implements Screen {
@@ -29,7 +30,7 @@ public class LevelScreen extends InputAdapter implements Screen {
 
     ShapeRenderer renderer;
     SpriteBatch batch;
-    FitViewport viewport;
+    StretchViewport viewport;
 
     BitmapFont font, titleFont;
     Button backButton;
@@ -48,7 +49,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         batch = new SpriteBatch();
         Gdx.input.setCatchBackKey(true);
 
-        viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
 
         titleFont = new BitmapFont();
