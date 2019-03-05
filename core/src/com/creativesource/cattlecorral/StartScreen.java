@@ -78,7 +78,7 @@ public class StartScreen extends InputAdapter implements Screen {
         titleFont.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
 
         final GlyphLayout topScore = new GlyphLayout(font, "TOP SCORE: ");
-        scoreFont.draw(batch, "TOP SCORE: ", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.5  + topScore.height / 2), 0, Align.center, false);
+        scoreFont.draw(batch, "TOP SCORE: ", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.7  + topScore.height / 2), 0, Align.center, false);
 
         batch.end();
     }
