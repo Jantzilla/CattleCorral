@@ -82,6 +82,8 @@ public class LevelScreen extends InputAdapter implements Screen {
         table.add(levelNineButton).padLeft(10);
         table.add(levelTenButton);
 
+        table.setPosition(viewport.getWorldWidth() / 2 - table.getWidth() / 2,viewport.getWorldHeight() / 2 - (table.getHeight() / 2));
+
         stage = new Stage(viewport);
         stage.getCamera().position.set(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2,0);
 
