@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
@@ -30,6 +31,7 @@ public class StartScreen extends InputAdapter implements Screen {
     int score;
     Skin skin;
     TextButton playButton;
+    Stage stage;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -63,6 +65,8 @@ public class StartScreen extends InputAdapter implements Screen {
 
         playButton = new TextButton("Play", skin);
         playButton.setPosition(viewport.getWorldWidth() / 2 - playButton.getWidth() / 2,viewport.getWorldHeight() / 2 - (playButton.getHeight() / 2));
+
+        stage = new Stage(viewport);
     }
 
     @Override
