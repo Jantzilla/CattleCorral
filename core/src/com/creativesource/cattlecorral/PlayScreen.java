@@ -59,6 +59,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     Table table;
     TextButton resume;
     ClickListener clickListener;
+    Prefs prefs;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -165,6 +166,7 @@ public class PlayScreen extends InputAdapter implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                prefs.setScore(points);
                 game.showPlayScreen(level);
             }
         });
@@ -173,6 +175,7 @@ public class PlayScreen extends InputAdapter implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                prefs.setScore(points);
                 game.showStartScreen();
             }
         });
@@ -196,6 +199,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         table.setPosition(worldWidth / 2 - table.getWidth() / 2,worldHeight / 2 - (table.getHeight() / 2));
 
         Gdx.input.setInputProcessor(this);
+
+        prefs = new Prefs();
     }
 
     @Override
@@ -324,6 +329,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     }
 
     public void gameCompleted() {
+        prefs.setScore(points);
         Gdx.input.setInputProcessor(stage);
         if(points >= (3 * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
             resume.setText("Next");
