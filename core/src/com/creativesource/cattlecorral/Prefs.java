@@ -27,7 +27,7 @@ public class Prefs {
     }
 
 
-    public void increaseScore(int topScore){
+    public void setScore(int topScore){
         if(topScore > getTopScore()) {
             this.topScore = topScore;
             pref.putInteger("topScore", topScore);
