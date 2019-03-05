@@ -218,55 +218,6 @@ public class LevelScreen extends InputAdapter implements Screen {
     }
 
     @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        Vector2 worldTouch = viewport.unproject(new Vector2(screenX, screenY));
-
-        if((worldTouch.x > Constants.LEVEL_1[0] && worldTouch.x < Constants.LEVEL_1[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_1[1] & worldTouch.y < Constants.LEVEL_1[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.ONE);
-
-        } else if((worldTouch.x > Constants.LEVEL_2[0] && worldTouch.x < Constants.LEVEL_2[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_2[1] & worldTouch.y < Constants.LEVEL_2[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.TWO);
-
-        } else if((worldTouch.x > Constants.LEVEL_3[0] && worldTouch.x < Constants.LEVEL_3[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_3[1] & worldTouch.y < Constants.LEVEL_3[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.THREE);
-
-        } else if((worldTouch.x > Constants.LEVEL_4[0] && worldTouch.x < Constants.LEVEL_4[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_4[1] & worldTouch.y < Constants.LEVEL_4[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.FOUR);
-
-        } else if((worldTouch.x > Constants.LEVEL_5[0] && worldTouch.x < Constants.LEVEL_5[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_5[1] & worldTouch.y < Constants.LEVEL_5[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.FIVE);
-
-        } else if((worldTouch.x > Constants.LEVEL_6[0] && worldTouch.x < Constants.LEVEL_6[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_6[1] & worldTouch.y < Constants.LEVEL_6[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.SIX);
-
-        } else if((worldTouch.x > Constants.LEVEL_7[0] && worldTouch.x < Constants.LEVEL_7[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_7[1] & worldTouch.y < Constants.LEVEL_7[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.SEVEN);
-
-        } else if((worldTouch.x > Constants.LEVEL_8[0] && worldTouch.x < Constants.LEVEL_8[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_8[1] & worldTouch.y < Constants.LEVEL_8[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.EIGHT);
-
-        } else if((worldTouch.x > Constants.LEVEL_9[0] && worldTouch.x < Constants.LEVEL_9[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_9[1] & worldTouch.y < Constants.LEVEL_9[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.NINE);
-
-        } else if((worldTouch.x > Constants.LEVEL_10[0] && worldTouch.x < Constants.LEVEL_10[0] + Constants.BUTTON_SIZE)
-                && ((worldTouch.y > Constants.LEVEL_10[1] & worldTouch.y < Constants.LEVEL_10[1] + Constants.BUTTON_SIZE))) {
-            game.showPlayScreen(Level.TEN);
-
-        }
-
-        return true;
-    }
-
-    @Override
     public boolean keyDown(int keycode) {
         if(keycode == Input.Keys.BACK){
             // Respond to the back button click here
