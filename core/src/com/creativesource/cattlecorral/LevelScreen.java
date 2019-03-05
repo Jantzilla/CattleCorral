@@ -32,7 +32,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table;
-    private Stage stage;
+    Stage stage;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -84,6 +84,8 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         stage = new Stage(viewport);
         stage.getCamera().position.set(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2,0);
+
+        stage.addActor(table);
     }
 
     @Override
