@@ -153,6 +153,9 @@ public class LevelScreen extends InputAdapter implements Screen {
 
 
         batch.end();
+
+        stage.act();
+        stage.draw();
     }
 
     @Override
