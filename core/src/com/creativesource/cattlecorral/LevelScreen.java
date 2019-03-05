@@ -70,16 +70,16 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         table = new Table();
 
-        table.add(levelOneButton).padLeft(10);
-        table.add(levelTwoButton).padLeft(10);
-        table.add(levelThreeButton).padLeft(10);
-        table.add(levelFourButton).padLeft(10);
+        table.add(levelOneButton).padRight(10);
+        table.add(levelTwoButton).padRight(10);
+        table.add(levelThreeButton).padRight(10);
+        table.add(levelFourButton).padRight(10);
         table.add(levelFiveButton);
         table.row();
-        table.add(levelSixButton).padLeft(10);
-        table.add(levelSevenButton).padLeft(10);
-        table.add(levelEightButton).padLeft(10);
-        table.add(levelNineButton).padLeft(10);
+        table.add(levelSixButton).padRight(10);
+        table.add(levelSevenButton).padRight(10);
+        table.add(levelEightButton).padRight(10);
+        table.add(levelNineButton).padRight(10);
         table.add(levelTenButton);
 
         table.setPosition(viewport.getWorldWidth() / 2 - table.getWidth() / 2,viewport.getWorldHeight() / 2 - (table.getHeight() / 2));
