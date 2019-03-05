@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -31,6 +32,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table;
+    private Stage stage;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -79,6 +81,9 @@ public class LevelScreen extends InputAdapter implements Screen {
         table.add(levelEightButton).padLeft(10);
         table.add(levelNineButton).padLeft(10);
         table.add(levelTenButton);
+
+        stage = new Stage(viewport);
+        stage.getCamera().position.set(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2,0);
     }
 
     @Override
