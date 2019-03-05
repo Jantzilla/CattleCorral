@@ -145,6 +145,13 @@ public class LevelScreen extends InputAdapter implements Screen {
                 game.showPlayScreen(Level.TEN);
             }
         });
+        backButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.showStartScreen();
+            }
+        });
 
         table = new Table();
 
