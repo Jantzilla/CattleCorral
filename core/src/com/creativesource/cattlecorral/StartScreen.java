@@ -67,6 +67,9 @@ public class StartScreen extends InputAdapter implements Screen {
         playButton.setPosition(viewport.getWorldWidth() / 2 - playButton.getWidth() / 2,viewport.getWorldHeight() / 2 - (playButton.getHeight() / 2));
 
         stage = new Stage(viewport);
+        stage.addActor(playButton);
+
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
