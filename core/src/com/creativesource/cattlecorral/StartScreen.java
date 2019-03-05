@@ -3,6 +3,7 @@ package com.creativesource.cattlecorral;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -42,10 +43,12 @@ public class StartScreen extends InputAdapter implements Screen {
 
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
+        font.setColor(Constants.BACKGROUND_COLOR);
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         scoreFont = new BitmapFont();
         scoreFont.getData().setScale(Constants.SCORE_LABEL_SCALE);
+        scoreFont.setColor(Color.DARK_GRAY);
         scoreFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
     }
 
