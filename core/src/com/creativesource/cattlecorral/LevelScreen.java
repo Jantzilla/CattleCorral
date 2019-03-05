@@ -71,7 +71,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         levelTenButton = new TextButton("10",skin,"round");
 
         backButton = new Button(skin,"left");
-        backButton.setPosition(0,viewport.getWorldHeight() - backButton.getHeight());
+        backButton.setPosition(backButton.getHeight(),viewport.getWorldHeight() - backButton.getHeight() * 2);
 
         table = new Table();
 
