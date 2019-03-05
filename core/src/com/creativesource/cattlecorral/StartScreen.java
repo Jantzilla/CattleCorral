@@ -24,7 +24,6 @@ public class StartScreen extends InputAdapter implements Screen {
 
     CattleCorral game;
 
-    ShapeRenderer renderer;
     SpriteBatch batch;
     FitViewport viewport;
 
@@ -41,7 +40,6 @@ public class StartScreen extends InputAdapter implements Screen {
 
     @Override
     public void show() {
-        renderer = new ShapeRenderer();
         batch = new SpriteBatch();
         prefs = new Prefs();
         score = prefs.getTopScore();
@@ -90,21 +88,9 @@ public class StartScreen extends InputAdapter implements Screen {
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        renderer.setProjectionMatrix(viewport.getCamera().combined);
-
-        renderer.begin(ShapeType.Filled);
-
-        renderer.setColor(Constants.EASY_COLOR);
-        renderer.rect(viewport.getWorldWidth() / 2 - Constants.PLAY_BUTTON_SIZE / 2, viewport.getWorldHeight() / 3 - Constants.PLAY_BUTTON_SIZE / 2, Constants.PLAY_BUTTON_SIZE, Constants.PLAY_BUTTON_SIZE);
-
-        renderer.end();
-
         batch.setProjectionMatrix(viewport.getCamera().combined);
 
         batch.begin();
-
-        final GlyphLayout levelLabel1 = new GlyphLayout(font, "Play");
-        font.draw(batch, "Play", viewport.getWorldWidth() / 2 , viewport.getWorldHeight() / 3  + levelLabel1.height / 2, 0, Align.center, false);
 
         final GlyphLayout gameTitle = new GlyphLayout(font, "Cattle Corral");
         titleFont.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
@@ -137,7 +123,6 @@ public class StartScreen extends InputAdapter implements Screen {
     public void hide() {
         batch.dispose();
         font.dispose();
-        renderer.dispose();
     }
 
     @Override
