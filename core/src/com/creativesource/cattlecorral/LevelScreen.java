@@ -46,7 +46,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         batch = new SpriteBatch();
         Gdx.input.setCatchBackKey(true);
 
-        viewport = new FitViewport(Constants.START_WORLD_SIZE, Constants.START_WORLD_SIZE);
+        viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
 
         titleFont = new BitmapFont();
