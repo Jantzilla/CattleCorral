@@ -24,6 +24,8 @@ public class StartScreen extends InputAdapter implements Screen {
     FitViewport viewport;
 
     BitmapFont font, titleFont, scoreFont;
+    Prefs prefs;
+    int score;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -33,6 +35,8 @@ public class StartScreen extends InputAdapter implements Screen {
     public void show() {
         renderer = new ShapeRenderer();
         batch = new SpriteBatch();
+        prefs = new Prefs();
+        score = prefs.getTopScore();
 
         viewport = new FitViewport(Constants.START_WORLD_SIZE, Constants.START_WORLD_SIZE);
         Gdx.input.setInputProcessor(this);
@@ -78,7 +82,7 @@ public class StartScreen extends InputAdapter implements Screen {
         titleFont.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
 
         final GlyphLayout topScore = new GlyphLayout(font, "TOP SCORE: ");
-        scoreFont.draw(batch, "TOP SCORE: ", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.7  + topScore.height / 2), 0, Align.center, false);
+        scoreFont.draw(batch, "TOP SCORE: " + score, viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.7  + topScore.height / 2), 0, Align.center, false);
 
         batch.end();
     }
