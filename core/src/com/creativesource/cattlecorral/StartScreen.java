@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -26,6 +27,7 @@ public class StartScreen extends InputAdapter implements Screen {
     BitmapFont font, titleFont, scoreFont;
     Prefs prefs;
     int score;
+    Skin skin;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -54,6 +56,8 @@ public class StartScreen extends InputAdapter implements Screen {
         scoreFont.getData().setScale(Constants.SCORE_LABEL_SCALE);
         scoreFont.setColor(Color.DARK_GRAY);
         scoreFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
     }
 
     @Override
