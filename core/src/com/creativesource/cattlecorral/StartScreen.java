@@ -46,7 +46,7 @@ public class StartScreen extends InputAdapter implements Screen {
         prefs = new Prefs();
         score = prefs.getTopScore();
 
-        viewport = new FitViewport(Constants.START_WORLD_SIZE, Constants.START_WORLD_SIZE);
+        viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
 
         titleFont = new BitmapFont();
