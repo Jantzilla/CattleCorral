@@ -42,6 +42,7 @@ public class LevelScreen extends InputAdapter implements Screen {
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table;
     Stage stage;
+    int topScore;
     Prefs prefs;
 
     public LevelScreen(CattleCorral game) {
@@ -66,6 +67,8 @@ public class LevelScreen extends InputAdapter implements Screen {
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         prefs = new Prefs();
+
+        topScore = prefs.getTopScore();
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
