@@ -65,7 +65,7 @@ public class Constants {
     public static final float START_BUBBLE_RADIUS = START_WORLD_SIZE / 9;
     public static final float START_LABEL_SCALE = 1.5f;
     public static final float TITLE_LABEL_SCALE = 5f;
-    public static final float SCORE_LABEL_SCALE = 2.5f;
+    public static final float SCORE_LABEL_SCALE = 2f;
     public static final float BUTTON_SIZE = 50;
     public static final float PLAY_BUTTON_SIZE = 100;
     private static float BUTTON_SPACE = 25;
