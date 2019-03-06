@@ -227,10 +227,12 @@ public class LevelScreen extends InputAdapter implements Screen {
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
 
         table.setPosition(viewport.getWorldWidth() / 2 - table.getWidth() / 2,viewport.getWorldHeight() / 2 - (table.getHeight() / 2));
+        tableBackground.setPosition(viewport.getWorldWidth() / 2 - table.getWidth() / 2,viewport.getWorldHeight() / 2 - (table.getHeight() / 2));
 
         stage = new Stage(viewport);
         stage.getCamera().position.set(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2,0);
 
+        stage.addActor(tableBackground);
         stage.addActor(table);
         stage.addActor(backButton);
         stage.addActor(soundButton);
