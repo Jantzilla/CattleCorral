@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -196,7 +197,13 @@ public class LevelScreen extends InputAdapter implements Screen {
                 tableBackground.add(new TextButton("",skin,"round")).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         }
 
-        texture = new Texture(Gdx.files.internal("lock.png"));
+        Pixmap pixmap = new Pixmap(Gdx.files.internal("lock.png"));
+        Pixmap pixmap100 = new Pixmap(100, 100, pixmap.getFormat());
+        pixmap100.drawPixmap(pixmap,
+                0, 0, pixmap.getWidth(), pixmap.getHeight(),
+                0, 0, pixmap100.getWidth(), pixmap100.getHeight()
+        );
+        Texture texture = new Texture(pixmap100);
         textureRegion = new TextureRegion(texture);
         texRegionDrawable = new TextureRegionDrawable(textureRegion);
 
