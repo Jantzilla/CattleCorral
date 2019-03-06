@@ -43,7 +43,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     Button backButton, soundButton;
     TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
-    Table table;
+    Table table, tableBackground;
     Stage stage;
     Texture texture;
     TextureRegion textureRegion;
@@ -174,6 +174,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         });
 
         table = new Table();
+        tableBackground = new Table();
 
         texture = new Texture(Gdx.files.internal("lock.png"));
         textureRegion = new TextureRegion(texture);
