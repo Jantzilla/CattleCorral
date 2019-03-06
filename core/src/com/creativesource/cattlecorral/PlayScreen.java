@@ -148,6 +148,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         soundButton.setSize(50,80);
         soundButton.setPosition(stretchViewport.getWorldWidth() - (soundButton.getWidth() + 8),8);
 
+        stage.addActor(soundButton);
+
         resume = new TextButton("Resume", skin);
         resume.getLabel().setFontScale(2);
         TextButton retry = new TextButton("Retry", skin);
