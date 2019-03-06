@@ -58,7 +58,7 @@ public class StartScreen extends InputAdapter implements Screen {
 
         scoreFont = new BitmapFont();
         scoreFont.getData().setScale(Constants.SCORE_LABEL_SCALE);
-        scoreFont.setColor(Color.DARK_GRAY);
+        scoreFont.setColor(Color.BLACK);
         scoreFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
