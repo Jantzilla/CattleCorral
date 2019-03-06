@@ -66,8 +66,8 @@ public class StartScreen extends InputAdapter implements Screen {
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         playButton = new TextButton("Play", skin);
-        playButton.setSize(100,80);
-        playButton.getLabel().setFontScale(2);
+        playButton.setSize(300,160);
+        playButton.getLabel().setFontScale(5);
         playButton.setPosition(viewport.getWorldWidth() / 2 - playButton.getWidth() / 2,viewport.getWorldHeight() / 3 - (playButton.getHeight() / 2));
 
         playButton.addListener(new ClickListener() {
