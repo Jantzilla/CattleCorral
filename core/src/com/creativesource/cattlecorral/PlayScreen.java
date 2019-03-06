@@ -22,6 +22,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -60,6 +61,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     TextButton resume;
     ClickListener clickListener;
     Prefs prefs;
+    Button soundButton;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -141,6 +143,10 @@ public class PlayScreen extends InputAdapter implements Screen {
         table = new Table();
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
+        soundButton = new Button(skin,"sound");
+        soundButton.setSize(50,80);
+        soundButton.setPosition(stretchViewport.getWorldWidth() - (soundButton.getWidth() + 8),8);
 
         resume = new TextButton("Resume", skin);
         resume.getLabel().setFontScale(2);
