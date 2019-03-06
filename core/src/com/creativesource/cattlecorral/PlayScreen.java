@@ -143,8 +143,11 @@ public class PlayScreen extends InputAdapter implements Screen {
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         resume = new TextButton("Resume", skin);
+        resume.getLabel().setFontScale(2);
         TextButton retry = new TextButton("Retry", skin);
+        retry.getLabel().setFontScale(2);
         TextButton exit = new TextButton("Exit", skin);
+        exit.getLabel().setFontScale(2);
 
         resume.addListener(new ClickListener() {
             @Override
