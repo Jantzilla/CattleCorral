@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -23,6 +24,9 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
+
+import static com.creativesource.cattlecorral.Constants.GAME_SPAN_1;
+import static com.creativesource.cattlecorral.Constants.SINGLE_SCORE;
 
 public class LevelScreen extends InputAdapter implements Screen {
 
@@ -160,16 +164,43 @@ public class LevelScreen extends InputAdapter implements Screen {
         table = new Table();
 
         table.add(levelOneButton).padRight(10).padBottom(10);
-        table.add(levelTwoButton).padRight(10).padBottom(10);
-        table.add(levelThreeButton).padRight(10).padBottom(10);
-        table.add(levelFourButton).padRight(10).padBottom(10);
-        table.add(levelFiveButton).padBottom(10);
+        if(topScore == Level.ONE.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelTwoButton).padRight(10).padBottom(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.TWO.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelThreeButton).padRight(10).padBottom(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.THREE.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelFourButton).padRight(10).padBottom(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.FOUR.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelFiveButton).padBottom(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         table.row();
-        table.add(levelSixButton).padRight(10);
-        table.add(levelSevenButton).padRight(10);
-        table.add(levelEightButton).padRight(10);
-        table.add(levelNineButton).padRight(10);
-        table.add(levelTenButton);
+        if(topScore == Level.FIVE.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelSixButton).padRight(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.SIX.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelSevenButton).padRight(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.SEVEN.spawnRate * GAME_SPAN_1 * SINGLE_SCORE) {
+            table.add(levelEightButton).padRight(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.EIGHT.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelNineButton).padRight(10);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        if(topScore == Level.NINE.spawnRate * 3 * SINGLE_SCORE) {
+            table.add(levelTenButton);
+        } else
+            table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
 
         table.setPosition(viewport.getWorldWidth() / 2 - table.getWidth() / 2,viewport.getWorldHeight() / 2 - (table.getHeight() / 2));
 
