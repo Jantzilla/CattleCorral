@@ -180,11 +180,11 @@ public class PlayScreen extends InputAdapter implements Screen {
             }
         });
 
-        table.add(resume).fillX().uniformX();
+        table.add(resume).size(150,80).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
-        table.add(retry).fillX().uniformX();
+        table.add(retry).size(150,80).fillX().uniformX();
         table.row();
-        table.add(exit).fillX().uniformX();
+        table.add(exit).size(150,80).fillX().uniformX();
 
         Pixmap pixmap = new Pixmap(1,1, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.BLACK);
