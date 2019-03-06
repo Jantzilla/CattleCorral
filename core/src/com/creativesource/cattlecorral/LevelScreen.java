@@ -176,6 +176,13 @@ public class LevelScreen extends InputAdapter implements Screen {
         table = new Table();
         tableBackground = new Table();
 
+        for(int i = 0; i < 11; i++) {
+            if(i == 5) {
+                tableBackground.row();
+            } else
+                tableBackground.add(new TextButton("",skin,"round")).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
+        }
+
         texture = new Texture(Gdx.files.internal("lock.png"));
         textureRegion = new TextureRegion(texture);
         texRegionDrawable = new TextureRegionDrawable(textureRegion);
