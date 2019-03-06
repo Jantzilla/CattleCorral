@@ -2,6 +2,7 @@ package com.creativesource.cattlecorral;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -62,6 +63,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     ClickListener clickListener;
     Prefs prefs;
     Button soundButton;
+    InputMultiplexer inputMultiplexer;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -209,7 +211,8 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         table.setPosition(worldWidth / 2 - table.getWidth() / 2,worldHeight / 2 - (table.getHeight() / 2));
 
-        Gdx.input.setInputProcessor(this);
+        inputMultiplexer = new InputMultiplexer(stage, this);
+        Gdx.input.setInputProcessor(inputMultiplexer);
 
         prefs = new Prefs();
     }
@@ -279,7 +282,6 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void pause() {
         gameStatus = GAME_PAUSED;
-        Gdx.input.setInputProcessor(stage);
         stage.addActor(semiTL);
         stage.addActor(table);
     }
@@ -287,7 +289,6 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void resume() {
         gameStatus = GAME_RESUMED;
-        Gdx.input.setInputProcessor(this);
         if(semiTL != null) {
             semiTL.remove();
             table.remove();
@@ -341,7 +342,6 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     public void gameCompleted() {
         prefs.setScore(points);
-        Gdx.input.setInputProcessor(stage);
         if(points >= (3 * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
             resume.setText("Next");
             resume.addListener(clickListener);
