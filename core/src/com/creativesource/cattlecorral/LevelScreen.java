@@ -80,15 +80,25 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         levelOneButton = new TextButton("1",skin,"round");
         levelOneButton.setSize(250, 150);
+        levelOneButton.getLabel().setFontScale(4);
         levelTwoButton = new TextButton("2",skin,"round");
+        levelTwoButton.getLabel().setFontScale(4);
         levelThreeButton = new TextButton("3",skin,"round");
+        levelThreeButton.getLabel().setFontScale(4);
         levelFourButton = new TextButton("4",skin,"round");
+        levelFourButton.getLabel().setFontScale(4);
         levelFiveButton = new TextButton("5",skin,"round");
+        levelFiveButton.getLabel().setFontScale(4);
         levelSixButton = new TextButton("6",skin,"round");
+        levelSixButton.getLabel().setFontScale(4);
         levelSevenButton = new TextButton("7",skin,"round");
+        levelSevenButton.getLabel().setFontScale(4);
         levelEightButton = new TextButton("8",skin,"round");
+        levelEightButton.getLabel().setFontScale(4);
         levelNineButton = new TextButton("9",skin,"round");
+        levelNineButton.getLabel().setFontScale(4);
         levelTenButton = new TextButton("10",skin,"round");
+        levelTenButton.getLabel().setFontScale(4);
 
         backButton = new Button(skin,"left");
         backButton.setSize(100, 100);
