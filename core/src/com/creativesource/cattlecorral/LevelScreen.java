@@ -5,9 +5,11 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
@@ -19,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -42,6 +45,9 @@ public class LevelScreen extends InputAdapter implements Screen {
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table;
     Stage stage;
+    Texture texture;
+    TextureRegion textureRegion;
+    TextureRegionDrawable texRegionDrawable;
     int topScore;
     Prefs prefs;
 
@@ -168,6 +174,10 @@ public class LevelScreen extends InputAdapter implements Screen {
         });
 
         table = new Table();
+
+        texture = new Texture(Gdx.files.internal("lock.png"));
+        textureRegion = new TextureRegion(texture);
+        texRegionDrawable = new TextureRegionDrawable(textureRegion);
 
         table.add(levelOneButton).padRight(10).padBottom(10);
         if(topScore == Level.ONE.spawnRate * 3 * SINGLE_SCORE) {
