@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -51,6 +52,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     TextureRegionDrawable texRegionDrawable;
     int topScore;
     Prefs prefs;
+    Label levelLabel;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -104,6 +106,12 @@ public class LevelScreen extends InputAdapter implements Screen {
         backButton = new Button(skin,"left");
         backButton.setSize(100, 100);
         backButton.setPosition(25,viewport.getWorldHeight() - (backButton.getHeight() + 25));
+
+        levelLabel = new Label("Levels", skin, "title-plain");
+        levelLabel.setSize(1300,250);
+        levelLabel.setFontScale(6);
+        levelLabel.setAlignment(Align.center);
+        levelLabel.setPosition(viewport.getWorldWidth() / 2 - levelLabel.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.3 - (levelLabel.getHeight() / 2)));
 
         soundButton = new Button(skin,"sound");
         soundButton.setSize(120, 120);
@@ -271,6 +279,7 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         stage.addActor(tableBackground);
         stage.addActor(table);
+        stage.addActor(levelLabel);
         stage.addActor(backButton);
         stage.addActor(soundButton);
 
