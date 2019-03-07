@@ -170,10 +170,13 @@ public class PlayScreen extends InputAdapter implements Screen {
 
 
         resume = new TextButton("Resume", skin);
+        resume.getStyle().downFontColor.set(Color.WHITE);
         resume.getLabel().setFontScale(2);
         TextButton retry = new TextButton("Retry", skin);
+        retry.getStyle().downFontColor.set(Color.WHITE);
         retry.getLabel().setFontScale(2);
         TextButton exit = new TextButton("Exit", skin);
+        exit.getStyle().downFontColor.set(Color.WHITE);
         exit.getLabel().setFontScale(2);
 
         resume.addListener(new ClickListener() {

@@ -70,6 +70,7 @@ public class StartScreen extends InputAdapter implements Screen {
         topScore.setPosition(viewport.getWorldWidth() / 2 - topScore.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.7 - (topScore.getHeight() / 2)));
 
         playButton = new TextButton("Play", skin, "round");
+        playButton.getStyle().downFontColor.set(Color.WHITE);
         playButton.setSize(325,185);
         playButton.getLabel().setFontScale(5);
         playButton.setPosition(viewport.getWorldWidth() / 2 - playButton.getWidth() / 2,viewport.getWorldHeight() / 3 - (playButton.getHeight() / 2));
