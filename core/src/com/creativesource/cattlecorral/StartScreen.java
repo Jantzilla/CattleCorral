@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -35,6 +36,7 @@ public class StartScreen extends InputAdapter implements Screen {
     TextButton playButton;
     Stage stage;
     Button soundButton;
+    Label title;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -64,6 +66,12 @@ public class StartScreen extends InputAdapter implements Screen {
         scoreFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
+        title = new Label("Cattle Corral", skin, "title");
+        title.setSize(1300,250);
+        title.setFontScale(8);
+        title.setAlignment(Align.center);
+        title.setPosition(viewport.getWorldWidth() / 2 - title.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.2 - (title.getHeight() / 2)));
 
         playButton = new TextButton("Play", skin, "round");
         playButton.setSize(325,185);
@@ -101,6 +109,7 @@ public class StartScreen extends InputAdapter implements Screen {
         }
 
         stage = new Stage(viewport);
+        stage.addActor(title);
         stage.addActor(playButton);
         stage.addActor(soundButton);
 
