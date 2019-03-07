@@ -41,4 +41,12 @@ public class CattleCorral extends Game {
 			}
 		});
 	}
+
+	public void stopMusio() {
+	    intro.stop();
+	    play.stop();
+
+	    intro.dispose();
+	    play.dispose();
+    }
 }
