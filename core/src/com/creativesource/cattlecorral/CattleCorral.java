@@ -15,6 +15,9 @@ public class CattleCorral extends Game {
 	public void create() {
         showStartScreen();
         prefs = new Prefs();
+
+        if(prefs.hasSound())
+        	playMusic();
 	}
 
 	public void showStartScreen() {
