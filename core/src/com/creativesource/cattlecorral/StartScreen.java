@@ -29,7 +29,7 @@ public class StartScreen extends InputAdapter implements Screen {
     SpriteBatch batch;
     FitViewport viewport;
 
-    BitmapFont font, titleFont, scoreFont;
+    BitmapFont font, scoreFont;
     Prefs prefs;
     int score;
     Skin skin;
@@ -50,10 +50,6 @@ public class StartScreen extends InputAdapter implements Screen {
 
         viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
-
-        titleFont = new BitmapFont();
-        titleFont.getData().setScale(Constants.TITLE_LABEL_SCALE);
-        titleFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
@@ -125,9 +121,6 @@ public class StartScreen extends InputAdapter implements Screen {
         batch.setProjectionMatrix(viewport.getCamera().combined);
 
         batch.begin();
-
-        final GlyphLayout gameTitle = new GlyphLayout(font, "Cattle Corral");
-        titleFont.draw(batch, "Cattle Corral", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
 
         final GlyphLayout topScore = new GlyphLayout(font, "TOP SCORE: ");
         scoreFont.draw(batch, "TOP SCORE: " + score, viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.7  + topScore.height / 2), 0, Align.center, false);
