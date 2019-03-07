@@ -5,6 +5,8 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,6 +16,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -55,9 +58,18 @@ public class StartScreen extends InputAdapter implements Screen {
         font.setColor(Constants.BACKGROUND_COLOR);
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
+        Pixmap pixmap = new Pixmap(Gdx.files.internal("label_background.png"));
+        Pixmap pixmap100 = new Pixmap(100, 100, pixmap.getFormat());
+        pixmap100.drawPixmap(pixmap,
+                0, 0, pixmap.getWidth(), pixmap.getHeight(),
+                0, 0, pixmap100.getWidth(), pixmap100.getHeight()
+        );
+        Texture texture = new Texture(pixmap100);
+
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         title = new Label("Cattle Corral", skin, "title");
+        title.getStyle().background = new Image(texture).getDrawable();
         title.setSize(1300,250);
         title.setFontScale(8);
         title.setAlignment(Align.center);
