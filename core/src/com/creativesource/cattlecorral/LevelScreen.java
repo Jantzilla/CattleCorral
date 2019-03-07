@@ -41,7 +41,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     SpriteBatch batch;
     StretchViewport viewport;
 
-    BitmapFont font, titleFont;
+    BitmapFont font;
     Button backButton, soundButton;
     TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
@@ -66,10 +66,6 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
-
-        titleFont = new BitmapFont();
-        titleFont.getData().setScale(Constants.TITLE_LABEL_SCALE);
-        titleFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
@@ -291,15 +287,6 @@ public class LevelScreen extends InputAdapter implements Screen {
         viewport.apply();
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.setProjectionMatrix(viewport.getCamera().combined);
-
-        batch.begin();
-
-        final GlyphLayout gameTitle = new GlyphLayout(font, "Levels");
-        titleFont.draw(batch, "Levels", viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.2  + gameTitle.height / 2), 0, Align.center, false);
-
-        batch.end();
 
         stage.act();
         stage.draw();
