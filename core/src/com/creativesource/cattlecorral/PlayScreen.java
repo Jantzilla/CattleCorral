@@ -331,6 +331,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         gameStatus = GAME_PAUSED;
         stage.addActor(semiTL);
         stage.addActor(table);
+        resume.addListener(resumeClickListener);
     }
 
     @Override
@@ -339,6 +340,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         if(semiTL != null) {
             semiTL.remove();
             table.remove();
+            resume.removeListener(resumeClickListener);
         }
     }
 
