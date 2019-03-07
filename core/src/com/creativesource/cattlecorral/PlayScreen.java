@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -57,7 +56,6 @@ public class PlayScreen extends InputAdapter implements Screen {
     ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
     int topScore, totalCorraled, points, gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
-    BitmapFont font;
     Stage stage;
     Image semiTL;
     Table table;
@@ -96,7 +94,6 @@ public class PlayScreen extends InputAdapter implements Screen {
         camera = new OrthographicCamera();
         stretchViewport =new StretchViewport(worldWidth,worldHeight,camera);
         hudViewport = new StretchViewport(worldWidth,worldHeight,camera);
-        font = new BitmapFont();
         camera.update();
         tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
         tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
@@ -309,11 +306,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         topScore = Math.max(topScore, points);
 
-        final String levelText = "Level " + level.label;
-        final String hudText = levelText + "\n" + Constants.SCORE_LABEL + points;
-
-        font.draw(tiledMapRenderer.getBatch(), hudText, hudViewport.getWorldWidth() - Constants.HUD_MARGIN, hudViewport.getWorldHeight() - Constants.HUD_MARGIN,
-                0, Align.right, false);
+        scoreLabel.setText(Constants.SCORE_LABEL + points);
 
         tiledMapRenderer.getBatch().end();
 
@@ -331,7 +324,6 @@ public class PlayScreen extends InputAdapter implements Screen {
         hudViewport.getCamera().update();
         stretchViewport.getCamera().position.set(worldWidth/2,worldHeight/2,0);
         stretchViewport.getCamera().update();
-        font.getData().setScale(Math.min(width, height) / Constants.HUD_FONT_REFERENCE_SCREEN_SIZE);
     }
 
     @Override
