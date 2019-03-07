@@ -82,6 +82,11 @@ public class StartScreen extends InputAdapter implements Screen {
         soundButton.setSize(120,120);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
+        if(prefs.hasSound()) {
+            soundButton.setChecked(true);
+            game.playMusic();
+        }
+
         stage = new Stage(viewport);
         stage.addActor(playButton);
         stage.addActor(soundButton);
