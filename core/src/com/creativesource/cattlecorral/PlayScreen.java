@@ -221,6 +221,23 @@ public class PlayScreen extends InputAdapter implements Screen {
         cow = Gdx.audio.newSound(Gdx.files.internal("cow.wav"));
         sheep = Gdx.audio.newSound(Gdx.files.internal("sheep.mp3"));
         pig = Gdx.audio.newSound(Gdx.files.internal("pig.wav"));
+
+        if(prefs.hasSound())
+            soundButton.setChecked(true);
+
+        soundButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                if(prefs.hasSound()) {
+                    prefs.setSound(false);
+                    game.stopMusio();
+                } else {
+                    prefs.setSound(true);
+                    game.playMusic();
+                }
+            }
+        });
     }
 
     @Override

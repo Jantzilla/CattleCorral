@@ -109,6 +109,23 @@ public class LevelScreen extends InputAdapter implements Screen {
         soundButton.setSize(120, 120);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
+        if(prefs.hasSound())
+            soundButton.setChecked(true);
+
+        soundButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                if(prefs.hasSound()) {
+                    prefs.setSound(false);
+                    game.stopMusio();
+                } else {
+                    prefs.setSound(true);
+                    game.playMusic();
+                }
+            }
+        });
+
         levelOneButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
