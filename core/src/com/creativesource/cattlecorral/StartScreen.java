@@ -20,7 +20,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 public class StartScreen extends InputAdapter implements Screen {
 
@@ -29,7 +28,7 @@ public class StartScreen extends InputAdapter implements Screen {
     SpriteBatch batch;
     FitViewport viewport;
 
-    BitmapFont font, scoreFont;
+    BitmapFont font;
     Prefs prefs;
     int score;
     Skin skin;
@@ -55,11 +54,6 @@ public class StartScreen extends InputAdapter implements Screen {
         font.getData().setScale(Constants.START_LABEL_SCALE);
         font.setColor(Constants.BACKGROUND_COLOR);
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
-
-        scoreFont = new BitmapFont();
-        scoreFont.getData().setScale(Constants.SCORE_LABEL_SCALE);
-        scoreFont.setColor(Color.BLACK);
-        scoreFont.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
@@ -124,15 +118,6 @@ public class StartScreen extends InputAdapter implements Screen {
         viewport.apply();
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.setProjectionMatrix(viewport.getCamera().combined);
-
-        batch.begin();
-
-        final GlyphLayout topScore = new GlyphLayout(font, "TOP SCORE: ");
-        scoreFont.draw(batch, "TOP SCORE: " + score, viewport.getWorldWidth() / 2 , (float) (viewport.getWorldHeight() / 1.7  + topScore.height / 2), 0, Align.center, false);
-
-        batch.end();
 
         stage.act();
         stage.draw();
