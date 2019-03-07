@@ -380,15 +380,21 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     public void gameCompleted() {
         prefs.setScore(points);
-        if(points >= (3 * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
+        summaryLabel.setText("You Scored: " + points + " / " + (int)(level.spawnRate * 3 * SINGLE_SCORE));
+        if(points >= (level.spawnRate * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
+            completeLabel.setText("Well Done!");
+            completeLabel.setColor(Color.GOLD);
             resume.setText("Next");
             resume.addListener(clickListener);
             stage.addActor(semiTL);
             stage.addActor(table);
         } else {
+            completeLabel.setText("Almost...");
             table.removeActor(resume);
             stage.addActor(semiTL);
             stage.addActor(table);
         }
+        stage.addActor(completeLabel);
+        stage.addActor(summaryLabel);
     }
 }
