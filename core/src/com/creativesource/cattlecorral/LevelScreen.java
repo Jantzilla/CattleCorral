@@ -229,40 +229,40 @@ public class LevelScreen extends InputAdapter implements Screen {
         texRegionDrawable = new TextureRegionDrawable(textureRegion);
 
         table.add(levelOneButton).size(250, 150).padRight(10).padBottom(10);
-        if(topScore == Level.ONE.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.ONE.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelTwoButton).size(250, 150).padRight(10).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.TWO.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.TWO.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelThreeButton).size(250, 150).padRight(10).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.THREE.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.THREE.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelFourButton).size(250, 150).padRight(10).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.FOUR.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.FOUR.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelFiveButton).size(250, 150).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         table.row();
-        if(topScore == Level.FIVE.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.FIVE.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelSixButton).size(250, 150).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.SIX.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.SIX.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelSevenButton).size(250, 150).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.SEVEN.spawnRate * GAME_SPAN_1 * SINGLE_SCORE) {
+        if(topScore >= Level.SEVEN.spawnRate * GAME_SPAN_1 * SINGLE_SCORE) {
             table.add(levelEightButton).size(250, 150).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.EIGHT.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.EIGHT.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelNineButton).size(250, 150).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore == Level.NINE.spawnRate * 3 * SINGLE_SCORE) {
+        if(topScore >= Level.NINE.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelTenButton).size(250, 150);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
