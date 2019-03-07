@@ -9,10 +9,12 @@ import com.creativesource.cattlecorral.Constants.Level;
 public class CattleCorral extends Game {
 
 	Music intro, play;
+	Prefs prefs;
 
 	@Override
 	public void create() {
         showStartScreen();
+        prefs = new Prefs();
 	}
 
 	public void showStartScreen() {
