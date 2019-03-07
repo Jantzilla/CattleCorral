@@ -60,7 +60,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     Image semiTL;
     Table table;
     TextButton resume;
-    ClickListener clickListener;
+    ClickListener clickListener, resumeClickListener;
     Prefs prefs;
     Button soundButton;
     InputMultiplexer inputMultiplexer;
@@ -190,13 +190,13 @@ public class PlayScreen extends InputAdapter implements Screen {
         exit.getStyle().downFontColor.set(Color.WHITE);
         exit.getLabel().setFontScale(2);
 
-        resume.addListener(new ClickListener() {
+        resumeClickListener = new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 resume();
             }
-        });
+        };
 
         clickListener = new ClickListener() {
             @Override
