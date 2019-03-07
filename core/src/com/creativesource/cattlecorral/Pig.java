@@ -19,6 +19,7 @@ public class Pig extends Animal {
                 if(!getCorraled(cell)) {
                     if (cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("pig")) {
                         screen.points += 20;
+                        screen.pig.play(1.0f);
                     }
                 }
                 if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked")) {

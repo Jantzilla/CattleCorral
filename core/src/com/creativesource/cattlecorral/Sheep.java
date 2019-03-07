@@ -19,6 +19,7 @@ public class Sheep extends Animal {
                 if(!getCorraled(cell)) {
                     if (cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("sheep")) {
                         screen.points += 20;
+                        screen.sheep.play(1.0f);
                     }
                 }
                 if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked")) {
