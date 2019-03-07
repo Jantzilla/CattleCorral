@@ -26,6 +26,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -66,6 +67,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     Button soundButton;
     InputMultiplexer inputMultiplexer;
     Sound cow, sheep, pig;
+    Label completeLabel, summaryLabel;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -153,6 +155,19 @@ public class PlayScreen extends InputAdapter implements Screen {
         soundButton.setPosition(stretchViewport.getWorldWidth() - (soundButton.getWidth() + 8),8);
 
         stage.addActor(soundButton);
+
+        completeLabel = new Label("Well Done!", skin, "title-plain");
+        completeLabel.setSize(1200,250);
+        completeLabel.setFontScale(3);
+        completeLabel.setAlignment(Align.center);
+        completeLabel.setPosition(stretchViewport.getWorldWidth() / 2 - completeLabel.getWidth() / 2, (float) (stretchViewport.getWorldHeight() / 1.2 - (completeLabel.getHeight() / 2)));
+
+        summaryLabel = new Label("You scored: ", skin, "title-plain");
+        summaryLabel.setSize(1200,200);
+        summaryLabel.setFontScale(1.5f);
+        summaryLabel.setAlignment(Align.center);
+        summaryLabel.setPosition(stretchViewport.getWorldWidth() / 2 - summaryLabel.getWidth() / 2, (float) (stretchViewport.getWorldHeight() / 6.5 - (summaryLabel.getHeight() / 2)));
+
 
         resume = new TextButton("Resume", skin);
         resume.getLabel().setFontScale(2);
