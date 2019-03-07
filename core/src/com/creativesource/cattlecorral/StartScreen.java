@@ -36,7 +36,7 @@ public class StartScreen extends InputAdapter implements Screen {
     TextButton playButton;
     Stage stage;
     Button soundButton;
-    Label title;
+    Label title, topScore;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -68,6 +68,12 @@ public class StartScreen extends InputAdapter implements Screen {
         title.setFontScale(8);
         title.setAlignment(Align.center);
         title.setPosition(viewport.getWorldWidth() / 2 - title.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.2 - (title.getHeight() / 2)));
+
+        topScore = new Label("TOP SCORE: " + score, skin, "optional");
+        topScore.setSize(800,100);
+        topScore.setFontScale(6);
+        topScore.setAlignment(Align.center);
+        topScore.setPosition(viewport.getWorldWidth() / 2 - topScore.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.7 - (topScore.getHeight() / 2)));
 
         playButton = new TextButton("Play", skin, "round");
         playButton.setSize(325,185);
@@ -106,6 +112,7 @@ public class StartScreen extends InputAdapter implements Screen {
 
         stage = new Stage(viewport);
         stage.addActor(title);
+        stage.addActor(topScore);
         stage.addActor(playButton);
         stage.addActor(soundButton);
 
