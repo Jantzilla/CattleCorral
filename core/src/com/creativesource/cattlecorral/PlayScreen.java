@@ -67,7 +67,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     Button soundButton;
     InputMultiplexer inputMultiplexer;
     Sound cow, sheep, pig;
-    Label completeLabel, summaryLabel;
+    Label completeLabel, summaryLabel, levelLabel, scoreLabel;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -149,6 +149,20 @@ public class PlayScreen extends InputAdapter implements Screen {
         table = new Table();
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
+        levelLabel = new Label("Level " + level.label, skin, "title");
+        levelLabel.setSize(120,60);
+        levelLabel.setAlignment(Align.center);
+        levelLabel.setPosition(0, stretchViewport.getWorldHeight() - levelLabel.getHeight());
+
+        stage.addActor(levelLabel);
+
+        scoreLabel = new Label("", skin, "title-plain");
+        scoreLabel.setSize(120,60);
+        scoreLabel.setAlignment(Align.center);
+        scoreLabel.setPosition(stretchViewport.getWorldWidth() - scoreLabel.getWidth(), stretchViewport.getWorldHeight() - scoreLabel.getHeight());
+
+        stage.addActor(scoreLabel);
 
         soundButton = new Button(skin,"sound");
         soundButton.setSize(50,80);
