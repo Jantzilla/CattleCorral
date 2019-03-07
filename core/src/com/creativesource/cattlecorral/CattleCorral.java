@@ -13,17 +13,6 @@ public class CattleCorral extends Game {
 	@Override
 	public void create() {
         showStartScreen();
-		intro = Gdx.audio.newMusic(Gdx.files.internal("intro.wav"));
-		play = Gdx.audio.newMusic(Gdx.files.internal("play.wav"));
-		intro.play();
-
-		intro.setOnCompletionListener(new Music.OnCompletionListener() {
-			@Override
-			public void onCompletion(Music music) {
-				play.setLooping(true);
-				play.play();
-			}
-		});
 	}
 
 	public void showStartScreen() {
@@ -36,5 +25,20 @@ public class CattleCorral extends Game {
 
 	public void showPlayScreen(Level level) {
 		setScreen(new PlayScreen(this, level));
+	}
+
+	public void playMusic() {
+		intro = Gdx.audio.newMusic(Gdx.files.internal("intro.wav"));
+		play = Gdx.audio.newMusic(Gdx.files.internal("play.wav"));
+
+		intro.play();
+
+		intro.setOnCompletionListener(new Music.OnCompletionListener() {
+			@Override
+			public void onCompletion(Music music) {
+				play.setLooping(true);
+				play.play();
+			}
+		});
 	}
 }
