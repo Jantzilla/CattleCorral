@@ -100,9 +100,10 @@ public class PlayScreen extends InputAdapter implements Screen {
         for(MapLayer layer : tiledMap.getLayers()) {
             tiledMapTileLayers.add((TiledMapTileLayer) layer);
         }
+
+        tiledMap.getLayers().get(1).setVisible(false);
         tiledMap.getLayers().get(5).setVisible(false);
-        tiledMap.getLayers().get(6).setVisible(false);
-        tiledMap.getLayers().get(7).setVisible(false);
+        tiledMap.getLayers().get(2).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
         textureAtlases.add(new TextureAtlas("cow.pack"));
@@ -356,30 +357,30 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         if(Constants.GATE_ONE.contains(new Vector2(touch.x,touch.y))) {
             resume();
-            if (tiledMap.getLayers().get(2).isVisible()) {
-                tiledMap.getLayers().get(2).setVisible(false);
-                tiledMap.getLayers().get(7).setVisible(true);
+            if (tiledMap.getLayers().get(4).isVisible()) {
+                tiledMap.getLayers().get(4).setVisible(false);
+                tiledMap.getLayers().get(1).setVisible(true);
             } else {
-                tiledMap.getLayers().get(2).setVisible(true);
-                tiledMap.getLayers().get(7).setVisible(false);
+                tiledMap.getLayers().get(4).setVisible(true);
+                tiledMap.getLayers().get(1).setVisible(false);
             }
         } else if(Constants.GATE_THREE.contains(new Vector2(touch.x,touch.y))) {
             resume();
-            if (tiledMap.getLayers().get(1).isVisible()) {
-                tiledMap.getLayers().get(1).setVisible(false);
+            if (tiledMap.getLayers().get(6).isVisible()) {
+                tiledMap.getLayers().get(6).setVisible(false);
                 tiledMap.getLayers().get(5).setVisible(true);
             } else {
-                tiledMap.getLayers().get(1).setVisible(true);
+                tiledMap.getLayers().get(6).setVisible(true);
                 tiledMap.getLayers().get(5).setVisible(false);
             }
         } else if(Constants.GATE_TWO.contains(new Vector2(touch.x,touch.y))) {
             resume();
-            if (tiledMap.getLayers().get(3).isVisible()) {
-                tiledMap.getLayers().get(3).setVisible(false);
-                tiledMap.getLayers().get(6).setVisible(true);
+            if (tiledMap.getLayers().get(7).isVisible()) {
+                tiledMap.getLayers().get(7).setVisible(false);
+                tiledMap.getLayers().get(2).setVisible(true);
             } else {
-                tiledMap.getLayers().get(3).setVisible(true);
-                tiledMap.getLayers().get(6).setVisible(false);
+                tiledMap.getLayers().get(7).setVisible(true);
+                tiledMap.getLayers().get(2).setVisible(false);
             }
         } else
             if(gameStatus == GAME_PAUSED)
