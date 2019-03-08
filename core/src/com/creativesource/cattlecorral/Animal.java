@@ -9,12 +9,13 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public abstract class Animal extends Sprite {
 
     public PlayScreen screen;
-    int startPosition;
+    int startPosition, wanderDuration, randomDirection;
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     float worldWidth, animationTime = 0;
     Animation up,left,down,right;
@@ -88,5 +89,36 @@ public abstract class Animal extends Sprite {
             return false;
         }
         return true;
+    }
+
+    public void wander(float delta) {
+        Random r = new Random();
+        int least = 40;
+        int most = 200;
+
+        if(wanderDuration == 0) {
+            randomDirection = new Random().nextInt(5);
+            wanderDuration = r.nextInt(most-least) + least;
+        }
+
+        if(randomDirection == 1 && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
+            setY(getY() + delta * 20);
+            setRegion((TextureRegion) up.getKeyFrame(animationTime));
+
+        } else if(randomDirection == 4 && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
+            setY(getY() - delta * 20);
+            setRegion((TextureRegion) down.getKeyFrame(animationTime));
+
+        } else if(randomDirection == 2 && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
+            setX(getX() - delta * 20);
+            setRegion((TextureRegion) left.getKeyFrame(animationTime));
+
+        } else if(randomDirection == 3 && !isCellBlocked(getX() + (getWidth() - 20),getY() + (getHeight() / 2))) {
+            setX(getX() + delta * 20);
+            setRegion((TextureRegion) right.getKeyFrame(animationTime));
+
+        }
+
+        wanderDuration--;
     }
 }
