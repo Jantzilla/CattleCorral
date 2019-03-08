@@ -53,6 +53,11 @@ public abstract class Animal extends Sprite {
         draw(batch);
         animationTime += delta;
 
+        if(isCorraled) {
+            wander(delta);
+            return;
+        }
+
         if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
             setY(getY() + delta * speed);
             setRegion((TextureRegion) up.getKeyFrame(animationTime));
