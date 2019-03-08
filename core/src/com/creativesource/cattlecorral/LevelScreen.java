@@ -54,6 +54,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     int topScore;
     Prefs prefs;
     Label levelLabel;
+    ShapeRenderer shapeRenderer;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -298,6 +299,12 @@ public class LevelScreen extends InputAdapter implements Screen {
         viewport.apply();
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        shapeRenderer = new ShapeRenderer();
+        shapeRenderer.begin(ShapeType.Filled);
+        shapeRenderer.setColor(0.32f, 0.76f, 0.55f, 1);
+        shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.25f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.75f);
+        shapeRenderer.end();
 
         stage.act();
         stage.draw();

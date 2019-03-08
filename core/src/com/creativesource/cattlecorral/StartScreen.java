@@ -39,6 +39,7 @@ public class StartScreen extends InputAdapter implements Screen {
     Stage stage;
     Button soundButton;
     Label title, topScore;
+    ShapeRenderer shapeRenderer;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -131,6 +132,12 @@ public class StartScreen extends InputAdapter implements Screen {
         viewport.apply();
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        shapeRenderer = new ShapeRenderer();
+        shapeRenderer.begin(ShapeType.Filled);
+        shapeRenderer.setColor(0.32f, 0.76f, 0.55f, 1);
+        shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.65f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.35f);
+        shapeRenderer.end();
 
         stage.act();
         stage.draw();
