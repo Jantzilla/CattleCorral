@@ -139,6 +139,21 @@ public class StartScreen extends InputAdapter implements Screen {
         shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.65f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.35f);
         shapeRenderer.end();
 
+        Pixmap original = new Pixmap(Gdx.files.internal("signs.png"));
+        Pixmap ropeImage = new Pixmap(800, 80, original.getFormat());
+        ropeImage.drawPixmap(original,
+                0, 0, original.getWidth(), original.getHeight(),
+                0, 0, ropeImage.getWidth(), ropeImage.getHeight()
+        );
+        Texture texture = new Texture(ropeImage);
+
+        batch.setProjectionMatrix(viewport.getCamera().combined);
+        batch.begin();
+
+        batch.draw(texture, viewport.getWorldWidth() / 2 - 400, viewport.getWorldHeight() - 60);
+
+        batch.end();
+
         stage.act();
         stage.draw();
     }
