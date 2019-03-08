@@ -83,6 +83,12 @@ public abstract class Animal extends Sprite {
             setRegion((TextureRegion) down.getKeyFrame(animationTime));
             lastDirection = "down";
 
+            if(getY() < 0) {
+                setY(getY() + delta * speed);
+                setRegion((TextureRegion) up.getKeyFrame(animationTime));
+                lastDirection = "up";
+            }
+
         }
     }
 
