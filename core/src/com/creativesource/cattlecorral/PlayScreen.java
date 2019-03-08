@@ -86,7 +86,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     @Override
     public void show() {
         float tileWidth=32,tileHeight=32;
-        float mapWidth=20,mapHeight=20;
+        float mapWidth=30,mapHeight=20;
 
         worldWidth=tileWidth*mapWidth;
         worldHeight=tileHeight*mapHeight;
@@ -95,7 +95,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         stretchViewport =new StretchViewport(worldWidth,worldHeight,camera);
         hudViewport = new StretchViewport(worldWidth,worldHeight,camera);
         camera.update();
-        tiledMap = new TmxMapLoader().load("cattle_corral_test_map.tmx");
+        tiledMap = new TmxMapLoader().load("new_map.tmx");
         tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
         for(MapLayer layer : tiledMap.getLayers()) {
             tiledMapTileLayers.add((TiledMapTileLayer) layer);
