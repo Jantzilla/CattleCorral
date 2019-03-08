@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
+ <tileset firstgid="1" name="decorations-medieval" tilewidth="32" tileheight="32" tilecount="1024" columns="16">
+  <image source="decorations-medieval.png" width="512" height="2048"/>
+  <tile id="891">
+   <properties>
+    <property name="cow" value=""/>
+   </properties>
+  </tile>
+  <tile id="907">
+   <properties>
+    <property name="pig" value=""/>
+   </properties>
+  </tile>
+  <tile id="923">
+   <properties>
+    <property name="sheep" value=""/>
+   </properties>
+  </tile>
+  <tile id="939">
+   <properties>
+    <property name="gate" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1025" name="fence_2" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="fence_2.png" width="96" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1043" name="fence_3" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="fence_3.png" width="97" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="Grass" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxbzczAsHoUj2I03DMI3DCKhx9eM8jMpZV7RvHwwHPI1FczCNw+igceAwDsB5eG
+  </data>
+ </layer>
+ <layer id="3" name="Closed_1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRQC+gxMLAoAzEKiwD7ZJRMApGAS0BANJjAHY=
+  </data>
+ </layer>
+ <layer id="7" name="Closed_3" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRQCpQYmFgUAZiFZaBdskoGAWjYDACAOv7AHY=
+  </data>
+ </layer>
+ <layer id="2" name="Fence" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOsLMwMDDhwZwsRBpEImAlYC4h+VF7R+0dzvbiy5PImA+JzYxkhxAWeWLwSAPIfufAE47I8uiYHH3IgNy0Q2maG7V31N7hZC8vgbKNH4d+cvQBAPZJBAA=
+  </data>
+ </layer>
+ <layer id="4" name="Open_1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKBA6IsA2OvxADZKz1A9o6CUTAK6AsAd2MAVQ==
+  </data>
+ </layer>
+ <layer id="5" name="Closed_2" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjCSgxMLAoAzEKiwD7ZJRMApGwSgYvgAAgfIAdg==
+  </data>
+ </layer>
+ <layer id="6" name="Open_2" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjCQgyjIw9koMkL3SA2TvKBgFo2BkAwCmowBV
+  </data>
+ </layer>
+ <layer id="8" name="Open_3" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALKgSjLwNgrMUD2Sg+QvaNgFIyCoQEAicMAVQ==
+  </data>
+ </layer>
+</map>
