@@ -82,9 +82,9 @@ public class Constants {
     public static final float[] LEVEL_10 = {LEVEL_9[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
 
     public static final Rectangle MENU = new Rectangle(190, 150, 256, 340);
-    public static final Rectangle GATE_ONE = new Rectangle(275, 190, 75, 75);
-    public static final Rectangle GATE_TWO = new Rectangle(285, 310, 75, 75);
-    public static final Rectangle GATE_THREE = new Rectangle(275, 500, 75, 75);
+    public static final Rectangle GATE_ONE = new Rectangle(600, 250, 100, 100);
+    public static final Rectangle GATE_TWO = new Rectangle(175, 250, 100, 100);
+    public static final Rectangle GATE_THREE = new Rectangle(400, 265, 100, 100);
 
     public static final Vector2 EASY_CENTER = new Vector2(START_WORLD_SIZE / 4, START_WORLD_SIZE / 2);
     public static final Vector2 MEDIUM_CENTER = new Vector2(START_WORLD_SIZE / 2, START_WORLD_SIZE / 2);
