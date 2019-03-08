@@ -45,8 +45,8 @@ public abstract class Animal extends Sprite {
     }
 
     public void init() {
-        setX(worldWidth / 2 - (getWidth() / 2));
-        setY(- startPosition);
+        setY(screen.worldHeight / 2 - (getHeight() / 2));
+        setX(+ (worldWidth + startPosition));
     }
 
     public void update(Batch batch, float delta, float speed) {
@@ -58,10 +58,15 @@ public abstract class Animal extends Sprite {
             return;
         }
 
-        if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
-            setY(getY() + delta * speed);
-            setRegion((TextureRegion) up.getKeyFrame(animationTime));
-            lastDirection = "up";
+        if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
+            setX(getX() - delta * speed);
+            setRegion((TextureRegion) left.getKeyFrame(animationTime));
+            lastDirection = "left";
+
+        } else if((lastDirection.equals("") || lastDirection.equals("down")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
+            setY(getY() - delta * speed);
+            setRegion((TextureRegion) down.getKeyFrame(animationTime));
+            lastDirection = "down";
 
         } else if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
             setX(getX() - delta * speed);
@@ -78,15 +83,10 @@ public abstract class Animal extends Sprite {
             setRegion((TextureRegion) right.getKeyFrame(animationTime));
             lastDirection = "right";
 
-        } else if((lastDirection.equals("") || lastDirection.equals("down")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
-            setY(getY() - delta * speed);
-            setRegion((TextureRegion) down.getKeyFrame(animationTime));
-            lastDirection = "down";
-
-            if(getY() < 0) {
-                setY(getY() + delta * speed);
-                setRegion((TextureRegion) up.getKeyFrame(animationTime));
-                lastDirection = "up";
+            if(getX() > worldWidth) {
+                setX(getX() - delta * speed);
+                setRegion((TextureRegion) left.getKeyFrame(animationTime));
+                lastDirection = "left";
             }
 
         }
