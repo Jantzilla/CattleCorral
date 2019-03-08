@@ -26,6 +26,10 @@ public class Pig extends Animal {
                 if(cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked")) {
                     lastDirection = "";
                     return true;
+
+                } else if (isCorraled && cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("gate")) {
+                    randomDirection = 3;
+                    wanderDuration = 40;
                 }
             }
         }
