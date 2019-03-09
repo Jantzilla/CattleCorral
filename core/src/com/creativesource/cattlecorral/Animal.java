@@ -112,19 +112,19 @@ public abstract class Animal extends Sprite {
             wanderDuration = r.nextInt(most-least) + least;
         }
 
-        if(randomDirection == 1 && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
+        if(randomDirection == 1 && !isCellBlocked(getX() + (getWidth() / 2),getY() + 120)) {
             setY(getY() + delta * 20);
             setRegion((TextureRegion) up.getKeyFrame(animationTime));
 
-        } else if(randomDirection == 4 && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
+        } else if(randomDirection == 4 && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 120))) {
             setY(getY() - delta * 20);
             setRegion((TextureRegion) down.getKeyFrame(animationTime));
 
-        } else if(randomDirection == 2 && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
+        } else if(randomDirection == 2 && !isCellBlocked(getX() + 40,getY() + (getHeight() / 2))) {
             setX(getX() - delta * 20);
             setRegion((TextureRegion) left.getKeyFrame(animationTime));
 
-        } else if(randomDirection == 3 && !isCellBlocked(getX() + (getWidth() - 20),getY() + (getHeight() / 2))) {
+        } else if(randomDirection == 3 && !isCellBlocked(getX() + (getWidth() - 40),getY() + (getHeight() / 2))) {
             setX(getX() + delta * 20);
             setRegion((TextureRegion) right.getKeyFrame(animationTime));
 
