@@ -53,7 +53,6 @@ public class PlayScreen extends InputAdapter implements Screen {
     float worldWidth,worldHeight, gameSpan = Constants.GAME_SPAN_1;
     ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
-    ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
     int topScore, totalCorraled, points, gameStatus = 1;
     ArrayList<Integer> integers = new ArrayList<Integer>();
     Stage stage;
@@ -106,25 +105,21 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMap.getLayers().get(2).setVisible(false);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
-        textureAtlases.add(new TextureAtlas("cow.pack"));
-        textureAtlases.add(new TextureAtlas("pig.pack"));
-        textureAtlases.add(new TextureAtlas("sheep.pack"));
-
         for(int i = 0; i < gameSpan; i++) {
             integers.add(i);
         }
 
         Collections.shuffle(integers);
 
-        for(int i = 0; i < textureAtlases.size(); i++) {
+        for(int i = 0; i < game.textureAtlases.size(); i++) {
             Animation<TextureRegion> up, left, down, right;
-            up = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("up"));
+            up = new Animation<TextureRegion>(0.05f, game.textureAtlases.get(i).findRegions("up"));
             up.setPlayMode(Animation.PlayMode.LOOP);
-            left = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("left"));
+            left = new Animation<TextureRegion>(0.05f, game.textureAtlases.get(i).findRegions("left"));
             left.setPlayMode(Animation.PlayMode.LOOP);
-            down = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("down"));
+            down = new Animation<TextureRegion>(0.05f, game.textureAtlases.get(i).findRegions("down"));
             down.setPlayMode(Animation.PlayMode.LOOP);
-            right = new Animation<TextureRegion>(0.05f, textureAtlases.get(i).findRegions("right"));
+            right = new Animation<TextureRegion>(0.05f, game.textureAtlases.get(i).findRegions("right"));
             right.setPlayMode(Animation.PlayMode.LOOP);
 
             for (int o = 0; o < level.spawnRate; o++) {
