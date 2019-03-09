@@ -171,7 +171,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         stage.addActor(soundButton);
 
         completeLabel = new Label("Well Done!", skin, "title-plain");
-        completeLabel.setSize(1200,250);
+        completeLabel.setSize(1200,120);
         completeLabel.setFontScale(3);
         completeLabel.setAlignment(Align.center);
         completeLabel.setPosition(stretchViewport.getWorldWidth() / 2 - completeLabel.getWidth() / 2, (float) (stretchViewport.getWorldHeight() / 1.2 - (completeLabel.getHeight() / 2)));
