@@ -165,8 +165,8 @@ public class PlayScreen extends InputAdapter implements Screen {
         stage.addActor(scoreLabel);
 
         soundButton = new Button(skin,"sound");
-        soundButton.setSize(50,80);
-        soundButton.setPosition(stretchViewport.getWorldWidth() - (soundButton.getWidth() + 8),8);
+        soundButton.setSize(65,70);
+        soundButton.setPosition(stretchViewport.getWorldWidth() - (soundButton.getWidth() + 15),15);
 
         stage.addActor(soundButton);
 
