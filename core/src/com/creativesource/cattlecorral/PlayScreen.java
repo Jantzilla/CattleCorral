@@ -394,7 +394,12 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     public void gameCompleted() {
         prefs.setScore(points);
-        summaryLabel.setText("You Scored: " + points + " / " + (int)(level.spawnRate * 3 * SINGLE_SCORE));
+        int animalsMissed = (int)((level.spawnRate * 3 * SINGLE_SCORE - points) / 20);
+        if(animalsMissed == 1)
+            summaryLabel.setText("You missed " + animalsMissed + " animal.");
+        else
+            summaryLabel.setText("You missed " + animalsMissed + " animals.");
+
         if(points >= (level.spawnRate * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
             completeLabel.setText("Well Done!");
             completeLabel.setColor(Color.GOLD);
@@ -407,8 +412,8 @@ public class PlayScreen extends InputAdapter implements Screen {
             table.removeActor(resume);
             stage.addActor(semiTL);
             stage.addActor(table);
+            stage.addActor(summaryLabel);
         }
         stage.addActor(completeLabel);
-        stage.addActor(summaryLabel);
     }
 }
