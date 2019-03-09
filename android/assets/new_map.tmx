@@ -211,7 +211,7 @@
  </tileset>
  <layer id="1" name="Grass" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxbzczAsHoUj2I03DMI3DCKhx9eM8jMpZV7RvHwwHPI1FczCNw+igceAwDsB5eG
+   eJxbzczAsHoUD1rcMwjcMIpHMbXwmkFmLq3cM4pHMSV4Dpn6agaB20cxAgMA+o+Xhg==
   </data>
  </layer>
  <layer id="3" name="Closed_1" width="30" height="20">
