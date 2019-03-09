@@ -90,7 +90,7 @@ public class Constants {
     public static final Vector2 MEDIUM_CENTER = new Vector2(START_WORLD_SIZE / 2, START_WORLD_SIZE / 2);
     public static final Vector2 HARD_CENTER = new Vector2(START_WORLD_SIZE * 3 / 4, START_WORLD_SIZE / 2);
     public static final String START_LABEL = "Difficulty: ";
-    public static final String SCORE_LABEL = "Score: ";
+    public static final String SCORE_LABEL = "Score";
     public static final String TOP_SCORE_LABEL = "Top Score: ";
     public static final int GAME_PAUSED = 0;
     public static final int GAME_RESUMED = 1;
