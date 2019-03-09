@@ -28,7 +28,7 @@ public class Sheep extends Animal {
                     return true;
 
                 } else if (isCorraled && cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("gate")) {
-                    randomDirection = 2;
+                    randomDirection = 4;
                     wanderDuration = 40;
                 }
             }

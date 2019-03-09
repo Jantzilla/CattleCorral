@@ -28,7 +28,7 @@ public class Pig extends Animal {
                     return true;
 
                 } else if (isCorraled && cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("gate")) {
-                    randomDirection = 3;
+                    randomDirection = 1;
                     wanderDuration = 40;
                 }
             }
