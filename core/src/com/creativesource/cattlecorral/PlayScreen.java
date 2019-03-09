@@ -157,9 +157,10 @@ public class PlayScreen extends InputAdapter implements Screen {
         stage.addActor(levelLabel);
 
         scoreLabel = new Label("", skin, "title-plain");
-        scoreLabel.setSize(120,60);
+        scoreLabel.setSize(200,200);
+        scoreLabel.setFontScale(1.5f);
         scoreLabel.setAlignment(Align.center);
-        scoreLabel.setPosition(stretchViewport.getWorldWidth() - scoreLabel.getWidth(), stretchViewport.getWorldHeight() - scoreLabel.getHeight());
+        scoreLabel.setPosition(stretchViewport.getWorldWidth() * 0.80f - scoreLabel.getWidth() / 2, stretchViewport.getWorldHeight() - scoreLabel.getHeight());
 
         stage.addActor(scoreLabel);
 
@@ -308,7 +309,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         topScore = Math.max(topScore, points);
 
-        scoreLabel.setText(Constants.SCORE_LABEL + points);
+        scoreLabel.setText(Constants.SCORE_LABEL + "\n" + points);
 
         tiledMapRenderer.getBatch().end();
 
