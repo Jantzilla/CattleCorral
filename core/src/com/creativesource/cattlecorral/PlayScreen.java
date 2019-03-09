@@ -296,7 +296,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         for (int i = 0; i < animals.size(); i++) {
             if(animals.get(i).isCorraled)
                 totalCorraled++;
-            if(animals.get(i).getY() > worldWidth) {
+            if(animals.get(i).getX() < - 200) {
                 animals.remove(i);
                 break;
             }
