@@ -148,10 +148,11 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        levelLabel = new Label("Level " + level.label, skin, "title");
-        levelLabel.setSize(120,60);
+        levelLabel = new Label("Level " + level.label, skin, "title-plain");
+        levelLabel.setFontScale(2);
+        levelLabel.setSize(200,60);
         levelLabel.setAlignment(Align.center);
-        levelLabel.setPosition(0, stretchViewport.getWorldHeight() - levelLabel.getHeight());
+        levelLabel.setPosition(0, stretchViewport.getWorldHeight() - (levelLabel.getHeight() + 10));
 
         stage.addActor(levelLabel);
 
