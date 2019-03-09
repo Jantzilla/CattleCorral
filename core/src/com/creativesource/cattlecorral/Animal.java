@@ -58,27 +58,27 @@ public abstract class Animal extends Sprite {
             return;
         }
 
-        if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
+        if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 40,getY() + (getHeight() / 2))) {
             setX(getX() - delta * speed);
             setRegion((TextureRegion) left.getKeyFrame(animationTime));
             lastDirection = "left";
 
-        } else if((lastDirection.equals("") || lastDirection.equals("down")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 77))) {
+        } else if((lastDirection.equals("") || lastDirection.equals("down")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + (getHeight() - 120))) {
             setY(getY() - delta * speed);
             setRegion((TextureRegion) down.getKeyFrame(animationTime));
             lastDirection = "down";
 
-        } else if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 20,getY() + (getHeight() / 2))) {
+        } else if((lastDirection.equals("") || lastDirection.equals("left")) && !isCellBlocked(getX() + 40,getY() + (getHeight() / 2))) {
             setX(getX() - delta * speed);
             setRegion((TextureRegion) left.getKeyFrame(animationTime));
             lastDirection = "left";
 
-        } else if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 77)) {
+        } else if((lastDirection.equals("") || lastDirection.equals("up")) && !isCellBlocked(getX() + (getWidth() / 2),getY() + 120)) {
             setY(getY() + delta * speed);
             setRegion((TextureRegion) up.getKeyFrame(animationTime));
             lastDirection = "up";
 
-        } else if((lastDirection.equals("") || lastDirection.equals("right")) && !isCellBlocked(getX() + (getWidth() - 20),getY() + (getHeight() / 2))) {
+        } else if((lastDirection.equals("") || lastDirection.equals("right")) && !isCellBlocked(getX() + (getWidth() - 40),getY() + (getHeight() / 2))) {
             setX(getX() + delta * speed);
             setRegion((TextureRegion) right.getKeyFrame(animationTime));
             lastDirection = "right";
