@@ -147,7 +147,7 @@ public class StartScreen extends InputAdapter implements Screen {
 
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.begin(ShapeType.Filled);
-        shapeRenderer.setColor(0.32f, 0.76f, 0.55f, 1);
+        shapeRenderer.setColor(0.27f, 0.75f, 0.77f, 1);
         shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.65f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.35f);
         shapeRenderer.end();
 
