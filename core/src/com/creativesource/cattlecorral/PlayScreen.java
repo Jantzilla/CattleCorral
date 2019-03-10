@@ -322,7 +322,7 @@ public class PlayScreen extends InputAdapter implements Screen {
             animals.get(i).update(tiledMapRenderer.getBatch(), delta, level.speed);
         }
 
-        if(animals.size() == 0 || totalCorraled == animals.size()) {
+        if(animals.size() == 3 || totalCorraled == animals.size() - 3) {
             gameStatus = GAME_COMPLETE;
         }
 
