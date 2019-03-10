@@ -61,6 +61,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     Label levelLabel;
     ShapeRenderer shapeRenderer;
     Sprite sprite;
+    Animation<TextureRegion> anim;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
