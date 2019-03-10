@@ -32,14 +32,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.creativesource.cattlecorral.Animal;
+import com.creativesource.cattlecorral.entity.Animal;
 import com.creativesource.cattlecorral.CattleCorral;
 import com.creativesource.cattlecorral.Constants;
 import com.creativesource.cattlecorral.Constants.Level;
-import com.creativesource.cattlecorral.Cow;
-import com.creativesource.cattlecorral.Pig;
+import com.creativesource.cattlecorral.entity.Cow;
+import com.creativesource.cattlecorral.entity.Pig;
 import com.creativesource.cattlecorral.Prefs;
-import com.creativesource.cattlecorral.Sheep;
+import com.creativesource.cattlecorral.entity.Sheep;
 
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
 import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
