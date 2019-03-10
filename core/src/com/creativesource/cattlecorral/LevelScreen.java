@@ -315,6 +315,14 @@ public class LevelScreen extends InputAdapter implements Screen {
         shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.25f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.75f);
         shapeRenderer.end();
 
+        Pixmap pixmap = new Pixmap(Gdx.files.internal("levels_background.png"));
+        Pixmap pixmapNew = new Pixmap((int) viewport.getWorldWidth(), (int) viewport.getWorldHeight(), pixmap.getFormat());
+        pixmapNew.drawPixmap(pixmap,
+                0, 0, pixmap.getWidth(), pixmap.getHeight(),
+                0, 0, pixmapNew.getWidth(), pixmapNew.getHeight()
+        );
+        Texture texture = new Texture(pixmapNew);
+
         stage.act();
         stage.draw();
     }
