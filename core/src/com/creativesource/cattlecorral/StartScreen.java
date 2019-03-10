@@ -68,12 +68,7 @@ public class StartScreen extends InputAdapter implements Screen {
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         Pixmap pixmap = new Pixmap(Gdx.files.internal("label_background.png"));
-        Pixmap pixmap100 = new Pixmap(100, 100, pixmap.getFormat());
-        pixmap100.drawPixmap(pixmap,
-                0, 0, pixmap.getWidth(), pixmap.getHeight(),
-                0, 0, pixmap100.getWidth(), pixmap100.getHeight()
-        );
-        Texture texture = new Texture(pixmap100);
+        Texture texture = new Texture(pixmap);
 
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
