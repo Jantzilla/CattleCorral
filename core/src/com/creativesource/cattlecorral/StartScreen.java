@@ -133,6 +133,8 @@ public class StartScreen extends InputAdapter implements Screen {
         stage.addActor(soundButton);
 
         Gdx.input.setInputProcessor(stage);
+
+        createAnimal();
     }
 
     @Override
