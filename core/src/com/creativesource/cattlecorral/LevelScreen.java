@@ -52,7 +52,7 @@ public class LevelScreen extends InputAdapter implements Screen {
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table, tableBackground;
     Stage stage;
-    Texture texture;
+    Texture texture, levelsTexture;
     TextureRegion textureRegion;
     TextureRegionDrawable texRegionDrawable;
     int topScore, randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
@@ -237,6 +237,14 @@ public class LevelScreen extends InputAdapter implements Screen {
                 tableBackground.add(new TextButton("",skin,"round")).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         }
 
+        Pixmap levels_background = new Pixmap(Gdx.files.internal("levels_background.png"));
+        Pixmap pixmapNew = new Pixmap((int) viewport.getWorldWidth(), (int) viewport.getWorldHeight(), levels_background.getFormat());
+        pixmapNew.drawPixmap(levels_background,
+                0, 0, levels_background.getWidth(), levels_background.getHeight(),
+                0, 0, pixmapNew.getWidth(), pixmapNew.getHeight()
+        );
+        levelsTexture = new Texture(pixmapNew);
+
         Pixmap pixmap = new Pixmap(Gdx.files.internal("lock.png"));
         Pixmap pixmap100 = new Pixmap(100, 100, pixmap.getFormat());
         pixmap100.drawPixmap(pixmap,
@@ -317,18 +325,10 @@ public class LevelScreen extends InputAdapter implements Screen {
         shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.25f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.75f);
         shapeRenderer.end();
 
-        Pixmap pixmap = new Pixmap(Gdx.files.internal("levels_background.png"));
-        Pixmap pixmapNew = new Pixmap((int) viewport.getWorldWidth(), (int) viewport.getWorldHeight(), pixmap.getFormat());
-        pixmapNew.drawPixmap(pixmap,
-                0, 0, pixmap.getWidth(), pixmap.getHeight(),
-                0, 0, pixmapNew.getWidth(), pixmapNew.getHeight()
-        );
-        Texture texture = new Texture(pixmapNew);
-
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
 
-        batch.draw(texture, 0, 0);
+        batch.draw(levelsTexture, 0, 0);
 
         animateAnimal();
 
