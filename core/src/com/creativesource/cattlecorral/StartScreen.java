@@ -27,10 +27,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
+import java.util.Random;
+
 public class StartScreen extends InputAdapter implements Screen {
 
     CattleCorral game;
 
+    Sprite sprite;
     SpriteBatch batch;
     FitViewport viewport;
 
