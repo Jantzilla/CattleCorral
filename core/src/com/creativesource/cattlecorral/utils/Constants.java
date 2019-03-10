@@ -109,8 +109,8 @@ public class Constants {
         TEN(SPAWN_RATE_10, MOVEMENT_SPEED_10, LEVEL_10_LABEL);
 
         public float spawnRate;
-        float speed;
-        String label;
+        public float speed;
+        public String label;
 
         Level(float spawnRate, float speed, String label) {
             this.spawnRate = spawnRate;
