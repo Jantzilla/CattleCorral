@@ -14,7 +14,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -45,7 +44,6 @@ public class StartScreen extends InputAdapter implements Screen {
     Stage stage;
     Button soundButton;
     Label title, topScore;
-    ShapeRenderer shapeRenderer;
     float animationTime;
     Animation<TextureRegion> anim;
     Texture grassTexture;
@@ -148,12 +146,6 @@ public class StartScreen extends InputAdapter implements Screen {
         viewport.apply();
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        shapeRenderer = new ShapeRenderer();
-        shapeRenderer.begin(ShapeType.Filled);
-        shapeRenderer.setColor(0.27f, 0.75f, 0.77f, 1);
-        shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.65f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.35f);
-        shapeRenderer.end();
 
         Pixmap original = new Pixmap(Gdx.files.internal("signs.png"));
         Pixmap ropeImage = new Pixmap(800, 200, original.getFormat());
