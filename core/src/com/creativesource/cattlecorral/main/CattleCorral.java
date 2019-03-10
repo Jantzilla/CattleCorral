@@ -17,7 +17,7 @@ public class CattleCorral extends Game {
 
 	Music intro, play;
 	Prefs prefs;
-    ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
+    public ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
 
     @Override
 	public void create() {
