@@ -65,6 +65,9 @@ public class PlayScreen extends InputAdapter implements Screen {
     InputMultiplexer inputMultiplexer;
     Sound cow, sheep, pig;
     Label completeLabel, summaryLabel, levelLabel, scoreLabel;
+    Cow firstCow;
+    Pig firstPig;
+    Sheep firstSheep;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -126,12 +129,30 @@ public class PlayScreen extends InputAdapter implements Screen {
                 switch (i) {
                     case 0:
                         animals.add(new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get(o)));
+                        if(o == 0) {
+                            firstCow = new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            firstCow.setX(650);
+                            firstCow.setY(50);
+                            animals.add(firstCow);
+                        }
                         break;
                     case 1:
                         animals.add(new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 3))));
+                        if(o == 0) {
+                            firstPig = new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            firstPig.setX(450);
+                            firstPig.setY(450);
+                            animals.add(firstPig);
+                        }
                         break;
                     case 2:
                         animals.add(new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 1.5))));
+                        if(o == 0) {
+                            firstSheep = new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            firstSheep.setX(200);
+                            firstSheep.setY(50);
+                            animals.add(firstSheep);
+                        }
                 }
             }
         }
