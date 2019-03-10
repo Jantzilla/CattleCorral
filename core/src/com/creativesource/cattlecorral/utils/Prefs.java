@@ -1,4 +1,4 @@
-package com.creativesource.cattlecorral;
+package com.creativesource.cattlecorral.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
