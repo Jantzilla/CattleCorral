@@ -323,6 +323,11 @@ public class LevelScreen extends InputAdapter implements Screen {
         );
         Texture texture = new Texture(pixmapNew);
 
+        batch.setProjectionMatrix(viewport.getCamera().combined);
+        batch.begin();
+
+        batch.draw(texture, 0, 0);
+
         stage.act();
         stage.draw();
     }
