@@ -131,6 +131,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                         animals.add(new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get(o)));
                         if(o == 0) {
                             firstCow = new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            firstCow.active = false;
                             firstCow.setX(650);
                             firstCow.setY(50);
                             animals.add(firstCow);
@@ -140,6 +141,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                         animals.add(new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 3))));
                         if(o == 0) {
                             firstPig = new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            firstPig.active = false;
                             firstPig.setX(450);
                             firstPig.setY(450);
                             animals.add(firstPig);
@@ -149,6 +151,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                         animals.add(new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 1.5))));
                         if(o == 0) {
                             firstSheep = new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            firstSheep.active = false;
                             firstSheep.setX(200);
                             firstSheep.setY(50);
                             animals.add(firstSheep);
@@ -310,7 +313,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         totalCorraled = 0;
 
         for (int i = 0; i < animals.size(); i++) {
-            if(animals.get(i).isCorraled)
+            if(animals.get(i).active && animals.get(i).isCorraled)
                 totalCorraled++;
             if(animals.get(i).getX() < - 200) {
                 animals.remove(i);
