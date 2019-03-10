@@ -39,7 +39,7 @@ public class StartScreen extends InputAdapter implements Screen {
 
     BitmapFont font;
     Prefs prefs;
-    int score;
+    int score, randomDirection, animalSize, animalElevation, directionMultiplier, animalSpeed;
     Skin skin;
     TextButton playButton;
     Stage stage;
