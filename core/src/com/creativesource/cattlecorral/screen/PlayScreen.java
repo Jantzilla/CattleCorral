@@ -58,7 +58,9 @@ public class PlayScreen extends InputAdapter implements Screen {
     TextureAtlas textureAtlas;
     StretchViewport stretchViewport, hudViewport;
     OrthographicCamera camera;
-    float worldWidth,worldHeight, gameSpan = Constants.GAME_SPAN_1;
+    float worldWidth;
+    public float worldHeight;
+    float gameSpan = Constants.GAME_SPAN_1;
     ArrayList<Animal> animals = new ArrayList<Animal>();
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     int topScore, totalCorraled, points, gameStatus = 1;
