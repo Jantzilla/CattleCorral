@@ -179,7 +179,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         scoreLabel.setSize(200,200);
         scoreLabel.setFontScale(1.5f);
         scoreLabel.setAlignment(Align.center);
-        scoreLabel.setPosition(stretchViewport.getWorldWidth() * 0.80f - scoreLabel.getWidth() / 2, stretchViewport.getWorldHeight() - scoreLabel.getHeight());
+        scoreLabel.setPosition(stretchViewport.getWorldWidth() * 0.81f - scoreLabel.getWidth() / 2, stretchViewport.getWorldHeight() - (scoreLabel.getHeight() + 25));
 
         stage.addActor(scoreLabel);
 
