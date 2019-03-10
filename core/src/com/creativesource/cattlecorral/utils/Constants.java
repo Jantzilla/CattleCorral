@@ -108,7 +108,8 @@ public class Constants {
         NINE(SPAWN_RATE_9, MOVEMENT_SPEED_9, LEVEL_9_LABEL),
         TEN(SPAWN_RATE_10, MOVEMENT_SPEED_10, LEVEL_10_LABEL);
 
-        float spawnRate, speed;
+        public float spawnRate;
+        float speed;
         String label;
 
         Level(float spawnRate, float speed, String label) {
