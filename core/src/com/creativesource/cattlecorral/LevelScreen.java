@@ -55,7 +55,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     Texture texture;
     TextureRegion textureRegion;
     TextureRegionDrawable texRegionDrawable;
-    int topScore;
+    int topScore, randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
     Prefs prefs;
     Label levelLabel;
     ShapeRenderer shapeRenderer;
