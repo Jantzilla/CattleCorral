@@ -46,6 +46,8 @@ public class StartScreen extends InputAdapter implements Screen {
     Button soundButton;
     Label title, topScore;
     ShapeRenderer shapeRenderer;
+    float animationTime;
+    Animation<TextureRegion> anim;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
