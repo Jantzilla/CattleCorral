@@ -1,4 +1,4 @@
-package com.creativesource.cattlecorral;
+package com.creativesource.cattlecorral.entity;
 
 
 import com.badlogic.gdx.graphics.g2d.Animation;
