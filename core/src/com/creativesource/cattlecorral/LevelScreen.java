@@ -305,6 +305,8 @@ public class LevelScreen extends InputAdapter implements Screen {
 
     @Override
     public void render(float delta) {
+        animationTime += delta;
+
         viewport.apply();
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -327,6 +329,10 @@ public class LevelScreen extends InputAdapter implements Screen {
         batch.begin();
 
         batch.draw(texture, 0, 0);
+
+        animateAnimal();
+
+        batch.end();
 
         stage.act();
         stage.draw();
