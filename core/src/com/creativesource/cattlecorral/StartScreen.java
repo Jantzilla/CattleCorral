@@ -48,6 +48,7 @@ public class StartScreen extends InputAdapter implements Screen {
     ShapeRenderer shapeRenderer;
     float animationTime;
     Animation<TextureRegion> anim;
+    Texture grassTexture;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -61,6 +62,14 @@ public class StartScreen extends InputAdapter implements Screen {
 
         viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
+
+        Pixmap levels_background = new Pixmap(Gdx.files.internal("start_background_grass.png"));
+        Pixmap pixmapNew = new Pixmap((int) viewport.getWorldWidth(), (int) viewport.getWorldHeight(), levels_background.getFormat());
+        pixmapNew.drawPixmap(levels_background,
+                0, 0, levels_background.getWidth(), levels_background.getHeight(),
+                0, 0, pixmapNew.getWidth(), pixmapNew.getHeight()
+        );
+        grassTexture = new Texture(pixmapNew);
 
         font = new BitmapFont();
         font.getData().setScale(Constants.START_LABEL_SCALE);
@@ -157,6 +166,7 @@ public class StartScreen extends InputAdapter implements Screen {
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
 
+        batch.draw(grassTexture, 0, 0);
         batch.draw(texture, viewport.getWorldWidth() / 2 - 400, viewport.getWorldHeight() - 120);
 
         animateAnimal();
