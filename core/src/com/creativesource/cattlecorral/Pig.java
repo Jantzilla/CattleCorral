@@ -17,7 +17,7 @@ public class Pig extends Animal {
             if(tiledMapTileLayer.isVisible()) {
                 TiledMapTileLayer.Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()), (int) (y / tiledMapTileLayer.getTileHeight()));
                 if(!getCorraled(cell)) {
-                    if (cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("pig")) {
+                    if (active && cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("pig")) {
                         screen.points += 20;
                         if(screen.prefs.hasSound())
                             screen.pig.play(1.0f);

@@ -17,7 +17,7 @@ public class Sheep extends Animal {
             if(tiledMapTileLayer.isVisible()) {
                 TiledMapTileLayer.Cell cell = tiledMapTileLayer.getCell((int) (x / tiledMapTileLayer.getTileWidth()), (int) (y / tiledMapTileLayer.getTileHeight()));
                 if(!getCorraled(cell)) {
-                    if (cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("sheep")) {
+                    if (active && cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("sheep")) {
                         screen.points += 20;
                         if(screen.prefs.hasSound())
                             screen.sheep.play(1.0f);
