@@ -1,10 +1,11 @@
-package com.creativesource.cattlecorral;
+package com.creativesource.cattlecorral.main;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.creativesource.cattlecorral.Constants.Level;
+import com.creativesource.cattlecorral.Prefs;
 import com.creativesource.cattlecorral.screen.LevelScreen;
 import com.creativesource.cattlecorral.screen.PlayScreen;
 import com.creativesource.cattlecorral.screen.StartScreen;
