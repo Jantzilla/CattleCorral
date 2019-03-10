@@ -9,7 +9,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -30,6 +32,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.Constants.Level;
+
+import java.util.Random;
 
 import static com.creativesource.cattlecorral.Constants.GAME_SPAN_1;
 import static com.creativesource.cattlecorral.Constants.SINGLE_SCORE;
@@ -55,6 +59,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     Prefs prefs;
     Label levelLabel;
     ShapeRenderer shapeRenderer;
+    Sprite sprite;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
