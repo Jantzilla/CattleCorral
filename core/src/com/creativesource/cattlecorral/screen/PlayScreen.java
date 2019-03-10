@@ -1,4 +1,4 @@
-package com.creativesource.cattlecorral;
+package com.creativesource.cattlecorral.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
@@ -32,7 +32,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.creativesource.cattlecorral.Animal;
+import com.creativesource.cattlecorral.CattleCorral;
+import com.creativesource.cattlecorral.Constants;
 import com.creativesource.cattlecorral.Constants.Level;
+import com.creativesource.cattlecorral.Cow;
+import com.creativesource.cattlecorral.Pig;
+import com.creativesource.cattlecorral.Prefs;
+import com.creativesource.cattlecorral.Sheep;
+
 import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
 import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
 import static com.creativesource.cattlecorral.Constants.GAME_COMPLETE;

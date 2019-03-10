@@ -1,4 +1,4 @@
-package com.creativesource.cattlecorral;
+package com.creativesource.cattlecorral.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -31,7 +31,10 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.creativesource.cattlecorral.CattleCorral;
+import com.creativesource.cattlecorral.Constants;
 import com.creativesource.cattlecorral.Constants.Level;
+import com.creativesource.cattlecorral.Prefs;
 
 import java.util.Random;
 
