@@ -24,8 +24,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.creativesource.cattlecorral.main.CattleCorral;
-import com.creativesource.cattlecorral.Constants;
-import com.creativesource.cattlecorral.Prefs;
+import com.creativesource.cattlecorral.utils.Constants;
+import com.creativesource.cattlecorral.utils.Prefs;
 
 import java.util.Random;
 

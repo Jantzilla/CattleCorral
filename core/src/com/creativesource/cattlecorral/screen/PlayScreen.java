@@ -34,17 +34,17 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.entity.Animal;
 import com.creativesource.cattlecorral.main.CattleCorral;
-import com.creativesource.cattlecorral.Constants;
-import com.creativesource.cattlecorral.Constants.Level;
+import com.creativesource.cattlecorral.utils.Constants;
+import com.creativesource.cattlecorral.utils.Constants.Level;
 import com.creativesource.cattlecorral.entity.Cow;
 import com.creativesource.cattlecorral.entity.Pig;
-import com.creativesource.cattlecorral.Prefs;
+import com.creativesource.cattlecorral.utils.Prefs;
 import com.creativesource.cattlecorral.entity.Sheep;
 
-import static com.creativesource.cattlecorral.Constants.GAME_PAUSED;
-import static com.creativesource.cattlecorral.Constants.GAME_RESUMED;
-import static com.creativesource.cattlecorral.Constants.GAME_COMPLETE;
-import static com.creativesource.cattlecorral.Constants.SINGLE_SCORE;
+import static com.creativesource.cattlecorral.utils.Constants.GAME_PAUSED;
+import static com.creativesource.cattlecorral.utils.Constants.GAME_RESUMED;
+import static com.creativesource.cattlecorral.utils.Constants.GAME_COMPLETE;
+import static com.creativesource.cattlecorral.utils.Constants.SINGLE_SCORE;
 
 import java.util.ArrayList;
 import java.util.Collections;

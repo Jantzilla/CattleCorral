@@ -29,14 +29,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.main.CattleCorral;
-import com.creativesource.cattlecorral.Constants;
-import com.creativesource.cattlecorral.Constants.Level;
-import com.creativesource.cattlecorral.Prefs;
+import com.creativesource.cattlecorral.utils.Constants;
+import com.creativesource.cattlecorral.utils.Constants.Level;
+import com.creativesource.cattlecorral.utils.Prefs;
 
 import java.util.Random;
 
-import static com.creativesource.cattlecorral.Constants.GAME_SPAN_1;
-import static com.creativesource.cattlecorral.Constants.SINGLE_SCORE;
+import static com.creativesource.cattlecorral.utils.Constants.GAME_SPAN_1;
+import static com.creativesource.cattlecorral.utils.Constants.SINGLE_SCORE;
 
 public class LevelScreen extends InputAdapter implements Screen {
 
