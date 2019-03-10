@@ -8,8 +8,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
@@ -181,6 +184,62 @@ public class StartScreen extends InputAdapter implements Screen {
 
     @Override
     public void dispose() {
+
+    }
+
+    public void createAnimal() {
+        sprite = null;
+
+        String direction;
+        float startLocation;
+        int randomAnimal = new Random().nextInt(3);
+        randomDirection = new Random().nextInt(2);
+        int randomDepth = new Random().nextInt(3);
+
+        if(randomDirection == 0) {
+            direction = "left";
+            startLocation = viewport.getWorldWidth();
+            directionMultiplier = -1;
+        } else {
+            direction = "right";
+            startLocation = - 600;
+            directionMultiplier = 1;
+        }
+
+        switch (randomDepth) {
+            case 0:
+                animalSize = 300;
+                animalElevation = 575;
+                animalSpeed = 10;
+                break;
+            case 1:
+                animalSize = 500;
+                animalElevation = 250;
+                animalSpeed = 30;
+                break;
+            default:
+                animalSize = 800;
+                animalElevation = - 300;
+                animalSpeed = 40;
+        }
+
+        animationTime = 0;
+        anim = new Animation<TextureRegion>(0.05f, game.textureAtlases.get(randomAnimal).findRegions(direction));
+        anim.setPlayMode(Animation.PlayMode.LOOP);
+        sprite = new Sprite(game.textureAtlases.get(randomAnimal).findRegion(direction));
+        sprite.setX(startLocation);
+
+    }
+
+    public void animateAnimal() {
+
+        sprite.setRegion((TextureRegion) anim.getKeyFrame(animationTime));
+        sprite.setX(sprite.getX() + directionMultiplier * animationTime * animalSpeed);
+        batch.draw(sprite,sprite.getX(),animalElevation, animalSize, animalSize);
+
+        if((randomDirection == 0 && sprite.getX() < - 600) || (randomDirection == 1 && sprite.getX() > viewport.getWorldWidth())) {
+            createAnimal();
+        }
 
     }
 }
