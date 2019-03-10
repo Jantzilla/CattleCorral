@@ -33,7 +33,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.creativesource.cattlecorral.entity.Animal;
-import com.creativesource.cattlecorral.CattleCorral;
+import com.creativesource.cattlecorral.main.CattleCorral;
 import com.creativesource.cattlecorral.Constants;
 import com.creativesource.cattlecorral.Constants.Level;
 import com.creativesource.cattlecorral.entity.Cow;

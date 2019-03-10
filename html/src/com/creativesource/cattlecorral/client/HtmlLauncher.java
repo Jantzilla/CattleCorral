@@ -3,7 +3,7 @@ package com.creativesource.cattlecorral.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.creativesource.cattlecorral.CattleCorral;
+import com.creativesource.cattlecorral.main.CattleCorral;
 
 public class HtmlLauncher extends GwtApplication {
 
