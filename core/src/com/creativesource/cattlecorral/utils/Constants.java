@@ -6,13 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 
 
 public class Constants {
-    public static final float WORLD_SIZE = 10.0f;
     public static final Color BACKGROUND_COLOR = Color.FOREST;
 
-    public static final float COW_HEIGHT = 30;
-    public static final float COW_WIDTH = 15;
-
-    public static final float MOVEMENT_SPEED = 40.0f;
     public static final float MOVEMENT_SPEED_1 = 35.0f;
     public static final float MOVEMENT_SPEED_2 = 40.0f;
     public static final float MOVEMENT_SPEED_3 = 45.0f;
@@ -24,12 +19,6 @@ public class Constants {
     public static final float MOVEMENT_SPEED_9 = 90.0f;
     public static final float MOVEMENT_SPEED_10 = 100.0f;
 
-    public static final float HUD_FONT_REFERENCE_SCREEN_SIZE = 480.0f;
-    public static final float HUD_MARGIN = 20.0f;
-
-    public static final String EASY_LABEL = "Easy";
-    public static final String MEDIUM_LABEL = "Medium";
-    public static final String HARD_LABEL = "Hard";
     public static final String LEVEL_1_LABEL = "1";
     public static final String LEVEL_2_LABEL = "2";
     public static final String LEVEL_3_LABEL = "3";
@@ -57,41 +46,13 @@ public class Constants {
 
     public static final float SINGLE_SCORE = 20;
 
-    public static final Color EASY_COLOR = new Color(0.192f, 0.949f, 0.490f, 1);
-    public static final Color MEDIUM_COLOR = new Color(0.043f, 0.694f, 0.301f, 1);
-    public static final Color HARD_COLOR = new Color(0.027f, 0.392f, 0.172f, 1);
-
-    public static final float START_WORLD_SIZE = 480.0f;
-    public static final float START_BUBBLE_RADIUS = START_WORLD_SIZE / 9;
     public static final float START_LABEL_SCALE = 1.5f;
-    public static final float TITLE_LABEL_SCALE = 10f;
-    public static final float SCORE_LABEL_SCALE = 4f;
-    public static final float BUTTON_SIZE = 50;
-    public static final float PLAY_BUTTON_SIZE = 100;
-    private static float BUTTON_SPACE = 25;
-    private static float BUTTON_ARRAY_WIDTH = 325;
-    public static final float[] LEVEL_1 = {(START_WORLD_SIZE - BUTTON_ARRAY_WIDTH) / 2, START_WORLD_SIZE / 2};
-    public static final float[] LEVEL_2 = {LEVEL_1[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
-    public static final float[] LEVEL_3 = {LEVEL_2[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
-    public static final float[] LEVEL_4 = {LEVEL_3[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
-    public static final float[] LEVEL_5 = {LEVEL_4[0] + BUTTON_SIZE + BUTTON_SPACE, START_WORLD_SIZE / 2};
-    public static final float[] LEVEL_6 = {LEVEL_1[0], LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
-    public static final float[] LEVEL_7 = {LEVEL_6[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
-    public static final float[] LEVEL_8 = {LEVEL_7[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
-    public static final float[] LEVEL_9 = {LEVEL_8[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
-    public static final float[] LEVEL_10 = {LEVEL_9[0] + BUTTON_SIZE + BUTTON_SPACE, LEVEL_5[1] - BUTTON_SIZE - BUTTON_SPACE};
 
-    public static final Rectangle MENU = new Rectangle(190, 150, 256, 340);
     public static final Rectangle GATE_ONE = new Rectangle(600, 250, 100, 100);
     public static final Rectangle GATE_TWO = new Rectangle(175, 250, 100, 100);
     public static final Rectangle GATE_THREE = new Rectangle(400, 265, 100, 100);
 
-    public static final Vector2 EASY_CENTER = new Vector2(START_WORLD_SIZE / 4, START_WORLD_SIZE / 2);
-    public static final Vector2 MEDIUM_CENTER = new Vector2(START_WORLD_SIZE / 2, START_WORLD_SIZE / 2);
-    public static final Vector2 HARD_CENTER = new Vector2(START_WORLD_SIZE * 3 / 4, START_WORLD_SIZE / 2);
-    public static final String START_LABEL = "Difficulty: ";
     public static final String SCORE_LABEL = "Score";
-    public static final String TOP_SCORE_LABEL = "Top Score: ";
     public static final int GAME_PAUSED = 0;
     public static final int GAME_RESUMED = 1;
     public static final int GAME_COMPLETE = 2;
