@@ -245,7 +245,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         );
         levelsTexture = new Texture(pixmapNew);
 
-        Pixmap pixmap = new Pixmap(Gdx.files.internal("lock.png"));
+        Pixmap pixmap = new Pixmap(Gdx.files.internal("image/lock.png"));
         Pixmap pixmap100 = new Pixmap(100, 100, pixmap.getFormat());
         pixmap100.drawPixmap(pixmap,
                 0, 0, pixmap.getWidth(), pixmap.getHeight(),
