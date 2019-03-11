@@ -47,19 +47,11 @@ public class LevelScreen extends InputAdapter implements Screen {
     private StretchViewport viewport;
 
     private BitmapFont font;
-    private Button backButton, soundButton;
-    private TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
-            ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
-    private Table table, tableBackground;
     private Stage stage;
     private Texture levelsTexture;
-    private TextureRegion textureRegion;
-    private TextureRegionDrawable texRegionDrawable;
-    private int topScore, randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
+    private int randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
     private float animationTime;
     private Prefs prefs;
-    private Label levelLabel;
-    private ShapeRenderer shapeRenderer;
     private Sprite sprite;
     private Animation<TextureRegion> anim;
 
@@ -82,53 +74,53 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         prefs = new Prefs();
 
-        topScore = prefs.getTopScore();
+        int topScore = prefs.getTopScore();
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        levelOneButton = new TextButton("1",skin,"round");
+        TextButton levelOneButton = new TextButton("1", skin, "round");
         levelOneButton.setSize(250, 150);
         levelOneButton.getStyle().downFontColor.set(Color.WHITE);
         levelOneButton.getLabel().setFontScale(4);
-        levelTwoButton = new TextButton("2",skin,"round");
+        TextButton levelTwoButton = new TextButton("2", skin, "round");
         levelTwoButton.getStyle().downFontColor.set(Color.WHITE);
         levelTwoButton.getLabel().setFontScale(4);
-        levelThreeButton = new TextButton("3",skin,"round");
+        TextButton levelThreeButton = new TextButton("3", skin, "round");
         levelThreeButton.getStyle().downFontColor.set(Color.WHITE);
         levelThreeButton.getLabel().setFontScale(4);
-        levelFourButton = new TextButton("4",skin,"round");
+        TextButton levelFourButton = new TextButton("4", skin, "round");
         levelFourButton.getStyle().downFontColor.set(Color.WHITE);
         levelFourButton.getLabel().setFontScale(4);
-        levelFiveButton = new TextButton("5",skin,"round");
+        TextButton levelFiveButton = new TextButton("5", skin, "round");
         levelFiveButton.getStyle().downFontColor.set(Color.WHITE);
         levelFiveButton.getLabel().setFontScale(4);
-        levelSixButton = new TextButton("6",skin,"round");
+        TextButton levelSixButton = new TextButton("6", skin, "round");
         levelSixButton.getStyle().downFontColor.set(Color.WHITE);
         levelSixButton.getLabel().setFontScale(4);
-        levelSevenButton = new TextButton("7",skin,"round");
+        TextButton levelSevenButton = new TextButton("7", skin, "round");
         levelSevenButton.getStyle().downFontColor.set(Color.WHITE);
         levelSevenButton.getLabel().setFontScale(4);
-        levelEightButton = new TextButton("8",skin,"round");
+        TextButton levelEightButton = new TextButton("8", skin, "round");
         levelEightButton.getStyle().downFontColor.set(Color.WHITE);
         levelEightButton.getLabel().setFontScale(4);
-        levelNineButton = new TextButton("9",skin,"round");
+        TextButton levelNineButton = new TextButton("9", skin, "round");
         levelNineButton.getStyle().downFontColor.set(Color.WHITE);
         levelNineButton.getLabel().setFontScale(4);
-        levelTenButton = new TextButton("10",skin,"round");
+        TextButton levelTenButton = new TextButton("10", skin, "round");
         levelTenButton.getStyle().downFontColor.set(Color.WHITE);
         levelTenButton.getLabel().setFontScale(4);
 
-        backButton = new Button(skin,"left");
+        Button backButton = new Button(skin, "left");
         backButton.setSize(100, 100);
         backButton.setPosition(25,viewport.getWorldHeight() - (backButton.getHeight() + 25));
 
-        levelLabel = new Label("Levels", skin, "title-plain");
+        Label levelLabel = new Label("Levels", skin, "title-plain");
         levelLabel.setSize(1300,250);
         levelLabel.setFontScale(6);
         levelLabel.setAlignment(Align.center);
         levelLabel.setPosition(viewport.getWorldWidth() / 2 - levelLabel.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.3 - (levelLabel.getHeight() / 2)));
 
-        soundButton = new Button(skin,"sound");
+        Button soundButton = new Button(skin, "sound");
         soundButton.setSize(120, 120);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
@@ -227,8 +219,8 @@ public class LevelScreen extends InputAdapter implements Screen {
             }
         });
 
-        table = new Table();
-        tableBackground = new Table();
+        Table table = new Table();
+        Table tableBackground = new Table();
 
         for(int i = 0; i < 11; i++) {
             if(i == 5) {
@@ -252,8 +244,8 @@ public class LevelScreen extends InputAdapter implements Screen {
                 0, 0, pixmap100.getWidth(), pixmap100.getHeight()
         );
         Texture texture = new Texture(pixmap100);
-        textureRegion = new TextureRegion(texture);
-        texRegionDrawable = new TextureRegionDrawable(textureRegion);
+        TextureRegion textureRegion = new TextureRegion(texture);
+        TextureRegionDrawable texRegionDrawable = new TextureRegionDrawable(textureRegion);
 
         table.add(levelOneButton).size(250, 150).padRight(10).padBottom(10);
         if(topScore >= Level.ONE.spawnRate * 3 * SINGLE_SCORE) {
@@ -319,7 +311,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        shapeRenderer = new ShapeRenderer();
+        ShapeRenderer shapeRenderer = new ShapeRenderer();
         shapeRenderer.begin(ShapeType.Filled);
         shapeRenderer.setColor(0.32f, 0.76f, 0.55f, 1);
         shapeRenderer.rect(0, Gdx.graphics.getHeight() * 0.25f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() * 0.75f);
