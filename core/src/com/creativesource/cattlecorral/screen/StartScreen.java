@@ -39,12 +39,12 @@ public class StartScreen extends InputAdapter implements Screen {
 
     private BitmapFont font;
     private Prefs prefs;
-    private int score, randomDirection, animalSize, animalElevation, directionMultiplier, animalSpeed;
-    private Skin skin;
-    private TextButton playButton;
+    private int randomDirection;
+    private int animalSize;
+    private int animalElevation;
+    private int directionMultiplier;
+    private int animalSpeed;
     private Stage stage;
-    private Button soundButton;
-    private Label title, topScore;
     private float animationTime;
     private Animation<TextureRegion> anim;
     private Texture grassTexture;
@@ -57,7 +57,7 @@ public class StartScreen extends InputAdapter implements Screen {
     public void show() {
         batch = new SpriteBatch();
         prefs = new Prefs();
-        score = prefs.getTopScore();
+        int score = prefs.getTopScore();
 
         viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
@@ -78,22 +78,22 @@ public class StartScreen extends InputAdapter implements Screen {
         Pixmap pixmap = new Pixmap(Gdx.files.internal("image/label_background.png"));
         Texture texture = new Texture(pixmap);
 
-        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+        Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        title = new Label("Cattle Corral", skin, "title");
+        Label title = new Label("Cattle Corral", skin, "title");
         title.getStyle().background = new Image(texture).getDrawable();
         title.setSize(1300,250);
         title.setFontScale(8);
         title.setAlignment(Align.center);
         title.setPosition(viewport.getWorldWidth() / 2 - title.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.2 - (title.getHeight() / 2)));
 
-        topScore = new Label("TOP SCORE: " + score, skin, "optional");
+        Label topScore = new Label("TOP SCORE: " + score, skin, "optional");
         topScore.setSize(800,100);
         topScore.setFontScale(6);
         topScore.setAlignment(Align.center);
         topScore.setPosition(viewport.getWorldWidth() / 2 - topScore.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.7 - (topScore.getHeight() / 2)));
 
-        playButton = new TextButton("Play", skin, "round");
+        TextButton playButton = new TextButton("Play", skin, "round");
         playButton.getStyle().downFontColor.set(Color.WHITE);
         playButton.setSize(325,185);
         playButton.getLabel().setFontScale(5);
@@ -107,7 +107,7 @@ public class StartScreen extends InputAdapter implements Screen {
             }
         });
 
-        soundButton = new Button(skin,"sound");
+        Button soundButton = new Button(skin, "sound");
         soundButton.setSize(120,120);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
