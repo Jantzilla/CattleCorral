@@ -49,7 +49,7 @@ public class LevelScreen extends InputAdapter implements Screen {
     private BitmapFont font;
     private Stage stage;
     private Texture levelsTexture;
-    private int randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
+    private int directionMultiplier, animalSize, animalElevation, animalSpeed;
     private float animationTime;
     private Prefs prefs;
     private Sprite sprite;
@@ -396,7 +396,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         sprite.setX(sprite.getX() + directionMultiplier * animationTime * animalSpeed);
         batch.draw(sprite,sprite.getX(),animalElevation, animalSize, animalSize);
 
-        if(randomDirection == 0 && sprite.getX() < - 600) {
+        if(sprite.getX() < - 600) {
             createAnimal();
         }
 
