@@ -26,9 +26,9 @@ public class CattleCorral extends Game {
         if(prefs.hasSound())
         	playMusic();
 
-        textureAtlases.add(new TextureAtlas("cow.pack"));
-        textureAtlases.add(new TextureAtlas("pig.pack"));
-        textureAtlases.add(new TextureAtlas("sheep.pack"));
+        textureAtlases.add(new TextureAtlas("pack/cow.pack"));
+        textureAtlases.add(new TextureAtlas("pack/pig.pack"));
+        textureAtlases.add(new TextureAtlas("pack/sheep.pack"));
 
 		showStartScreen();
 	}
@@ -46,8 +46,8 @@ public class CattleCorral extends Game {
 	}
 
 	public void playMusic() {
-		intro = Gdx.audio.newMusic(Gdx.files.internal("intro.wav"));
-		play = Gdx.audio.newMusic(Gdx.files.internal("play.wav"));
+		intro = Gdx.audio.newMusic(Gdx.files.internal("audio/intro.wav"));
+		play = Gdx.audio.newMusic(Gdx.files.internal("audio/play.wav"));
 
 		intro.play();
 

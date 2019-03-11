@@ -112,7 +112,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         stretchViewport =new StretchViewport(worldWidth,worldHeight,camera);
         hudViewport = new StretchViewport(worldWidth,worldHeight,camera);
         camera.update();
-        tiledMap = new TmxMapLoader().load("new_map.tmx");
+        tiledMap = new TmxMapLoader().load("map/new_map.tmx");
         tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
         for(MapLayer layer : tiledMap.getLayers()) {
             tiledMapTileLayers.add((TiledMapTileLayer) layer);
@@ -284,9 +284,9 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         prefs = new Prefs();
 
-        cow = Gdx.audio.newSound(Gdx.files.internal("cow.wav"));
-        sheep = Gdx.audio.newSound(Gdx.files.internal("sheep.mp3"));
-        pig = Gdx.audio.newSound(Gdx.files.internal("pig.wav"));
+        cow = Gdx.audio.newSound(Gdx.files.internal("audio/cow.wav"));
+        sheep = Gdx.audio.newSound(Gdx.files.internal("audio/sheep.mp3"));
+        pig = Gdx.audio.newSound(Gdx.files.internal("audio/pig.wav"));
 
         if(prefs.hasSound())
             soundButton.setChecked(true);

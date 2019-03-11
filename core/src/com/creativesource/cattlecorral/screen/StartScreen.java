@@ -62,7 +62,7 @@ public class StartScreen extends InputAdapter implements Screen {
         viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
 
-        Pixmap levels_background = new Pixmap(Gdx.files.internal("start_background_grass.png"));
+        Pixmap levels_background = new Pixmap(Gdx.files.internal("image/start_background_grass.png"));
         Pixmap pixmapNew = new Pixmap((int) viewport.getWorldWidth(), (int) viewport.getWorldHeight(), levels_background.getFormat());
         pixmapNew.drawPixmap(levels_background,
                 0, 0, levels_background.getWidth(), levels_background.getHeight(),
@@ -75,7 +75,7 @@ public class StartScreen extends InputAdapter implements Screen {
         font.setColor(Constants.BACKGROUND_COLOR);
         font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
-        Pixmap pixmap = new Pixmap(Gdx.files.internal("label_background.png"));
+        Pixmap pixmap = new Pixmap(Gdx.files.internal("image/label_background.png"));
         Texture texture = new Texture(pixmap);
 
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
@@ -148,7 +148,7 @@ public class StartScreen extends InputAdapter implements Screen {
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        Pixmap original = new Pixmap(Gdx.files.internal("signs.png"));
+        Pixmap original = new Pixmap(Gdx.files.internal("image/signs.png"));
         Pixmap ropeImage = new Pixmap(800, 200, original.getFormat());
         ropeImage.drawPixmap(original,
                 0, 0, original.getWidth(), original.getHeight(),

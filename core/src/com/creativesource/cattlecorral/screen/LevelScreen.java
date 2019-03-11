@@ -237,7 +237,7 @@ public class LevelScreen extends InputAdapter implements Screen {
                 tableBackground.add(new TextButton("",skin,"round")).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         }
 
-        Pixmap levels_background = new Pixmap(Gdx.files.internal("levels_background_grass.png"));
+        Pixmap levels_background = new Pixmap(Gdx.files.internal("image/levels_background_grass.png"));
         Pixmap pixmapNew = new Pixmap((int) viewport.getWorldWidth(), (int) viewport.getWorldHeight(), levels_background.getFormat());
         pixmapNew.drawPixmap(levels_background,
                 0, 0, levels_background.getWidth(), levels_background.getHeight(),
