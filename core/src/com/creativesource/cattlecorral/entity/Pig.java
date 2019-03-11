@@ -3,7 +3,6 @@ package com.creativesource.cattlecorral.entity;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.creativesource.cattlecorral.entity.Animal;
 import com.creativesource.cattlecorral.screen.PlayScreen;
 
 import java.util.ArrayList;
