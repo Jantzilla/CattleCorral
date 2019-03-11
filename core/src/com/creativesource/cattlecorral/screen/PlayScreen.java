@@ -50,39 +50,39 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class PlayScreen extends InputAdapter implements Screen {
-    Level level;
-    CattleCorral game;
-    ShapeRenderer shapeRenderer;
-    TiledMap tiledMap;
-    OrthogonalTiledMapRenderer tiledMapRenderer;
-    TextureAtlas textureAtlas;
-    StretchViewport stretchViewport, hudViewport;
-    OrthographicCamera camera;
-    float worldWidth;
+    private Level level;
+    private CattleCorral game;
+    private ShapeRenderer shapeRenderer;
+    private TiledMap tiledMap;
+    private OrthogonalTiledMapRenderer tiledMapRenderer;
+    private TextureAtlas textureAtlas;
+    private StretchViewport stretchViewport, hudViewport;
+    private OrthographicCamera camera;
+    private float worldWidth;
     public float worldHeight;
-    float gameSpan = Constants.GAME_SPAN_1;
-    ArrayList<Animal> animals = new ArrayList<Animal>();
-    ArrayList<TiledMapTileLayer> tiledMapTileLayers;
-    int topScore;
-    int totalCorraled;
+    private float gameSpan = Constants.GAME_SPAN_1;
+    private ArrayList<Animal> animals = new ArrayList<Animal>();
+    private ArrayList<TiledMapTileLayer> tiledMapTileLayers;
+    private int topScore;
+    private int totalCorraled;
     public int points;
-    int gameStatus = 1;
-    ArrayList<Integer> integers = new ArrayList<Integer>();
-    Stage stage;
-    Image semiTL;
-    Table table;
-    TextButton resume;
-    ClickListener clickListener, resumeClickListener;
+    private int gameStatus = 1;
+    private ArrayList<Integer> integers = new ArrayList<Integer>();
+    private Stage stage;
+    private Image semiTL;
+    private Table table;
+    private TextButton resume;
+    private ClickListener clickListener, resumeClickListener;
     public Prefs prefs;
-    Button soundButton;
-    InputMultiplexer inputMultiplexer;
+    private Button soundButton;
+    private InputMultiplexer inputMultiplexer;
     public Sound cow;
     public Sound sheep;
     public Sound pig;
-    Label completeLabel, summaryLabel, levelLabel, scoreLabel;
-    Cow firstCow;
-    Pig firstPig;
-    Sheep firstSheep;
+    private Label completeLabel, summaryLabel, levelLabel, scoreLabel;
+    private Cow firstCow;
+    private Pig firstPig;
+    private Sheep firstSheep;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -426,7 +426,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         return true;
     }
 
-    public void gameCompleted() {
+    private void gameCompleted() {
         prefs.setScore(points);
         int animalsMissed = (int)((level.spawnRate * 3 * SINGLE_SCORE - points) / 20);
         if(animalsMissed == 1)
