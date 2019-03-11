@@ -52,7 +52,7 @@ public class LevelScreen extends InputAdapter implements Screen {
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
     Table table, tableBackground;
     Stage stage;
-    Texture texture, levelsTexture;
+    Texture levelsTexture;
     TextureRegion textureRegion;
     TextureRegionDrawable texRegionDrawable;
     int topScore, randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
