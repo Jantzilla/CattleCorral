@@ -286,7 +286,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                 super.clicked(event, x, y);
                 if(prefs.hasSound()) {
                     prefs.setSound(false);
-                    game.stopMusio();
+                    game.stopMusic();
                 } else {
                     prefs.setSound(true);
                     game.playMusic();

@@ -59,7 +59,7 @@ public class CattleCorral extends Game {
 		});
 	}
 
-	public void stopMusio() {
+	public void stopMusic() {
 	    intro.stop();
 	    play.stop();
 
