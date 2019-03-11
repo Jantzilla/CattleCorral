@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
  <tileset firstgid="1" name="decorations-medieval" tilewidth="32" tileheight="32" tilecount="1024" columns="16">
-  <image source="decorations-medieval.png" width="512" height="2048"/>
+  <image source="tileset/decorations-medieval.png" width="512" height="2048"/>
   <tile id="891">
    <properties>
     <property name="cow" value=""/>
@@ -24,7 +24,7 @@
   </tile>
  </tileset>
  <tileset firstgid="1025" name="fence_2" tilewidth="32" tileheight="32" tilecount="18" columns="3">
-  <image source="fence_2.png" width="96" height="192"/>
+  <image source="tileset/fence_2.png" width="96" height="192"/>
   <tile id="0">
    <properties>
     <property name="blocked" value=""/>
@@ -117,7 +117,7 @@
   </tile>
  </tileset>
  <tileset firstgid="1043" name="fence_3" tilewidth="32" tileheight="32" tilecount="18" columns="3">
-  <image source="fence_3.png" width="97" height="192"/>
+  <image source="tileset/fence_3.png" width="97" height="192"/>
   <tile id="0">
    <properties>
     <property name="blocked" value=""/>
