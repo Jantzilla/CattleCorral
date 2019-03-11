@@ -11,9 +11,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -52,10 +50,8 @@ import java.util.Collections;
 public class PlayScreen extends InputAdapter implements Screen {
     private Level level;
     private CattleCorral game;
-    private ShapeRenderer shapeRenderer;
     private TiledMap tiledMap;
     private OrthogonalTiledMapRenderer tiledMapRenderer;
-    private TextureAtlas textureAtlas;
     private StretchViewport stretchViewport, hudViewport;
     private OrthographicCamera camera;
     private float worldWidth;
@@ -89,9 +85,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     @Override
     public void dispose () {
-        shapeRenderer.dispose();
         tiledMapRenderer.dispose();
-        textureAtlas.dispose();
         tiledMap.dispose();
     }
 
