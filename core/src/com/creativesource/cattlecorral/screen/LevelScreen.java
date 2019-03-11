@@ -46,7 +46,6 @@ public class LevelScreen extends InputAdapter implements Screen {
     private SpriteBatch batch;
     private StretchViewport viewport;
 
-    private BitmapFont font;
     private Stage stage;
     private Texture levelsTexture;
     private int directionMultiplier, animalSize, animalElevation, animalSpeed;
@@ -67,10 +66,6 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(this);
-
-        font = new BitmapFont();
-        font.getData().setScale(Constants.START_LABEL_SCALE);
-        font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         prefs = new Prefs();
 
@@ -347,14 +342,18 @@ public class LevelScreen extends InputAdapter implements Screen {
 
     @Override
     public void hide() {
-        batch.dispose();
-        font.dispose();
         renderer.dispose();
+        batch.dispose();
+        stage.dispose();
+        levelsTexture.dispose();
     }
 
     @Override
     public void dispose() {
-
+        renderer.dispose();
+        batch.dispose();
+        stage.dispose();
+        levelsTexture.dispose();
     }
 
     @Override

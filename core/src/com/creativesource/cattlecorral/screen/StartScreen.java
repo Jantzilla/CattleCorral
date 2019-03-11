@@ -37,7 +37,6 @@ public class StartScreen extends InputAdapter implements Screen {
     private SpriteBatch batch;
     private FitViewport viewport;
 
-    private BitmapFont font;
     private Prefs prefs;
     private int randomDirection;
     private int animalSize;
@@ -69,11 +68,6 @@ public class StartScreen extends InputAdapter implements Screen {
                 0, 0, pixmapNew.getWidth(), pixmapNew.getHeight()
         );
         grassTexture = new Texture(pixmapNew);
-
-        font = new BitmapFont();
-        font.getData().setScale(Constants.START_LABEL_SCALE);
-        font.setColor(Constants.BACKGROUND_COLOR);
-        font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
         Pixmap pixmap = new Pixmap(Gdx.files.internal("image/label_background.png"));
         Texture texture = new Texture(pixmap);
@@ -188,12 +182,15 @@ public class StartScreen extends InputAdapter implements Screen {
     @Override
     public void hide() {
         batch.dispose();
-        font.dispose();
+        stage.dispose();
+        grassTexture.dispose();
     }
 
     @Override
     public void dispose() {
-
+        batch.dispose();
+        stage.dispose();
+        grassTexture.dispose();
     }
 
     private void createAnimal() {
