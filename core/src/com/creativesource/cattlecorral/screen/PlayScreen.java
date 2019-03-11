@@ -62,9 +62,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     public float worldHeight;
     private float gameSpan = Constants.GAME_SPAN_1;
     private ArrayList<Animal> animals = new ArrayList<Animal>();
-    private ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     private int topScore;
-    private int totalCorraled;
     public int points;
     private int gameStatus = 1;
     private ArrayList<Integer> integers = new ArrayList<Integer>();
@@ -74,15 +72,12 @@ public class PlayScreen extends InputAdapter implements Screen {
     private TextButton resume;
     private ClickListener clickListener, resumeClickListener;
     public Prefs prefs;
-    private Button soundButton;
-    private InputMultiplexer inputMultiplexer;
     public Sound cow;
     public Sound sheep;
     public Sound pig;
-    private Label completeLabel, summaryLabel, levelLabel, scoreLabel;
-    private Cow firstCow;
-    private Pig firstPig;
-    private Sheep firstSheep;
+    private Label completeLabel;
+    private Label summaryLabel;
+    private Label scoreLabel;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -113,7 +108,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         hudViewport = new StretchViewport(worldWidth,worldHeight,camera);
         camera.update();
         tiledMap = new TmxMapLoader().load("map/new_map.tmx");
-        tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
+        ArrayList<TiledMapTileLayer> tiledMapTileLayers = new ArrayList<TiledMapTileLayer>();
         for(MapLayer layer : tiledMap.getLayers()) {
             tiledMapTileLayers.add((TiledMapTileLayer) layer);
         }
@@ -145,7 +140,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                     case 0:
                         animals.add(new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get(o)));
                         if(o == 0) {
-                            firstCow = new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            Cow firstCow = new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
                             firstCow.active = false;
                             firstCow.setX(650);
                             firstCow.setY(50);
@@ -155,7 +150,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                     case 1:
                         animals.add(new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 3))));
                         if(o == 0) {
-                            firstPig = new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            Pig firstPig = new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
                             firstPig.active = false;
                             firstPig.setX(450);
                             firstPig.setY(450);
@@ -165,7 +160,7 @@ public class PlayScreen extends InputAdapter implements Screen {
                     case 2:
                         animals.add(new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 1.5))));
                         if(o == 0) {
-                            firstSheep = new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            Sheep firstSheep = new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
                             firstSheep.active = false;
                             firstSheep.setX(200);
                             firstSheep.setY(50);
@@ -182,7 +177,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        levelLabel = new Label("Level " + level.label, skin, "title-plain");
+        Label levelLabel = new Label("Level " + level.label, skin, "title-plain");
         levelLabel.setFontScale(2);
         levelLabel.setSize(200,60);
         levelLabel.setAlignment(Align.center);
@@ -198,7 +193,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         stage.addActor(scoreLabel);
 
-        soundButton = new Button(skin,"sound");
+        Button soundButton = new Button(skin, "sound");
         soundButton.setSize(65,70);
         soundButton.setPosition(stretchViewport.getWorldWidth() - (soundButton.getWidth() + 15),15);
 
@@ -279,7 +274,7 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         table.setPosition(worldWidth / 2 - table.getWidth() / 2,worldHeight / 2 - (table.getHeight() / 2));
 
-        inputMultiplexer = new InputMultiplexer(stage, this);
+        InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
         prefs = new Prefs();
@@ -325,7 +320,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         tiledMapRenderer.render();
         tiledMapRenderer.getBatch().begin();
 
-        totalCorraled = 0;
+        int totalCorraled = 0;
 
         for (int i = 0; i < animals.size(); i++) {
             if(animals.get(i).active && animals.get(i).isCorraled)

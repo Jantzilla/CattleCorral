@@ -15,13 +15,12 @@ import java.util.ArrayList;
 
 public class CattleCorral extends Game {
 
-	Music intro, play;
-	Prefs prefs;
-    public ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
+	private Music intro, play;
+	public ArrayList<TextureAtlas> textureAtlases = new ArrayList<TextureAtlas>();
 
     @Override
 	public void create() {
-        prefs = new Prefs();
+		Prefs prefs = new Prefs();
 
         if(prefs.hasSound())
         	playMusic();
