@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.creativesource.cattlecorral.screen.PlayScreen;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public abstract class Animal extends Sprite {
 
     abstract boolean isCellBlocked(float x, float y);
 
-    Animal(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
+    Animal(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
         this.worldWidth = worldWidth;
         this.tiledMapTileLayers = tiledMapTileLayers;

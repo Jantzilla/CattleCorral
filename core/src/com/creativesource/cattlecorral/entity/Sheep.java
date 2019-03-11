@@ -2,14 +2,13 @@ package com.creativesource.cattlecorral.entity;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.creativesource.cattlecorral.screen.PlayScreen;
 
 import java.util.ArrayList;
 
 public class Sheep extends Animal {
-    public Sheep(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
-        super(screen, up, left, down, right, viewport, worldWidth, tiledMapTileLayers, startPosition);
+    public Sheep(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
+        super(screen, up, left, down, right, worldWidth, tiledMapTileLayers, startPosition);
     }
 
     @Override

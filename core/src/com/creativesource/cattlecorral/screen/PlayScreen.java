@@ -132,9 +132,9 @@ public class PlayScreen extends InputAdapter implements Screen {
             for (int o = 0; o < level.spawnRate; o++) {
                 switch (i) {
                     case 0:
-                        animals.add(new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get(o)));
+                        animals.add(new Cow(this, up, left, down, right, worldWidth, tiledMapTileLayers, 75 * integers.get(o)));
                         if(o == 0) {
-                            Cow firstCow = new Cow(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            Cow firstCow = new Cow(this, up, left, down, right, worldWidth, tiledMapTileLayers, 75);
                             firstCow.active = false;
                             firstCow.setX(650);
                             firstCow.setY(50);
@@ -142,9 +142,9 @@ public class PlayScreen extends InputAdapter implements Screen {
                         }
                         break;
                     case 1:
-                        animals.add(new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 3))));
+                        animals.add(new Pig(this, up, left, down, right, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 3))));
                         if(o == 0) {
-                            Pig firstPig = new Pig(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            Pig firstPig = new Pig(this, up, left, down, right, worldWidth, tiledMapTileLayers, 75);
                             firstPig.active = false;
                             firstPig.setX(450);
                             firstPig.setY(450);
@@ -152,9 +152,9 @@ public class PlayScreen extends InputAdapter implements Screen {
                         }
                         break;
                     case 2:
-                        animals.add(new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 1.5))));
+                        animals.add(new Sheep(this, up, left, down, right, worldWidth, tiledMapTileLayers, 75 * integers.get((int) (o + gameSpan / 1.5))));
                         if(o == 0) {
-                            Sheep firstSheep = new Sheep(this, up, left, down, right, stretchViewport, worldWidth, tiledMapTileLayers, 75);
+                            Sheep firstSheep = new Sheep(this, up, left, down, right, worldWidth, tiledMapTileLayers, 75);
                             firstSheep.active = false;
                             firstSheep.setX(200);
                             firstSheep.setY(50);
