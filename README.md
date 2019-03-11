@@ -8,7 +8,7 @@
 
 **So get ready... get set, and prepare for a stampede of fun!**
 
-![](static/cattle_template_1.png)![](static/cattle_template_2.png)![](static/cattle_corral_template_3.png)
+![](static/cattle_template_1.png) ![](static/cattle_corral_template_3.png) ![](static/cattle_template_2.png)
 
 ## Built Using
 
