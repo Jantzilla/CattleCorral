@@ -21,7 +21,6 @@ public abstract class Animal extends Sprite {
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
     private float worldWidth, animationTime = 0;
     private Animation up,left,down,right;
-    private Viewport viewport;
     String lastDirection = "";
     public boolean isCorraled;
     public boolean active = true;
@@ -30,7 +29,6 @@ public abstract class Animal extends Sprite {
 
     Animal(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
-        this.viewport = viewport;
         this.worldWidth = worldWidth;
         this.tiledMapTileLayers = tiledMapTileLayers;
         this.up = up;
