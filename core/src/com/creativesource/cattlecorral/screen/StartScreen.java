@@ -31,23 +31,23 @@ import java.util.Random;
 
 public class StartScreen extends InputAdapter implements Screen {
 
-    CattleCorral game;
+    private CattleCorral game;
 
-    Sprite sprite;
-    SpriteBatch batch;
-    FitViewport viewport;
+    private Sprite sprite;
+    private SpriteBatch batch;
+    private FitViewport viewport;
 
-    BitmapFont font;
-    Prefs prefs;
-    int score, randomDirection, animalSize, animalElevation, directionMultiplier, animalSpeed;
-    Skin skin;
-    TextButton playButton;
-    Stage stage;
-    Button soundButton;
-    Label title, topScore;
-    float animationTime;
-    Animation<TextureRegion> anim;
-    Texture grassTexture;
+    private BitmapFont font;
+    private Prefs prefs;
+    private int score, randomDirection, animalSize, animalElevation, directionMultiplier, animalSpeed;
+    private Skin skin;
+    private TextButton playButton;
+    private Stage stage;
+    private Button soundButton;
+    private Label title, topScore;
+    private float animationTime;
+    private Animation<TextureRegion> anim;
+    private Texture grassTexture;
 
     public StartScreen(CattleCorral game) {
         this.game = game;
@@ -196,7 +196,7 @@ public class StartScreen extends InputAdapter implements Screen {
 
     }
 
-    public void createAnimal() {
+    private void createAnimal() {
         sprite = null;
 
         String direction;
@@ -240,7 +240,7 @@ public class StartScreen extends InputAdapter implements Screen {
 
     }
 
-    public void animateAnimal() {
+    private void animateAnimal() {
 
         sprite.setRegion((TextureRegion) anim.getKeyFrame(animationTime));
         sprite.setX(sprite.getX() + directionMultiplier * animationTime * animalSpeed);

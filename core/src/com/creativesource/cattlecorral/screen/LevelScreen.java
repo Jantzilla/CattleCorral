@@ -40,28 +40,28 @@ import static com.creativesource.cattlecorral.utils.Constants.SINGLE_SCORE;
 
 public class LevelScreen extends InputAdapter implements Screen {
 
-    CattleCorral game;
+    private CattleCorral game;
 
-    ShapeRenderer renderer;
-    SpriteBatch batch;
-    StretchViewport viewport;
+    private ShapeRenderer renderer;
+    private SpriteBatch batch;
+    private StretchViewport viewport;
 
-    BitmapFont font;
-    Button backButton, soundButton;
-    TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
+    private BitmapFont font;
+    private Button backButton, soundButton;
+    private TextButton levelOneButton, levelTwoButton, levelThreeButton, levelFourButton, levelFiveButton
             ,levelSixButton, levelSevenButton, levelEightButton, levelNineButton, levelTenButton;
-    Table table, tableBackground;
-    Stage stage;
-    Texture levelsTexture;
-    TextureRegion textureRegion;
-    TextureRegionDrawable texRegionDrawable;
-    int topScore, randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
-    float animationTime;
-    Prefs prefs;
-    Label levelLabel;
-    ShapeRenderer shapeRenderer;
-    Sprite sprite;
-    Animation<TextureRegion> anim;
+    private Table table, tableBackground;
+    private Stage stage;
+    private Texture levelsTexture;
+    private TextureRegion textureRegion;
+    private TextureRegionDrawable texRegionDrawable;
+    private int topScore, randomDirection, directionMultiplier, animalSize, animalElevation, animalSpeed;
+    private float animationTime;
+    private Prefs prefs;
+    private Label levelLabel;
+    private ShapeRenderer shapeRenderer;
+    private Sprite sprite;
+    private Animation<TextureRegion> anim;
 
     public LevelScreen(CattleCorral game) {
         this.game = game;
@@ -375,7 +375,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         return false;
     }
 
-    public void createAnimal() {
+    private void createAnimal() {
         sprite = null;
 
         String direction;
@@ -398,7 +398,7 @@ public class LevelScreen extends InputAdapter implements Screen {
 
     }
 
-    public void animateAnimal() {
+    private void animateAnimal() {
 
         sprite.setRegion((TextureRegion) anim.getKeyFrame(animationTime));
         sprite.setX(sprite.getX() + directionMultiplier * animationTime * animalSpeed);

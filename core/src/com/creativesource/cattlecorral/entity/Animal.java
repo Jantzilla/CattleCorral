@@ -15,19 +15,20 @@ import java.util.Random;
 
 public abstract class Animal extends Sprite {
 
-    public PlayScreen screen;
-    int startPosition, wanderDuration, randomDirection;
+    PlayScreen screen;
+    private int startPosition;
+    int wanderDuration, randomDirection;
     ArrayList<TiledMapTileLayer> tiledMapTileLayers;
-    float worldWidth, animationTime = 0;
-    Animation up,left,down,right;
-    Viewport viewport;
+    private float worldWidth, animationTime = 0;
+    private Animation up,left,down,right;
+    private Viewport viewport;
     String lastDirection = "";
     public boolean isCorraled;
     public boolean active = true;
 
     abstract boolean isCellBlocked(float x, float y);
 
-    public Animal(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
+    Animal(PlayScreen screen, Animation up, Animation left, Animation down, Animation right, Viewport viewport, float worldWidth, ArrayList<TiledMapTileLayer> tiledMapTileLayers, int startPosition) {
         super((TextureRegion) up.getKeyFrame(0));
         this.viewport = viewport;
         this.worldWidth = worldWidth;
@@ -46,7 +47,7 @@ public abstract class Animal extends Sprite {
         super.draw(batch);
     }
 
-    public void init() {
+    private void init() {
         setY(screen.worldHeight / 2 - (getHeight() / 2));
         setX(+ (worldWidth + startPosition));
     }
@@ -94,7 +95,7 @@ public abstract class Animal extends Sprite {
         }
     }
 
-    public boolean getCorraled(TiledMapTileLayer.Cell cell) {
+    boolean getCorraled(TiledMapTileLayer.Cell cell) {
         if(!isCorraled && cell != null && cell.getTile() != null && (cell.getTile().getProperties().containsKey("cow")
         || cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("pig")
         || cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("sheep"))) {
@@ -104,7 +105,7 @@ public abstract class Animal extends Sprite {
         return true;
     }
 
-    public void wander(float delta) {
+    private void wander(float delta) {
         Random r = new Random();
         int least = 40;
         int most = 200;
