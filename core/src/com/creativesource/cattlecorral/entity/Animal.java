@@ -94,7 +94,9 @@ public abstract class Animal extends Sprite {
     }
 
     boolean getCorraled(TiledMapTileLayer.Cell cell) {
-        if(!isCorraled && cell != null && cell.getTile() != null && (cell.getTile().getProperties().containsKey("cow") || cell.getTile() != null && cell.getTile().getProperties().containsKey("pig") || cell.getTile() != null && cell.getTile().getProperties().containsKey("sheep"))) {
+        if(!isCorraled && cell != null && cell.getTile() != null && (cell.getTile().getProperties().containsKey("cow")
+                || cell.getTile() != null && cell.getTile().getProperties().containsKey("pig")
+                || cell.getTile() != null && cell.getTile().getProperties().containsKey("sheep"))) {
             isCorraled = true;
             return false;
         }
