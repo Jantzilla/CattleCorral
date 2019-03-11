@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
  <tileset firstgid="1" name="decorations-medieval" tilewidth="32" tileheight="32" tilecount="1024" columns="16">
-  <image source="tileset/decorations-medieval.png" width="512" height="2048"/>
+  <image source="tileset/grass.png" width="512" height="2048"/>
   <tile id="891">
    <properties>
     <property name="cow" value=""/>
