@@ -59,7 +59,16 @@ public class CattleCorral extends Game {
 		});
 	}
 
-	public void stopMusic() {
+    @Override
+    public void dispose() {
+        super.dispose();
+        intro.dispose();
+        play.dispose();
+        for(TextureAtlas atlas : textureAtlases)
+            atlas.dispose();
+    }
+
+    public void stopMusic() {
 	    intro.stop();
 	    play.stop();
 
