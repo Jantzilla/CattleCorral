@@ -54,13 +54,11 @@ public class PlayScreen extends InputAdapter implements Screen {
     private OrthogonalTiledMapRenderer tiledMapRenderer;
     private StretchViewport stretchViewport, hudViewport;
     private OrthographicCamera camera;
-    private float worldWidth;
+    private float worldWidth, gameSpan = Constants.GAME_SPAN_1;
     public float worldHeight;
-    private float gameSpan = Constants.GAME_SPAN_1;
     private ArrayList<Animal> animals = new ArrayList<Animal>();
-    private int topScore;
+    private int topScore, gameStatus = 1;
     public int points;
-    private int gameStatus = 1;
     private ArrayList<Integer> integers = new ArrayList<Integer>();
     private Stage stage;
     private Image semiTL;
@@ -68,12 +66,8 @@ public class PlayScreen extends InputAdapter implements Screen {
     private TextButton resume;
     private ClickListener clickListener, resumeClickListener;
     public Prefs prefs;
-    public Sound cow;
-    public Sound sheep;
-    public Sound pig;
-    private Label completeLabel;
-    private Label summaryLabel;
-    private Label scoreLabel;
+    public Sound cow, pig, sheep;
+    private Label completeLabel, scoreLabel, summaryLabel;
 
     public PlayScreen (CattleCorral game, Level level) {
         this.game = game;
@@ -81,12 +75,6 @@ public class PlayScreen extends InputAdapter implements Screen {
 
         if(level.speed > 50)
             gameSpan = Constants.GAME_SPAN_2;
-    }
-
-    @Override
-    public void dispose () {
-        tiledMapRenderer.dispose();
-        tiledMap.dispose();
     }
 
     @Override
@@ -372,7 +360,22 @@ public class PlayScreen extends InputAdapter implements Screen {
 
     @Override
     public void hide() {
+        tiledMap.dispose();
+        tiledMapRenderer.dispose();
+        stage.dispose();
+        cow.dispose();
+        pig.dispose();
+        sheep.dispose();
+    }
 
+    @Override
+    public void dispose () {
+        tiledMap.dispose();
+        tiledMapRenderer.dispose();
+        stage.dispose();
+        cow.dispose();
+        pig.dispose();
+        sheep.dispose();
     }
 
     @Override
