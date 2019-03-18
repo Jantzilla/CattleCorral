@@ -154,7 +154,7 @@ public class StartScreen extends InputAdapter implements Screen {
         batch.begin();
 
         batch.draw(grassTexture, 0, 0);
-        batch.draw(texture, viewport.getWorldWidth() / 2 - 400, viewport.getWorldHeight() - 120);
+        batch.draw(texture, viewport.getWorldWidth() / 2 - 400, viewport.getWorldHeight() - 130);
 
         animateAnimal();
 
