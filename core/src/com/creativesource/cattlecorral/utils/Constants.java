@@ -47,9 +47,9 @@ public class Constants {
 
     public static final float START_LABEL_SCALE = 1.5f;
 
-    public static final Rectangle GATE_ONE = new Rectangle(600, 250, 100, 100);
-    public static final Rectangle GATE_TWO = new Rectangle(175, 250, 100, 100);
-    public static final Rectangle GATE_THREE = new Rectangle(400, 265, 100, 100);
+    public static final Rectangle GATE_ONE = new Rectangle(585, 225, 150, 150);
+    public static final Rectangle GATE_TWO = new Rectangle(140, 225, 150, 150);
+    public static final Rectangle GATE_THREE = new Rectangle(385, 240, 150, 150);
 
     public static final String SCORE_LABEL = "Score";
     public static final int GAME_PAUSED = 0;
