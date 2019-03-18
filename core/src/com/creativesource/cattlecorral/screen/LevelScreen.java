@@ -268,7 +268,7 @@ public class LevelScreen extends InputAdapter implements Screen {
             table.add(levelSevenButton).size(250, 150).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
-        if(topScore >= Level.SEVEN.spawnRate * GAME_SPAN_1 * SINGLE_SCORE) {
+        if(topScore >= Level.SEVEN.spawnRate * 3 * SINGLE_SCORE) {
             table.add(levelEightButton).size(250, 150).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
