@@ -74,49 +74,49 @@ public class LevelScreen extends InputAdapter implements Screen {
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         TextButton levelOneButton = new TextButton("1", skin, "round");
-        levelOneButton.setSize(250, 150);
+        levelOneButton.setSize(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f);
         levelOneButton.getStyle().downFontColor.set(Color.WHITE);
-        levelOneButton.getLabel().setFontScale(4);
+        levelOneButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelTwoButton = new TextButton("2", skin, "round");
         levelTwoButton.getStyle().downFontColor.set(Color.WHITE);
-        levelTwoButton.getLabel().setFontScale(4);
+        levelTwoButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelThreeButton = new TextButton("3", skin, "round");
         levelThreeButton.getStyle().downFontColor.set(Color.WHITE);
-        levelThreeButton.getLabel().setFontScale(4);
+        levelThreeButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelFourButton = new TextButton("4", skin, "round");
         levelFourButton.getStyle().downFontColor.set(Color.WHITE);
-        levelFourButton.getLabel().setFontScale(4);
+        levelFourButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelFiveButton = new TextButton("5", skin, "round");
         levelFiveButton.getStyle().downFontColor.set(Color.WHITE);
-        levelFiveButton.getLabel().setFontScale(4);
+        levelFiveButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelSixButton = new TextButton("6", skin, "round");
         levelSixButton.getStyle().downFontColor.set(Color.WHITE);
-        levelSixButton.getLabel().setFontScale(4);
+        levelSixButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelSevenButton = new TextButton("7", skin, "round");
         levelSevenButton.getStyle().downFontColor.set(Color.WHITE);
-        levelSevenButton.getLabel().setFontScale(4);
+        levelSevenButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelEightButton = new TextButton("8", skin, "round");
         levelEightButton.getStyle().downFontColor.set(Color.WHITE);
-        levelEightButton.getLabel().setFontScale(4);
+        levelEightButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelNineButton = new TextButton("9", skin, "round");
         levelNineButton.getStyle().downFontColor.set(Color.WHITE);
-        levelNineButton.getLabel().setFontScale(4);
+        levelNineButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
         TextButton levelTenButton = new TextButton("10", skin, "round");
         levelTenButton.getStyle().downFontColor.set(Color.WHITE);
-        levelTenButton.getLabel().setFontScale(4);
+        levelTenButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
 
         Button backButton = new Button(skin, "left");
-        backButton.setSize(100, 100);
+        backButton.setSize(viewport.getWorldHeight() * .10f, viewport.getWorldHeight() * .10f);
         backButton.setPosition(25,viewport.getWorldHeight() - (backButton.getHeight() + 25));
 
         Label levelLabel = new Label("Levels", skin, "title-plain");
-        levelLabel.setSize(1300,250);
-        levelLabel.setFontScale(6);
+        levelLabel.setSize(viewport.getWorldWidth() * .50f,viewport.getWorldHeight() * .20f);
+        levelLabel.setFontScale(3.5f);
         levelLabel.setAlignment(Align.center);
         levelLabel.setPosition(viewport.getWorldWidth() / 2 - levelLabel.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.3 - (levelLabel.getHeight() / 2)));
 
         Button soundButton = new Button(skin, "sound");
-        soundButton.setSize(120, 120);
+        soundButton.setSize(viewport.getWorldHeight() * .10f, viewport.getWorldHeight() * .10f);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
         if(prefs.hasSound())
@@ -233,7 +233,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         levelsTexture = new Texture(pixmapNew);
 
         Pixmap pixmap = new Pixmap(Gdx.files.internal("image/lock.png"));
-        Pixmap pixmap100 = new Pixmap(100, 100, pixmap.getFormat());
+        Pixmap pixmap100 = new Pixmap((int)(viewport.getWorldWidth() * .06f),(int)(viewport.getWorldWidth() * .06f), pixmap.getFormat());
         pixmap100.drawPixmap(pixmap,
                 0, 0, pixmap.getWidth(), pixmap.getHeight(),
                 0, 0, pixmap100.getWidth(), pixmap100.getHeight()
@@ -242,42 +242,42 @@ public class LevelScreen extends InputAdapter implements Screen {
         TextureRegion textureRegion = new TextureRegion(texture);
         TextureRegionDrawable texRegionDrawable = new TextureRegionDrawable(textureRegion);
 
-        table.add(levelOneButton).size(250, 150).padRight(10).padBottom(10);
+        table.add(levelOneButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10).padBottom(10);
         if(topScore >= Level.ONE.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelTwoButton).size(250, 150).padRight(10).padBottom(10);
+            table.add(levelTwoButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.TWO.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelThreeButton).size(250, 150).padRight(10).padBottom(10);
+            table.add(levelThreeButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.THREE.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelFourButton).size(250, 150).padRight(10).padBottom(10);
+            table.add(levelFourButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.FOUR.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelFiveButton).size(250, 150).padBottom(10);
+            table.add(levelFiveButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padBottom(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         table.row();
         if(topScore >= Level.FIVE.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelSixButton).size(250, 150).padRight(10);
+            table.add(levelSixButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.SIX.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelSevenButton).size(250, 150).padRight(10);
+            table.add(levelSevenButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.SEVEN.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelEightButton).size(250, 150).padRight(10);
+            table.add(levelEightButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.EIGHT.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelNineButton).size(250, 150).padRight(10);
+            table.add(levelNineButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f).padRight(10);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
         if(topScore >= Level.NINE.spawnRate * 3 * SINGLE_SCORE) {
-            table.add(levelTenButton).size(250, 150);
+            table.add(levelTenButton).size(viewport.getWorldWidth() * .15f, viewport.getWorldHeight() * .15f);
         } else
             table.add(new ImageButton(texRegionDrawable)).size(levelOneButton.getWidth(), levelOneButton.getHeight()).padRight(10).padBottom(10);
 
@@ -377,8 +377,8 @@ public class LevelScreen extends InputAdapter implements Screen {
         startLocation = viewport.getWorldWidth();
         directionMultiplier = -1;
 
-        animalSize = 500;
-        animalElevation = 25;
+        animalSize = (int) (viewport.getWorldWidth() * .30f);
+        animalElevation = (int) (viewport.getWorldWidth() * .01f);
         animalSpeed = 30;
 
         animationTime = 0;

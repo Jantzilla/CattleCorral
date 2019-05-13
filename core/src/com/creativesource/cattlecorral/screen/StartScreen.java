@@ -76,21 +76,21 @@ public class StartScreen extends InputAdapter implements Screen {
 
         Label title = new Label("Cattle Corral", skin, "title");
         title.getStyle().background = new Image(texture).getDrawable();
-        title.setSize(1300,250);
-        title.setFontScale(8);
+        title.setSize(viewport.getWorldWidth() * .70f,viewport.getWorldHeight() * .25f);
+        title.setFontScale(Gdx.graphics.getDensity() + 2.5f);
         title.setAlignment(Align.center);
         title.setPosition(viewport.getWorldWidth() / 2 - title.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.2 - (title.getHeight() / 2)));
 
         Label topScore = new Label("TOP SCORE: " + score, skin, "optional");
         topScore.setSize(800,100);
-        topScore.setFontScale(6);
+        topScore.setFontScale(Gdx.graphics.getDensity() + 2);
         topScore.setAlignment(Align.center);
         topScore.setPosition(viewport.getWorldWidth() / 2 - topScore.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.7 - (topScore.getHeight() / 2)));
 
         TextButton playButton = new TextButton("Play", skin, "round");
         playButton.getStyle().downFontColor.set(Color.WHITE);
-        playButton.setSize(325,185);
-        playButton.getLabel().setFontScale(5);
+        playButton.setSize(viewport.getWorldWidth() * .22f,viewport.getWorldHeight() * .20f);
+        playButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 2f);
         playButton.setPosition(viewport.getWorldWidth() / 2 - playButton.getWidth() / 2,viewport.getWorldHeight() / 3 - (playButton.getHeight() / 2));
 
         playButton.addListener(new ClickListener() {
@@ -102,7 +102,7 @@ public class StartScreen extends InputAdapter implements Screen {
         });
 
         Button soundButton = new Button(skin, "sound");
-        soundButton.setSize(120,120);
+        soundButton.setSize(viewport.getWorldWidth() * .10f,viewport.getWorldWidth() * .10f);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
         soundButton.addListener(new ClickListener() {
@@ -143,7 +143,7 @@ public class StartScreen extends InputAdapter implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         Pixmap original = new Pixmap(Gdx.files.internal("image/signs.png"));
-        Pixmap ropeImage = new Pixmap(800, 200, original.getFormat());
+        Pixmap ropeImage = new Pixmap((int)(viewport.getWorldWidth() * .50f), (int)(viewport.getWorldHeight() * .25f), original.getFormat());
         ropeImage.drawPixmap(original,
                 0, 0, original.getWidth(), original.getHeight(),
                 0, 0, ropeImage.getWidth(), ropeImage.getHeight()
@@ -154,7 +154,7 @@ public class StartScreen extends InputAdapter implements Screen {
         batch.begin();
 
         batch.draw(grassTexture, 0, 0);
-        batch.draw(texture, viewport.getWorldWidth() / 2 - 400, viewport.getWorldHeight() - 130);
+        batch.draw(texture, viewport.getWorldWidth() / 2 - ropeImage.getWidth() / 2, viewport.getWorldHeight() - ropeImage.getHeight() / 2);
 
         animateAnimal();
 
@@ -214,18 +214,18 @@ public class StartScreen extends InputAdapter implements Screen {
 
         switch (randomDepth) {
             case 0:
-                animalSize = 300;
-                animalElevation = 575;
+                animalSize = (int) (viewport.getWorldWidth() * .18f);
+                animalElevation = (int) (viewport.getWorldWidth() * .30f);
                 animalSpeed = 10;
                 break;
             case 1:
-                animalSize = 500;
-                animalElevation = 250;
+                animalSize = (int) (viewport.getWorldWidth() * .30f);
+                animalElevation = (int) (viewport.getWorldWidth() * .08f);
                 animalSpeed = 30;
                 break;
             default:
-                animalSize = 800;
-                animalElevation = - 300;
+                animalSize = (int) (viewport.getWorldWidth() * .75f);
+                animalElevation = - (int) (viewport.getWorldWidth() * .35f);
                 animalSpeed = 40;
         }
 
