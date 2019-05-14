@@ -77,21 +77,29 @@ public class StartScreen extends InputAdapter implements Screen {
         Label title = new Label("Cattle Corral", skin, "title");
         title.getStyle().background = new Image(texture).getDrawable();
         title.setSize(viewport.getWorldWidth() * .70f,viewport.getWorldHeight() * .25f);
-        title.setFontScale(Gdx.graphics.getDensity() + 2.5f);
         title.setAlignment(Align.center);
         title.setPosition(viewport.getWorldWidth() / 2 - title.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.2 - (title.getHeight() / 2)));
 
         Label topScore = new Label("TOP SCORE: " + score, skin, "optional");
         topScore.setSize(800,100);
-        topScore.setFontScale(Gdx.graphics.getDensity() + 2);
+
         topScore.setAlignment(Align.center);
         topScore.setPosition(viewport.getWorldWidth() / 2 - topScore.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.7 - (topScore.getHeight() / 2)));
 
         TextButton playButton = new TextButton("Play", skin, "round");
         playButton.getStyle().downFontColor.set(Color.WHITE);
         playButton.setSize(viewport.getWorldWidth() * .22f,viewport.getWorldHeight() * .20f);
-        playButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 2f);
         playButton.setPosition(viewport.getWorldWidth() / 2 - playButton.getWidth() / 2,viewport.getWorldHeight() / 3 - (playButton.getHeight() / 2));
+
+        if(Gdx.graphics.getDensity() >= 2.625) {
+            topScore.setFontScale(Gdx.graphics.getDensity() + 4);
+            playButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 4);
+            title.setFontScale(Gdx.graphics.getDensity() + 4.5f);
+        } else {
+            topScore.setFontScale(Gdx.graphics.getDensity() + 1.5f);
+            playButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1.5f);
+            title.setFontScale(Gdx.graphics.getDensity() + 2);
+        }
 
         playButton.addListener(new ClickListener() {
             @Override
