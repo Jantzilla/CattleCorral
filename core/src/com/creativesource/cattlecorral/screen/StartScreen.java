@@ -110,7 +110,7 @@ public class StartScreen extends InputAdapter implements Screen {
         });
 
         Button soundButton = new Button(skin, "sound");
-        soundButton.setSize(viewport.getWorldWidth() * .10f,viewport.getWorldWidth() * .10f);
+        soundButton.setSize(viewport.getWorldHeight() * .15f,viewport.getWorldHeight() * .15f);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
         soundButton.addListener(new ClickListener() {
