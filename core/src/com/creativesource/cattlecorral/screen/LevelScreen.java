@@ -106,7 +106,7 @@ public class LevelScreen extends InputAdapter implements Screen {
         levelTenButton.getLabel().setFontScale(Gdx.graphics.getDensity() + 1);
 
         Button backButton = new Button(skin, "left");
-        backButton.setSize(viewport.getWorldHeight() * .10f, viewport.getWorldHeight() * .10f);
+        backButton.setSize(viewport.getWorldHeight() * .15f,viewport.getWorldHeight() * .15f);
         backButton.setPosition(25,viewport.getWorldHeight() - (backButton.getHeight() + 25));
 
         Label levelLabel = new Label("Levels", skin, "title-plain");
@@ -120,7 +120,7 @@ public class LevelScreen extends InputAdapter implements Screen {
             levelLabel.setFontScale(3.5f);
 
         Button soundButton = new Button(skin, "sound");
-        soundButton.setSize(viewport.getWorldHeight() * .10f, viewport.getWorldHeight() * .10f);
+        soundButton.setSize(viewport.getWorldHeight() * .15f,viewport.getWorldHeight() * .15f);
         soundButton.setPosition(viewport.getWorldWidth() - (soundButton.getWidth() + 25),25);
 
         if(prefs.hasSound())
