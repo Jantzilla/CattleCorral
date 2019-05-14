@@ -379,7 +379,7 @@ public class LevelScreen extends InputAdapter implements Screen {
 
         animalSize = (int) (viewport.getWorldWidth() * .30f);
         animalElevation = (int) (viewport.getWorldWidth() * .01f);
-        animalSpeed = 30;
+        animalSpeed = (int) (Gdx.graphics.getDensity() * 10);
 
         animationTime = 0;
         anim = new Animation<TextureRegion>(0.05f, game.textureAtlases.get(randomAnimal).findRegions(direction));
