@@ -223,7 +223,7 @@ public class StartScreen extends InputAdapter implements Screen {
         switch (randomDepth) {
             case 0:
                 animalSize = (int) (viewport.getWorldWidth() * .18f);
-                animalElevation = (int) (viewport.getWorldWidth() * .30f);
+                animalElevation = Gdx.graphics.getDensity() >= 2.625 ? (int) (viewport.getWorldWidth() * .25f) : (int) (viewport.getWorldWidth() * .30f);
                 animalSpeed = 10;
                 break;
             case 1:
