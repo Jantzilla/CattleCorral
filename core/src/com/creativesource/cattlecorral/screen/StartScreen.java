@@ -81,6 +81,8 @@ public class StartScreen extends InputAdapter implements Screen {
         title.setPosition(viewport.getWorldWidth() / 2 - title.getWidth() / 2, (float) (viewport.getWorldHeight() / 1.2 - (title.getHeight() / 2)));
 
         Label topScore = new Label("TOP SCORE: " + score, skin, "optional");
+        if(score == 3000)
+            topScore.setColor(Color.GOLD);
         topScore.setSize(800,100);
 
         topScore.setAlignment(Align.center);
