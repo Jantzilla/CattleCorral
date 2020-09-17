@@ -63,7 +63,7 @@ public class PlayScreen extends InputAdapter implements Screen {
     private Stage stage;
     private Image semiTL;
     private Table table;
-    private TextButton resume;
+    private TextButton resume, retry;
     private ClickListener clickListener, resumeClickListener;
     public Prefs prefs;
     public Sound cow, pig, sheep;
@@ -197,7 +197,7 @@ public class PlayScreen extends InputAdapter implements Screen {
         resume = new TextButton("Resume", skin);
         resume.getStyle().downFontColor.set(Color.WHITE);
         resume.getLabel().setFontScale(2);
-        TextButton retry = new TextButton("Retry", skin);
+        retry = new TextButton("Retry", skin);
         retry.getStyle().downFontColor.set(Color.WHITE);
         retry.getLabel().setFontScale(2);
         TextButton exit = new TextButton("Exit", skin);
@@ -427,14 +427,23 @@ public class PlayScreen extends InputAdapter implements Screen {
             summaryLabel.setText("You missed " + animalsMissed + " animals.");
 
         if(points >= (level.spawnRate * 3 * SINGLE_SCORE) && level.ordinal() < 9) {
-            completeLabel.setText("Well Done!");
-            completeLabel.setColor(Color.GOLD);
+            completeLabel.setText("Good Job.");
+            completeLabel.setColor(Color.WHITE);
             resume.setText("Next");
             resume.addListener(clickListener);
             stage.addActor(semiTL);
             stage.addActor(table);
+        } else if(level.ordinal() == 10) {
+            completeLabel.setText("GAME WINNER!");
+            completeLabel.setColor(Color.GOLD);
+            table.removeActor(resume);
+            table.removeActor(retry);
+            resume.addListener(clickListener);
+            stage.addActor(semiTL);
+            stage.addActor(table);
         } else {
-            completeLabel.setText("Almost...");
+            completeLabel.setText("Sorry...");
+            completeLabel.setColor(Color.LIGHT_GRAY);
             table.removeActor(resume);
             stage.addActor(semiTL);
             stage.addActor(table);
